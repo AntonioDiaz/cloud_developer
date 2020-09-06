@@ -1,5 +1,7 @@
 # Cloud Developer 
 
+<img src="docs/header.png" width="400"> 
+
 <h2>Content</h2>
 <!-- TOC depthfrom:2 depthto:3 orderedlist:false -->
 
@@ -147,11 +149,18 @@ Tips
     "key1": "Place your name here"
     }
     ```
-    <img src="images/lambda_01.png" width="400"> 
+    <img src="docs/lambda_01.png" width="400"> 
 4. Click Create.
 5. Click the Test button in the upper right-hand corner again.
 6. Scroll up to see the output in the Execution Results pane.
 7. Review your results in the window.
+
+#### Elastic Beanstalk
+Elastic Beanstalks is an orchestration service that allows you to deploy a web application at the touch of a button by spinning up (or provisioning) all of the services that you need to run your application.
+__Tips__
+* Elastic Beanstalk is found under the Compute section of the AWS Management Console.
+* Elastic Beanstalk can be used to deployed web applications developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker.
+* You can run your applications in a VPC.
 
 
 ### Storage & Content Delivery
