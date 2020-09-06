@@ -51,32 +51,32 @@ In the capstone project, each project is unique to the student. You’ll build a
 
 ### Foundational & Compute Service
 #### EC2: Elastic Cloud Compute
-    * Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides servers for rent in the cloud.
-    * Pricing Options: there are several pricing options for EC2.
-        * On Demand - Pay as you go, no contract.
-        * Dedicated Hosts - You have your own dedicated hardware and don't share it with others.
-        * Spot - You place a bid on an instance price. If there is extra capacity that falls below your bid, an EC2 instance is provisioned. If the price goes above your bid while the instance is running, the instance is terminated.
-        * Reserved Instances - You earn huge discounts if you pay up front and sign a 1-year or 3-year contract.
+* Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides servers for rent in the cloud.
+* Pricing Options: there are several pricing options for EC2.
+    * On Demand - Pay as you go, no contract.
+    * Dedicated Hosts - You have your own dedicated hardware and don't share it with others.
+    * Spot - You place a bid on an instance price. If there is extra capacity that falls below your bid, an EC2 instance is provisioned. If the price goes above your bid while the instance is running, the instance is terminated.
+    * Reserved Instances - You earn huge discounts if you pay up front and sign a 1-year or 3-year contract.
 
 #### EBS: Elastic Block Store
-    * Elastic Block Store (EBS) is a storage solution for EC2 instances and is a physical hard drive that is attached to the EC2 instance to increase storage.
+* Elastic Block Store (EBS) is a storage solution for EC2 instances and is a physical hard drive that is attached to the EC2 instance to increase storage.
 
 #### VPC: Virtual Private Cloud
-    * Virtual Private Cloud or VPC allows you to create your own private network in the cloud. 
-    * You can launch services, like EC2, inside of that private network. 
-    * A VPC spans all the Availability Zones in the region.
-    * VPC allows you to control your virtual networking environment, which includes:  
-        * IP address ranges
-        * subnets
-        * route tables
-        * network gateways
-        
+* Virtual Private Cloud or VPC allows you to create your own private network in the cloud. 
+* You can launch services, like EC2, inside of that private network. 
+* A VPC spans all the Availability Zones in the region.
+* VPC allows you to control your virtual networking environment, which includes:  
+    * IP address ranges
+    * subnets
+    * route tables
+    * network gateways
+    
 #### Lab - Launch an EC2 instance
 In this hands-on exercise, you will launch a virtual server in the cloud within a secure network. You will also manage additional storage options for your server.
 
 * By the end of this lab, you will be able to:
-    * Launch a secure EC2 (Elastic Cloud Compute) instance within a VPC (Virtual Private Cloud)
-    * Manage an EBS volume
+* Launch a secure EC2 (Elastic Cloud Compute) instance within a VPC (Virtual Private Cloud)
+* Manage an EBS volume
 * Steps
     1. Access VPC service from AWS Management Console
         * On the AWS Management Console page, type _vpc_ in the _Find Services_ box and then select VPC.
@@ -94,7 +94,6 @@ In this hands-on exercise, you will launch a virtual server in the cloud within 
         * For Purchasing option, leave unchecked.
         * For Network, select the VPC that was created in the previous step, and then select the subnet in to which to launch the instance.
         * Keep the other default settings on this page as is.
-
     3. Attach an EBS volume
         * Click on _Next: Add Storage_ to attach an EBS volume. Important: Here we already see there is a root volume (or device) attached to your instance, this is an EBS volume. We are going to add additional storage.
         * To attach additional storage, click on Add New Volume.
@@ -104,7 +103,6 @@ In this hands-on exercise, you will launch a virtual server in the cloud within 
         * Generate and download a new key pair and then click Launch Instances. Important: This will allow you to SSH into your instance from your local machine. This is a one-time process, so generate and download the new key pair now.
         * The launch will take a couple of minutes, select View Instances during the wait.
         * Check the instance state, it should say running.
-
     4. Cleanup & Disable EC2 Instance To avoid recurring charges for leaving an instance running, let’s disable the EC2 instance and terminate the VPC
         * From the EC2 Dashboard, select the instance just created, click _Actions_, then _Instance State_, and then select _Terminate_.
         * From the VPC Dashboard, select the VPC just created, click _Actions_, then _Delete VPC_.
