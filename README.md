@@ -117,6 +117,43 @@ Tips
 * AWS Lambda supports Java, Go, PowerShell, Node.js, C#/.NET, Python, and Ruby. There is a Runtime API that allows you to use other programming languages to author your functions.
 * Lambda code can be authored via the console.
 
+#### Lab: Lambda
+1. __Create a Lambda Function__
+  * On the AWS Management Console page, type lambda in the Find Services box and then select Lambda.
+  * Click the “Create function” button and select Author from scratch.
+  * Enter a Function name and select Node.js 8.10 as the runtime.
+  * For Permission, click Choose or create an execution role, and select Create a new role with basic Lambda permissions.
+  * Click Create function.
+
+2. __Modify a Lambda Function__
+  * Scroll down to the code for the Lambda function.
+  * Replace the code on Line 5 with the statement below:
+    ```js
+    body: JSON.stringify('Hello ' + event.key1 + ' from Lambda!'),
+    ```
+  * Click the Save button in the upper right-hand corner.
+  * Scroll down to the Basic Settings section.
+    * For the Description, enter Udacity Function.
+    * Change the Timeout from 3 seconds to 10 minutes.
+    * Click the Save button in the upper right-hand corner.
+
+3. __Test a Lambda Function__
+  * Click on the Test button in the upper right-hand corner.
+  * Ensure the Event template is Hello World.
+  * For the Event name enter TestEvent Important: The name cannot contain spaces.
+  * Update the JSON to the statement below, replacing the statement with your name.
+    ```js
+    {
+    "key1": "Place your name here"
+    }
+    ```
+    <img src="images/lambda_01.png" width="400"> 
+4. Click Create.
+5. Click the Test button in the upper right-hand corner again.
+6. Scroll up to see the output in the Execution Results pane.
+7. Review your results in the window.
+
+
 ### Storage & Content Delivery
 ### Security
 ### Nectowring & Elasticity
