@@ -170,6 +170,73 @@ __Tips__
 
 
 ### Storage & Content Delivery
+* Storage in the Cloud
+  * Storage and database services in the cloud provide a place for companies to collect, store, and analyze the data they've collected over the years at a massive scale.
+* Storage & Database Services
+  * Amazon Simple Storage Service (Amazon S3)
+  * Amazon Simple Storage Service (Amazon S3) Glacier
+  * DynamoDB
+  * Relational Database Service (RDS)
+  * Redshift
+  * ElastiCache
+  * Neptune
+  * Amazon DocumentDB
+
+#### S3 & S3 Glacier
+* Amazon Simple Storage Service (or S3) is an object storage system in the cloud.  
+* S3 offers several [storage classes](https://aws.amazon.com/s3/storage-classes), which are different data access levels for your data at certain price points.
+  * S3 Standard
+  * S3 Glacier: data archiving purposes
+  * S3 Glacier Deep Archive
+  * S3 Intelligent-Tiering
+  * S3 Standard Infrequent Access
+  * S3 One Zone-Infrequent Access
+
+* S3 properties:
+  * Objects are stored in a bucket  
+  * Hold millions of objects  
+  * S3 bucket live in a region  
+  * S3 bucket name must be globaly unique
+
+* Uses case:
+  * Static websties
+  * content delivery
+  * backup and recovery
+  * archiving and big data
+  * application data
+  * hybrid cloud storage
+
+* S3 Glacier: cheaper than S3, for data that you don't intend to access frequently, data retrieval can be few minutes up to hours.
+For data infrequently access.  
+* Resources
+  * [Amazon S3](https://aws.amazon.com/s3/)  
+  * [Amazon S3 Glacier](https://aws.amazon.com/glacier/)  
+  * [What is Amazon S3 Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html)
+
+#### DynamoDB
+DynamoDB is a NoSQL document database service that is fully managed. Unlike traditional databases, NoSQL databases, are schema-less. Schema-less simply means that the database doesn't contain a fixed (or rigid) data structure.
+
+Tips:  
+* DynamoDB is found under the Database section on the AWS Management Console.
+* DynamoDB can handle more than 10 trillion requests per day.
+* DynamoDB is serverless as there are no servers to provision, patch, or manage.
+* DynamoDB supports key-value and document data models.
+* DynamoDB synchronously replicates data across three AZs in an AWS Region.
+* DynamoDB supports GET/PUT operations using a primary key.
+
+* Resources
+  * [Amazon DynamoDB Overview](https://aws.amazon.com/dynamodb/)
+  * [What is Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)
+
+#### Relational Database Service (RDS)
+* RDS (or Relational Database Service) is a service that aids in the administration and management of databases. RDS assists with database administrative tasks that include upgrades, patching, installs, backups, monitoring, performance checks, security, etc.
+* Database Engine Support
+  * Oracle
+  * PostgreSQL
+  * MySQL
+  * MariaDB
+  * SQL Server
+
 
 ### Security
 ### Nectowring & Elasticity
