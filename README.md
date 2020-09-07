@@ -1,6 +1,8 @@
 # Cloud Developer 
 
-<img src="docs/header.png" width="400"> 
+https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
+
+<img src="docs/header.png" width="800" alt=""> 
 
 <h2>Content</h2>
 <!-- TOC depthfrom:2 depthto:3 orderedlist:false -->
@@ -25,7 +27,7 @@
 
 ## Intro
 
-https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
+
 
 Project Portfolio
 Real-world projects are integral to every Udacity Nanodegree program. They become the foundation for a job-ready portfolio to help learners advance their careers in their chosen field. The projects in the Cloud Developer Nanodegree program were designed in collaboration with a group of highly talented industry professionals to ensure you develop the most in-demand skills. Every project in a Nanodegree program is human-graded by a member of Udacity’s mentor and reviewer network. These project reviews include detailed, personalized feedback on how you can improve their work. Udacity graduates consistently rate projects and project reviews as one of the best parts of their experience with Udacity.
