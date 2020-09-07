@@ -13,7 +13,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Foundational & Compute Service](#foundational--compute-service)
     - [Storage & Content Delivery](#storage--content-delivery)
     - [Security](#security)
-    - [Nectowring & Elasticity](#nectowring--elasticity)
+    - [Networking & Elasticity](#networking--elasticity)
     - [Messaging & Containers](#messaging--containers)
     - [AWS Managment](#aws-managment)
     - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
@@ -26,8 +26,6 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
 
 
 ## Intro
-
-
 
 __Project Portfolio__  
 * Real-world projects are integral to every Udacity Nanodegree program. They become the foundation for a job-ready portfolio to help learners advance their careers in their chosen field. The projects in the Cloud Developer Nanodegree program were designed in collaboration with a group of highly talented industry professionals to ensure you develop the most in-demand skills. Every project in a Nanodegree program is human-graded by a member of Udacity’s mentor and reviewer network. These project reviews include detailed, personalized feedback on how you can improve their work. Udacity graduates consistently rate projects and project reviews as one of the best parts of their experience with Udacity.
@@ -291,7 +289,49 @@ Steps
   * Delete Bucket and Distribution
 
 ### Security
-### Nectowring & Elasticity
+* As adoption of cloud services has increased, so has the need for increased security in the cloud. The great thing about cloud security is that it not only protects data, it also protects applications that access the data. Cloud security even protects the infrastructure (like servers) that applications run on.
+
+* The way security is delivered depends on the cloud provider you're using and the cloud security options they offer.
+
+#### AWS Shield
+<img src="docs/aws_shield.png" width="800" alt=""> 
+* AWS Shield is a managed DDoS (or Distributed Denial of Service) protection service that safeguards web applications running on AWS.
+
+* AWS Shield is a service that you get "out of the box", it is always running (automatically) and is a part of the free standard tier. If you want to use some of the more advanced features, you'll have to utilize the paid tier.
+* Tips
+  * AWS Shield can be found under the Security, Identity, & Compliance section on the AWS Management Console.
+  * AWS Shield Standard is always-on, using techniques to detect malicious traffic.
+  * AWS Shield Advanced provides enhanced detection.
+
+#### AWS WAF
+<img src="docs/firewall.png" width="800" alt="">  
+
+* AWS WAF (or AWS Web Application Firewall) provides a firewall that protects your web applications.
+
+* WAF can stop common web attacks by reviewing the data being sent to your application and stopping well-known attacks.
+
+* Tips
+  * WAF is found under the Security, Identity, & Compliance section on the AWS Management Console.
+  * WAF can protect web sites not hosted in AWS through Cloud Front.
+  * You can configure CloudFront to present a custom error page when requests are blocked.
+
+#### Identity & Access Management
+* Identity & Access Management (IAM) is an AWS service that allows us to configure who can access our AWS account, services, or even applications running in our account. IAM is a global service and is automatically available across ALL regions.
+* __Security Concepts__
+  * User
+    <img src="docs/iam_user.png" width="600" alt="">   
+  * IAM Group
+    <img src="docs/iam_group.png" width="600" alt="">     
+  * IAM Role
+    <img src="docs/iam_role.png" width="600" alt="">     
+  * Policy
+    <img src="docs/iam_policy.png" width="600" alt="">     
+
+* Resources
+  * [AWS IAM Overview](https://aws.amazon.com/iam/)
+  * [What is IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
+
+### Networking & Elasticity
 ### Messaging & Containers
 ### AWS Managment
 ### Deploy Static Website on AWS
