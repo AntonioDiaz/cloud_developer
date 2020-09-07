@@ -237,6 +237,58 @@ Tips:
   * MariaDB
   * SQL Server
 
+#### Redshift
+* Redshift is a cloud data warehousing service to help companies manage big data. Redshift allows you to run fast queries against your data using SQL, ETL, and BI tools. Redshift stores data in a column format to aid in fast querying.
+* Tips
+  * Redshift can be found under the Database section on the AWS Management Console.
+  * Redshift delivers great performance by using machine learning.
+  * Redshift Spectrum is a feature that enables you to run queries against data in Amazon S3.
+  * Redshift encrypts and keeps your data secure in transit and at rest.
+  * Redshift clusters can be isolated using Amazon Virtual Private Cloud (VPC).
+
+#### Lab: RDS
+Steps
+1. Launch MySQL Database
+2. View Instance Details
+3. Delete Database Instance
+
+#### Content Delivery In The Cloud
+* A Content Delivery Network (or CDN) speeds up delivery of your static and dynamic web content by caching content in an Edge Location close to your user base.
+
+* The benefits of a CDN includes:
+  * low latency
+  * decreased server load
+  * better user experience
+
+#### Cloud Front
+* CloudFront is used as a global content delivery network (CDN). Cloud Front speeds up the delivery of your content through Amazon's worldwide network of mini-data centers called Edge Locations.
+
+* CloudFront works with other AWS services, as shown below, as an origin source for your application:
+  * Amazon S3
+  * Elastic Load Balancing
+  * Amazon EC2
+  * Lambda@Edge
+  * AWS Shield
+
+* Tips
+  * CloudFront is found under the Networking & Content Delivery section on the AWS Management Console.
+  * Amazon countinously adds new Edge Locations.
+  * CloudFront ensures that end-user requests are served from the closest edge location.
+  * CloudFront works with non-AWS origin sources.
+  * You can use GeoIP blocking to serve content (or not serve content) to specific countries.
+  * Cache control headers determine how frequently CloudFront needs to check the origin for an updated version your file.
+  * The maximum size of a single file that can be delivered through Amazon CloudFront is 20 GB.
+* Resources
+  * [Amazon CloudFront Overview](https://aws.amazon.com/cloudfront/)
+  * [What is Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+
+  #### Lab: S3 & CloudFront
+* In this hands-on exercise, you will create a S3 bucket with a Cloud Front distribution to speed up our the delivery of content to our website.
+* Steps
+  * Create S3 Bucket
+  * Upload Object to Bucket
+  * Create CloudFront Distribution
+  * Delete Bucket and Distribution
 
 ### Security
 ### Nectowring & Elasticity
