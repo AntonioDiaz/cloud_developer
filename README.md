@@ -35,6 +35,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Route 53](#route-53)
         - [Elasticity in the Cloud](#elasticity-in-the-cloud)
         - [EC2 Auto Scaling](#ec2-auto-scaling)
+        - [Elastic Load Balancing](#elastic-load-balancing)
+        - [Lab - EC2 Auto Scaling](#lab---ec2-auto-scaling)
     - [Messaging & Containers](#messaging--containers)
     - [AWS Managment](#aws-managment)
     - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
@@ -393,7 +395,26 @@ Steps
   * [Amazon EC2 Autoscaling Overview](https://aws.amazon.com/ec2/autoscaling/) 
   * [What is Amazon EC2 Autoscaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
 
+
+#### Elastic Load Balancing
+<img src="docs/elastic_load_balancer.png" width="300" alt="">  
+
+* Elastic Load Balancing automatically distributes incoming application traffic across multiple servers.
+* Elastic Load Balancer is a service that:
+  * Balances load between two or more servers
+  * Stands in front of a web server
+  * Provides redundancy and performance
+* Tips
+  * Elastic Load Balancing can be found on the EC2 Dashbaoard.
+  * Elastic Load Balancing works with EC2 Instances, containers, IP addresses, and Lambda functions.
+  * You can configure Amazon EC2 instances to only accept traffic from a load balancer.
+
+#### Lab - EC2 Auto Scaling
+[lab EC2 Auto Scaling](notes/lab_elasctic_load_balancer.pdf)
+
 ### Messaging & Containers
+* There are often times that users of your applications need to be notified when certain events happen. Notifications, such as text messages or emails can be sent through services in the cloud. The use of the cloud offers benefits like lowered costs, increased storage, and flexibility.
+
 ### AWS Managment
 ### Deploy Static Website on AWS
 
