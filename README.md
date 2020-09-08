@@ -44,6 +44,9 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Containers in the Cloud](#containers-in-the-cloud)
         - [Elastic Container Service ECS](#elastic-container-service-ecs)
     - [AWS Managment](#aws-managment)
+        - [Logging In The Cloud](#logging-in-the-cloud)
+        - [Cloud Trail](#cloud-trail)
+        - [Cloud Watch](#cloud-watch)
     - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
 - [Full Stack Apps on AWS](#full-stack-apps-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
@@ -399,9 +402,7 @@ Steps
 * Resources
   * [Amazon EC2 Autoscaling Overview](https://aws.amazon.com/ec2/autoscaling/) 
   * [What is Amazon EC2 Autoscaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
-<br>
-<br>
-____
+
 #### Elastic Load Balancing
 <img src="docs/elastic_load_balancer.png" width="300" alt="">  
 
@@ -414,9 +415,6 @@ ____
   * Elastic Load Balancing can be found on the EC2 Dashbaoard.
   * Elastic Load Balancing works with EC2 Instances, containers, IP addresses, and Lambda functions.
   * You can configure Amazon EC2 instances to only accept traffic from a load balancer.
-<br>
-<br>
-____
 
 #### Lab - EC2 Auto Scaling
 [PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_elastic_load_balancer.pdf)
@@ -424,7 +422,7 @@ ____
 
 ### Messaging & Containers
 * There are often times that users of your applications need to be notified when certain events happen. Notifications, such as text messages or emails can be sent through services in the cloud. The use of the cloud offers benefits like lowered costs, increased storage, and flexibility.
-___
+---
 #### Simple Notification Service (SNS)
 * Amazon Simple Notification Service (or SNS) is a cloud service that allows you to send notifications to the users of your applications. SNS allows you to decouple the notification logic from being embedded in your applications and allows notifications to be published to a large number of subscribers.
 * Features
@@ -481,6 +479,47 @@ ___
   * [What is Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
 ---
 ### AWS Managment
+#### Logging In The Cloud
+* Logging provides visibility into your cloud resources and applications. For applications that run in the cloud, you will need access to logging and auditing services to help you proactively monitor your resources and applications.
+* Logging allows you to answer important questions like:
+  * How is this server performing?
+  * What is the current load on the server?
+  * What is the root cause of an application error that a user is seeing?
+  * What is the path that leads to this error?  
+---
+#### Cloud Trail
+* Cloud Trail allows you to audit (or review) everything that occurs in your AWS account. Cloud Trail does this by recording all the AWS API calls occurring in your account and delivering a log file to you.
+* Features
+  * CloudTrail provides event history of your AWS account activity, including:
+    * who has logged in
+    * services that were accessed
+    * actions performed
+    * parameters for the actions
+    * responses returned
+  * This includes actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services.
+* Tips
+  * Cloud Trail is found under the Management & Governance section on the AWS Management Console.
+  * CloudTrail shows results for the last 90 days.
+  * You can create up to five trails in an AWS region.
+* Resources
+  * [AWS CloudTrail Overview](https://aws.amazon.com/cloudtrail/)
+---
+#### Cloud Watch
+* Cloud Watch is a service that monitors resources and applications that run on AWS by collecting data in the form of logs, metrics, and events.
+* There are several useful features:
+  * Collect and track metrics
+  * Collect and monitor log files
+  * Set alarms and create triggers to run your AWS resources
+  * React to changes in your AWS resources
+* Tips
+  * CloudWatch is found under the Management & Governance section on the AWS Management Console.
+  * Metrics are provided automatically for a number of AWS products and services.
+* Resources
+  * [AWS CloudWatch Overview](https://aws.amazon.com/cloudwatch/)
+  * [What is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
+---
+
+
 ### Deploy Static Website on AWS
 
 ## Full Stack Apps on AWS
