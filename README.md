@@ -410,7 +410,7 @@ Steps
   * You can configure Amazon EC2 instances to only accept traffic from a load balancer.
 
 #### Lab - EC2 Auto Scaling
-[lab EC2 Auto Scaling](notes/lab_elasctic_load_balancer.pdf)
+[lab EC2 Auto Scaling](notes/lab_elastic_load_balancer.pdf)
 
 ### Messaging & Containers
 * There are often times that users of your applications need to be notified when certain events happen. Notifications, such as text messages or emails can be sent through services in the cloud. The use of the cloud offers benefits like lowered costs, increased storage, and flexibility.
