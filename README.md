@@ -5,15 +5,36 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
 <img src="docs/header.png" width="800" alt=""> 
 
 <h2>Content</h2>
-<!-- TOC depthfrom:2 depthto:3 orderedlist:false -->
+<!-- TOC depthfrom:2 depthto:4 orderedlist:false -->
 
 - [Intro](#intro)
 - [Cloud Fundamentals](#cloud-fundamentals)
     - [Cloud Computing](#cloud-computing)
     - [Foundational & Compute Service](#foundational--compute-service)
+        - [EC2: Elastic Cloud Compute](#ec2-elastic-cloud-compute)
+        - [EBS: Elastic Block Store](#ebs-elastic-block-store)
+        - [VPC: Virtual Private Cloud](#vpc-virtual-private-cloud)
+        - [Lab - Launch an EC2 instance](#lab---launch-an-ec2-instance)
+        - [Lambda](#lambda)
+        - [Lab: Lambda](#lab-lambda)
+        - [Elastic Beanstalk](#elastic-beanstalk)
     - [Storage & Content Delivery](#storage--content-delivery)
+        - [S3 & S3 Glacier](#s3--s3-glacier)
+        - [DynamoDB](#dynamodb)
+        - [Relational Database Service RDS](#relational-database-service-rds)
+        - [Redshift](#redshift)
+        - [Lab: RDS](#lab-rds)
+        - [Content Delivery In The Cloud](#content-delivery-in-the-cloud)
+        - [Cloud Front](#cloud-front)
+        - [Lab: S3 & CloudFront](#lab-s3--cloudfront)
     - [Security](#security)
+        - [AWS Shield](#aws-shield)
+        - [AWS WAF](#aws-waf)
+        - [Identity & Access Management](#identity--access-management)
     - [Networking & Elasticity](#networking--elasticity)
+        - [Route 53](#route-53)
+        - [Elasticity in the Cloud](#elasticity-in-the-cloud)
+        - [EC2 Auto Scaling](#ec2-auto-scaling)
     - [Messaging & Containers](#messaging--containers)
     - [AWS Managment](#aws-managment)
     - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
@@ -26,7 +47,6 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
 
 
 ## Intro
-
 __Project Portfolio__  
 * Real-world projects are integral to every Udacity Nanodegree program. They become the foundation for a job-ready portfolio to help learners advance their careers in their chosen field. The projects in the Cloud Developer Nanodegree program were designed in collaboration with a group of highly talented industry professionals to ensure you develop the most in-demand skills. Every project in a Nanodegree program is human-graded by a member of Udacity’s mentor and reviewer network. These project reviews include detailed, personalized feedback on how you can improve their work. Udacity graduates consistently rate projects and project reviews as one of the best parts of their experience with Udacity.
 
@@ -332,6 +352,47 @@ Steps
   * [What is IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
 
 ### Networking & Elasticity
+* Networks reliably carry loads of data around the globe allowing for the delivery of content and applications with high availability. The network is the foundation of your infrastructure.
+
+* Cloud networking includes:
+  * network architecture
+  * network connectivity
+  * application delivery
+  * global performance 
+  * delivery
+
+#### Route 53
+* [Amazon Route 53 Overview](https://aws.amazon.com/route53/)
+* Route 53 is a cloud domain name system (DNS) service that has servers distributed around the globe used to translates human-readable names like www.google.com into the numeric IP addresses like 74.125.21.147.
+* Features
+  * scales automatically to manage spikes in DNS queries
+  * allows you to register a domain name (or manage an existing)
+  * routes internet traffic to the resources for your domain
+  * checks the health of your resources
+* Tips
+  * Route 53 is found under the Networking & Content Delivery section on the AWS Management Console.
+  * Route 53 allows you to route users based on the user’s geographic location.
+
+#### Elasticity in the Cloud
+* One of the main benefits of the cloud is that it allows you to stop guessing about capacity when you need to run your applications. Sometimes you buy too much or you don't buy enough to support the running of your applications.
+
+* With elasticity, your servers, databases, and application resources can automatically scale up or scale down based on load.
+
+#### EC2 Auto Scaling
+* EC2 Auto Scaling is a service that monitors your EC2 instances and automatically adjusts by adding or removing EC2 instances based on conditions you define in order to maintain application availability and provide peak performance to your users.
+
+* Features
+  * Automatically scale in and out based on needs.
+  * Included automatically with Amazon EC2.
+  * Automate how your Amazon EC2 instances are managed.
+* Tips
+  * EC2 Auto Scaling is found on the EC2 Dashboard.
+  * EC2 Auto Scaling adds instances only when needed, optimizing cost savings.
+  * EC2 predictive scaling removes the need for manual adjustment of auto scaling parameters over time.
+* Resources
+  * [Amazon EC2 Autoscaling Overview](https://aws.amazon.com/ec2/autoscaling/) 
+  * [What is Amazon EC2 Autoscaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
+
 ### Messaging & Containers
 ### AWS Managment
 ### Deploy Static Website on AWS
