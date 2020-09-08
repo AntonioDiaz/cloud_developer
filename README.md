@@ -38,6 +38,11 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Elastic Load Balancing](#elastic-load-balancing)
         - [Lab - EC2 Auto Scaling](#lab---ec2-auto-scaling)
     - [Messaging & Containers](#messaging--containers)
+        - [Simple Notification Service SNS](#simple-notification-service-sns)
+        - [Queues](#queues)
+        - [Simple Queue Service SQS](#simple-queue-service-sqs)
+        - [Containers in the Cloud](#containers-in-the-cloud)
+        - [Elastic Container Service ECS](#elastic-container-service-ecs)
     - [AWS Managment](#aws-managment)
     - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
 - [Full Stack Apps on AWS](#full-stack-apps-on-aws)
@@ -394,8 +399,9 @@ Steps
 * Resources
   * [Amazon EC2 Autoscaling Overview](https://aws.amazon.com/ec2/autoscaling/) 
   * [What is Amazon EC2 Autoscaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
-
-
+<br>
+<br>
+____
 #### Elastic Load Balancing
 <img src="docs/elastic_load_balancer.png" width="300" alt="">  
 
@@ -408,13 +414,72 @@ Steps
   * Elastic Load Balancing can be found on the EC2 Dashbaoard.
   * Elastic Load Balancing works with EC2 Instances, containers, IP addresses, and Lambda functions.
   * You can configure Amazon EC2 instances to only accept traffic from a load balancer.
+<br>
+<br>
+____
 
 #### Lab - EC2 Auto Scaling
-[lab EC2 Auto Scaling](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_elastic_load_balancer.pdf)
+[PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_elastic_load_balancer.pdf)
+
 
 ### Messaging & Containers
 * There are often times that users of your applications need to be notified when certain events happen. Notifications, such as text messages or emails can be sent through services in the cloud. The use of the cloud offers benefits like lowered costs, increased storage, and flexibility.
-
+___
+#### Simple Notification Service (SNS)
+* Amazon Simple Notification Service (or SNS) is a cloud service that allows you to send notifications to the users of your applications. SNS allows you to decouple the notification logic from being embedded in your applications and allows notifications to be published to a large number of subscribers.
+* Features
+  * SNS uses a publish/subscribe model.
+  * SNS can publish messages to Amazon SQS queues, AWS Lambda functions, and HTTP/S webhooks.
+* Tips
+  * SNS uses a publish/subscribe model.
+  * SNS can publish messages to Amazon SQS queues, AWS Lambda functions, and HTTP/S webhooks.
+* Resources
+  * [Amazon SNS Overview](https://aws.amazon.com/sns/)
+  * [What is Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)  
+---
+#### Queues
+* A queue is a data structure that holds requests called messages. Messages in a queue are commonly processed in order, first in, first out (or FIFO).
+* Messaging queues improve:
+  * performance
+  * scalability
+  * user experience
+---
+#### Simple Queue Service (SQS)
+* Amazon Simple Queue Service (SQS) is a fully managed message queuing service that allows you to integrate queuing functionality in your application. SQS offers two types of message que∫ues: standard and FIFO.
+* Features
+  * send messages
+  * store messages
+  * receive messages
+* Tips
+  * The Simple Queue Service (SQS) is found under the Application Integration on the AWS Management Console.
+  * FIFO queues support up to 300 messages per second.
+  * FIFO queues guarantee the ordering of messages.
+  * Standard queues offer best-effort ordering but no guarantees.
+  * Standard queues deliver a message at least once, but occasionally more than one copy of a message is delivered.
+* Resources
+  * [Amazon SQS Overview](https://aws.amazon.com/sqs/)
+  * [What is Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)  
+---
+#### Containers in the Cloud
+* Enterprises are adopting container technology at an explosive rate. A container consists of everything an application needs to run: the application itself and its dependencies (e.g. libraries, utilities, configuration files), all bundled into one package.
+* Each container is an independent component that can run on its own and be moved from environment to environment.
+* We will be going more in-depth on the topic of Microservices in Course 4: Microservices at Scale using AWS & Kubernetes
+  * [General overview about Docker containers](https://docs.docker.com/engine/docker-overview/)
+  * [Documentation on Docker Containers](https://www.docker.com/resources/what-container)
+---
+#### Elastic Container Service (ECS)
+* ECS is an orchestration service used for automating deployment, scaling, and managing of your containerized applications. ECS works well with Docker containers by:
+  * launching and stopping Docker containers
+  * scaling your applications
+  * querying the state of your applications
+* Tips
+  * ECS is under the Compute section on the AWS Management Console.
+  * You can schedule long-running applications, services, and batch processeses using ECS.
+  * Docker is the only container platform supported by Amazon ECS.  
+* Resources
+  * [Amazon ECS Overview](https://aws.amazon.com/ecs/)
+  * [What is Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
+---
 ### AWS Managment
 ### Deploy Static Website on AWS
 
