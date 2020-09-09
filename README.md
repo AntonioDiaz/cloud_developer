@@ -49,7 +49,12 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Cloud Trail](#cloud-trail)
         - [Cloud Watch](#cloud-watch)
         - [Lab: Cloud Watch](#lab-cloud-watch)
+        - [Infrastructure as Code](#infrastructure-as-code)
+        - [Cloud Formation](#cloud-formation)
+        - [Lab: Cloud Formation](#lab-cloud-formation)
+        - [AWS Command Line Interface CLI](#aws-command-line-interface-cli)
     - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
+        - [Cloud Fundamentals Project](#cloud-fundamentals-project)
 - [Full Stack Apps on AWS](#full-stack-apps-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
@@ -528,12 +533,73 @@ Steps
   * [What is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
 ---
 #### Lab: Cloud Watch
-[PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_cloud_watch.pdf)  
-
+* Topics covered:
+  * Create Cloud Watch event to react to the creation of an Amazon EC2 instance
+  * Send SNS notification via Cloud Watch when an event occurs.
+* [PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_cloud_watch.pdf)  
 ---
-
-
+#### Infrastructure as Code
+* Infrastructure as Code allows you to describe and provision all the infrastructure resources in your cloud environment. You can stand up servers, databases, runtime parameters, resources, etc. based on scripts that you write. Infrastructure as Code is a time-saving feature because it allows you to provision (or stand up) resources in a reproducible way.
+* [wikipedia](https://en.wikipedia.org/wiki/Infrastructure_as_code)
+---
+#### Cloud Formation
+* AWS Cloud Formation allows you to model your entire infrastructure in a text file template allowing you to provision AWS resources based on the scripts you write.
+* Tips
+  * Cloud Formation is found under the Management & Governance section on the AWS Management Console.
+  * Cloud Formation templates are written using JSON or YAML.
+  * You can still individually manage AWS resources that are part of a CloudFormation stack.
+* Resources
+  * [AWS CloudFormation Overview](https://aws.amazon.com/cloudformation/)
+  * [What is AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+---
+#### Lab: Cloud Formation
+* Topics Covered
+  * Create a CloudFormation stack using the CloudFormation Designer
+  * Launch S3 bucket using Infrastructure as Code
+  * Save and deploy a CloudFormation stack
+  * View resources created through CloudFormation
+* [pdf](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_cloud_formation.pdf)  
+---
+#### AWS Command Line Interface (CLI)
+* The AWS CLI (or Command Line Interface) allows you to access and control services running in your AWS account from the command line. To use the CLI, simply download, install, and configure it.
+* Tips
+  * The AWS CLI allows you to work with AWS services in a programmatic manner
+* Resources
+  * [AWS Command Line Interface](https://aws.amazon.com/cli/)
+---
 ### Deploy Static Website on AWS
+#### Cloud Fundamentals Project
+* The cloud is perfect for hosting static websites that only include HTML, CSS, and JavaScript files that require no server-side processing. In this project, you will deploy a static website to AWS. 
+* Steps 
+  1. You will create a S3 bucket and upload the website files to your bucket. [pdf](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_s3.pdf) 
+  2. You will configure the bucket for website hosting and secure it using IAM policies. 
+  3. You will speed up content delivery using AWS’ content distribution network service, CloudFront. 
+  4. You will access your website in a browser using the unique CloudFront endpoint.
+
+* Topics Covered
+  * S3 bucket creation
+  * S3 bucket configuration
+  * Website distribution via CloudFront
+  * Access website via web browser  
+* Dependencies
+  * Cloud Services
+    * Amazon Web Services S3 - Resource hosting and deployments
+    * AWS CloudFront - CDN for SPA
+    * AWS EKS - Backend API
+    * AWS DynamoDB - Persistent Datastore
+    * AWS Cognito - User Authentication
+  * Performance Tracking and DevOps Tools
+    * AWS CloudWatch - Performance and Health checks
+    * Sentry - Bug Reporting
+      * Alternates:
+      * TBD
+    * Google Analytics - Usage Reporting
+      * Alternates:
+      * Mixpanel
+    * Travis (CI/CD)
+  * Frameworks:
+    * Ionic (Javascript) (Frontend)
+    * Node.js (Javascript) (Backend)
 
 ## Full Stack Apps on AWS
 
