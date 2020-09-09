@@ -47,6 +47,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Logging In The Cloud](#logging-in-the-cloud)
         - [Cloud Trail](#cloud-trail)
         - [Cloud Watch](#cloud-watch)
+        - [Lab: Cloud Watch](#lab-cloud-watch)
     - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
 - [Full Stack Apps on AWS](#full-stack-apps-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
@@ -517,6 +518,10 @@ Steps
 * Resources
   * [AWS CloudWatch Overview](https://aws.amazon.com/cloudwatch/)
   * [What is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
+---
+#### Lab: Cloud Watch
+[PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_cloud_watch.pdf)  
+
 ---
 
 
