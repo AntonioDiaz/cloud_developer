@@ -41,6 +41,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Simple Notification Service SNS](#simple-notification-service-sns)
         - [Queues](#queues)
         - [Simple Queue Service SQS](#simple-queue-service-sqs)
+        - [Lab: SNS](#lab-sns)
         - [Containers in the Cloud](#containers-in-the-cloud)
         - [Elastic Container Service ECS](#elastic-container-service-ecs)
     - [AWS Managment](#aws-managment)
@@ -458,6 +459,13 @@ Steps
 * Resources
   * [Amazon SQS Overview](https://aws.amazon.com/sqs/)
   * [What is Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)  
+---
+#### Lab: SNS
+* Topics Covered:
+  * Create a topic
+  * Subscribe to a topic
+  * Publish a message to a topic
+[PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_sns.pdf)
 ---
 #### Containers in the Cloud
 * Enterprises are adopting container technology at an explosive rate. A container consists of everything an application needs to run: the application itself and its dependencies (e.g. libraries, utilities, configuration files), all bundled into one package.
