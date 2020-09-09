@@ -57,6 +57,11 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Cloud Fundamentals Project](#cloud-fundamentals-project)
         - [Steps](#steps)
 - [Full Stack Apps on AWS](#full-stack-apps-on-aws)
+    - [Lesson 1: Cloud Basic](#lesson-1-cloud-basic)
+        - [Cloud Basics and Parts of a Cloud](#cloud-basics-and-parts-of-a-cloud)
+        - [Monolithic vs. Loosely Coupled Systems](#monolithic-vs-loosely-coupled-systems)
+        - [Request Response and APIs](#request-response-and-apis)
+        - [Lesson Recap](#lesson-recap)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
@@ -191,7 +196,7 @@ Tips
     "key1": "Place your name here"
     }
     ```
-    <img src="docs/lambda_01.png" width="400"> 
+    <img src="docs/01_cloud_fundamentals/lambda_01.png" width="400"> 
 4. Click Create.
 5. Click the Test button in the upper right-hand corner again.
 6. Scroll up to see the output in the Execution Results pane.
@@ -332,7 +337,7 @@ Steps
 * The way security is delivered depends on the cloud provider you're using and the cloud security options they offer.
 
 #### AWS Shield
-<img src="docs/aws_shield.png" width="800" alt=""> 
+<img src="docs/01_cloud_fundamentals/aws_shield.png" width="800" alt=""> 
 * AWS Shield is a managed DDoS (or Distributed Denial of Service) protection service that safeguards web applications running on AWS.
 
 * AWS Shield is a service that you get "out of the box", it is always running (automatically) and is a part of the free standard tier. If you want to use some of the more advanced features, you'll have to utilize the paid tier.
@@ -342,7 +347,7 @@ Steps
   * AWS Shield Advanced provides enhanced detection.
 
 #### AWS WAF
-<img src="docs/firewall.png" width="800" alt="">  
+<img src="docs/01_cloud_fundamentals/firewall.png" width="800" alt="">  
 
 * AWS WAF (or AWS Web Application Firewall) provides a firewall that protects your web applications.
 
@@ -357,13 +362,13 @@ Steps
 * Identity & Access Management (IAM) is an AWS service that allows us to configure who can access our AWS account, services, or even applications running in our account. IAM is a global service and is automatically available across ALL regions.
 * __Security Concepts__
   * User
-    <img src="docs/iam_user.png" width="600" alt="">   
+    <img src="docs/01_cloud_fundamentals/iam_user.png" width="600" alt="">   
   * IAM Group
-    <img src="docs/iam_group.png" width="600" alt="">     
+    <img src="docs/01_cloud_fundamentals/iam_group.png" width="600" alt="">     
   * IAM Role
-    <img src="docs/iam_role.png" width="600" alt="">     
+    <img src="docs/01_cloud_fundamentals/iam_role.png" width="600" alt="">     
   * Policy
-    <img src="docs/iam_policy.png" width="600" alt="">     
+    <img src="docs/01_cloud_fundamentals/iam_policy.png" width="600" alt="">     
 
 * Resources
   * [AWS IAM Overview](https://aws.amazon.com/iam/)
@@ -412,7 +417,7 @@ Steps
   * [What is Amazon EC2 Autoscaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
 
 #### Elastic Load Balancing
-<img src="docs/elastic_load_balancer.png" width="300" alt="">  
+<img src="docs/01_cloud_fundamentals/elastic_load_balancer.png" width="300" alt="">  
 
 * Elastic Load Balancing automatically distributes incoming application traffic across multiple servers.
 * Elastic Load Balancer is a service that:
@@ -425,7 +430,7 @@ Steps
   * You can configure Amazon EC2 instances to only accept traffic from a load balancer.
 
 #### Lab - EC2 Auto Scaling
-[PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_elastic_load_balancer.pdf)
+[PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/lab_elastic_load_balancer.pdf)
 
 
 ### Messaging & Containers
@@ -471,7 +476,7 @@ Steps
   * Create a topic
   * Subscribe to a topic
   * Publish a message to a topic
-[PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_sns.pdf)
+[PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/lab_sns.pdf)
 ---
 #### Containers in the Cloud
 * Enterprises are adopting container technology at an explosive rate. A container consists of everything an application needs to run: the application itself and its dependencies (e.g. libraries, utilities, configuration files), all bundled into one package.
@@ -537,7 +542,7 @@ Steps
 * Topics covered:
   * Create Cloud Watch event to react to the creation of an Amazon EC2 instance
   * Send SNS notification via Cloud Watch when an event occurs.
-* [PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_cloud_watch.pdf)  
+* [PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/lab_cloud_watch.pdf)  
 ---
 #### Infrastructure as Code
 * Infrastructure as Code allows you to describe and provision all the infrastructure resources in your cloud environment. You can stand up servers, databases, runtime parameters, resources, etc. based on scripts that you write. Infrastructure as Code is a time-saving feature because it allows you to provision (or stand up) resources in a reproducible way.
@@ -559,7 +564,7 @@ Steps
   * Launch S3 bucket using Infrastructure as Code
   * Save and deploy a CloudFormation stack
   * View resources created through CloudFormation
-* [pdf](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/lab_cloud_formation.pdf)  
+* [pdf](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/lab_cloud_formation.pdf)  
 ---
 #### AWS Command Line Interface (CLI)
 * The AWS CLI (or Command Line Interface) allows you to access and control services running in your AWS account from the command line. To use the CLI, simply download, install, and configure it.
@@ -603,15 +608,49 @@ Steps
     * Node.js (Javascript) (Backend)
 ---
 #### Steps
-* [Create S3](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_s3.pdf)
-* [Upload content](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_upload.pdf)
-* [Secure Bucket via IAM](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_secure.pdf)
-* [Configure S3 Bucket](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_config_s3.pdf)
-* [Distribute Website via CloudFront](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_cloudfront.pdf)
-* [Access Website in Web Browser](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_access.pdf)
+* [Create S3](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/deploy_static_s3.pdf)
+* [Upload content](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/deploy_static_upload.pdf)
+* [Secure Bucket via IAM](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/deploy_static_secure.pdf)
+* [Configure S3 Bucket](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/deploy_static_config_s3.pdf)
+* [Distribute Website via CloudFront](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/deploy_static_cloudfront.pdf)
+* [Access Website in Web Browser](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/01_cloud_fundamentals/deploy_static_access.pdf)
 
 
 ## Full Stack Apps on AWS
+### Lesson 1: Cloud Basic
+#### Cloud Basics and Parts of a Cloud
+* Key Terminology
+  * __Data__: we store digital data as bytes on physical media like hard drives, but in the cloud, we use systems to simplify this for us.
+  * __Filestore or Filesystem__: A system to save, archive, and recall specific documents and media. Usually, a file store offers low cost per unit space optimized for larger files.
+  * __Database__: A system to save and organize complex data models. They often use more advanced data structures to index and organize data for faster lookup time. Databases are compelling solutions for data models that have complicated relationships.
+  * __Compute__: any computer operation requires some computation on a CPU (central processing unit).
+  * __Server__: A specialized computer for cloud and web services.
+  * __Instance__: A computational unit which may be a physical server or a virtual server that is abstracted by a cloud service.
+  * __Cluster__: A collection of instances which perform the same function. It may be used to distribute workloads.
+  * __Autoscaling Group__: A type of cluster that can increase or decrease the number of instances based on demand.
+---
+
+#### Monolithic vs. Loosely Coupled Systems
+* Loosely coupled systems are recommended over monolithic systems, as they reduce technical debt.
+* __Technical Debt__  
+The cost (in time and resources) of additional code rework caused by choosing an easy solution now instead of using a better approach that would take longer to implement.
+
+* __Microservices__  
+Microservices are individual specialized systems (software deployed on specialized infrastructure) designed to accomplish a specific task. Specific tasks may include things like authentication, image processing, or data management.
+
+<img src="docs/02_full_stack_aws/system_monolithic.png" width="400"> 
+
+<img src="docs/02_full_stack_aws/system_tightly_coupled.png" width="400"> 
+<img src="docs/02_full_stack_aws/system_microservices.png" width="400"> 
+<img src="docs/02_full_stack_aws/system_microservices_aws.png" width="400"> 
+
+---
+
+#### Request Response and APIs
+
+---
+#### Lesson Recap
+
 
 ## Monolith to Microservices at Scale
 
