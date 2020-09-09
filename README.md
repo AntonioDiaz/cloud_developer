@@ -55,6 +55,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [AWS Command Line Interface CLI](#aws-command-line-interface-cli)
     - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
         - [Cloud Fundamentals Project](#cloud-fundamentals-project)
+        - [Steps](#steps)
 - [Full Stack Apps on AWS](#full-stack-apps-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
