@@ -571,7 +571,7 @@ Steps
 #### Cloud Fundamentals Project
 * The cloud is perfect for hosting static websites that only include HTML, CSS, and JavaScript files that require no server-side processing. In this project, you will deploy a static website to AWS. 
 * Steps 
-  1. You will create a S3 bucket and upload the website files to your bucket. [pdf](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_s3.pdf) 
+  1. You will create a S3 bucket and upload the website files to your bucket. 
   2. You will configure the bucket for website hosting and secure it using IAM policies. 
   3. You will speed up content delivery using AWS’ content distribution network service, CloudFront. 
   4. You will access your website in a browser using the unique CloudFront endpoint.
@@ -600,6 +600,15 @@ Steps
   * Frameworks:
     * Ionic (Javascript) (Frontend)
     * Node.js (Javascript) (Backend)
+---
+#### Steps
+* [Create S3](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_s3.pdf)
+* [Upload content](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_upload.pdf)
+* [Secure Bucket via IAM](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_secure.pdf)
+* [Configure S3 Bucket](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_config_s3.pdf)
+* [Distribute Website via CloudFront](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_cloudfront.pdf)
+* [Access Website in Web Browser](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/deploy_static_access.pdf)
+
 
 ## Full Stack Apps on AWS
 
