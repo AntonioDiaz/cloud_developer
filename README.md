@@ -60,7 +60,6 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 1: Cloud Basic](#lesson-1-cloud-basic)
         - [Cloud Basics and Parts of a Cloud](#cloud-basics-and-parts-of-a-cloud)
         - [Monolithic vs. Loosely Coupled Systems](#monolithic-vs-loosely-coupled-systems)
-- [<img src="docs/02_full_stack_aws/system_tightly_coupled.png" width="500">](#img-srcdocs02_full_stack_awssystem_tightly_coupledpng-width500)
         - [Request Response and APIs](#request-response-and-apis)
     - [Lesson 2: develop](#lesson-2-develop)
         - [Getting Setup](#getting-setup)
@@ -649,8 +648,10 @@ Microservices are individual specialized systems (software deployed on specializ
 <img src="docs/02_full_stack_aws/system_monolithic.png" width="500"> 
 
 <img src="docs/02_full_stack_aws/system_tightly_coupled.png" width="500"> 
+
 <img src="docs/02_full_stack_aws/system_microservices.png" width="500"> 
 <img src="docs/02_full_stack_aws/system_microservices_aws.png" width="500"> 
+
 ---
 
 #### Request Response and APIs
@@ -681,7 +682,7 @@ Postbird is a useful client GUI (graphical user interface) to interact with our 
   * Postman -> https://www.getpostman.com/downloads/ 
 Postman is a useful tool to issue and save requests. Postman can create GET, PUT, POST, etc. requests complete with bodies. It can also be used to test endpoints automatically. We've included a [collection in the starter code repository](https://github.com/udacity/cloud-developer/blob/master/course-02/exercises/udacity-c2-restapi/udacity-c2-restapi.postman_collection.json) (./udacity-c2-restapi.postman_collection.json) which contains example requests.
 
-#### How to desing an API
+#### How to desing an API  
 <img src="docs/02_full_stack_aws/api_rest.png" width="500"> 
 
 *  Only user noums and no verbs. They should be plural and consistent.
