@@ -60,8 +60,16 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 1: Cloud Basic](#lesson-1-cloud-basic)
         - [Cloud Basics and Parts of a Cloud](#cloud-basics-and-parts-of-a-cloud)
         - [Monolithic vs. Loosely Coupled Systems](#monolithic-vs-loosely-coupled-systems)
+- [<img src="docs/02_full_stack_aws/system_tightly_coupled.png" width="500">](#img-srcdocs02_full_stack_awssystem_tightly_coupledpng-width500)
         - [Request Response and APIs](#request-response-and-apis)
-        - [Lesson Recap](#lesson-recap)
+    - [Lesson 2: develop](#lesson-2-develop)
+        - [Getting Setup](#getting-setup)
+        - [How to desing an API](#how-to-desing-an-api)
+    - [Lesson 3: storing data in the cloud](#lesson-3-storing-data-in-the-cloud)
+    - [Lesson 4: building and deplouing](#lesson-4-building-and-deplouing)
+    - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
+    - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
+    - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
@@ -638,18 +646,62 @@ The cost (in time and resources) of additional code rework caused by choosing an
 * __Microservices__  
 Microservices are individual specialized systems (software deployed on specialized infrastructure) designed to accomplish a specific task. Specific tasks may include things like authentication, image processing, or data management.
 
-<img src="docs/02_full_stack_aws/system_monolithic.png" width="400"> 
+<img src="docs/02_full_stack_aws/system_monolithic.png" width="500"> 
 
-<img src="docs/02_full_stack_aws/system_tightly_coupled.png" width="400"> 
-<img src="docs/02_full_stack_aws/system_microservices.png" width="400"> 
-<img src="docs/02_full_stack_aws/system_microservices_aws.png" width="400"> 
-
+<img src="docs/02_full_stack_aws/system_tightly_coupled.png" width="500"> 
+<img src="docs/02_full_stack_aws/system_microservices.png" width="500"> 
+<img src="docs/02_full_stack_aws/system_microservices_aws.png" width="500"> 
 ---
 
 #### Request Response and APIs
-
+* URL format.
+* HTTP request format.
+* [HTTP status codes](https://www.restapitutorial.com/httpstatuscodes.html)
 ---
-#### Lesson Recap
+
+### Lesson 2: develop
+#### Getting Setup
+* Installing Node and NPM  
+This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from https://nodejs.com/en/download.
+* Installing Ionic Cli  
+The Ionic Command Line Interface is required to serve and build the frontend. Instructions for installing the CLI can be found in the [Ionic Framework Docs](https://ionicframework.com/docs/installation/cli).
+* Installing Python3  
+Python is a powerful programming language used for anything from quick scripts through data science. We'll use Python for the final project and it is required for some development tools like the AWS CLI. Instructions to download and install Python for your OS can be found here: https://www.python.org/downloads/
+* Amazon Web Services (AWS)
+  * Account Setup  
+We'll be provisioning cloud resources throughout the next few lessons. You'll need an AWS account to set up these resources. We'll be taking advantage of the free tier offerings so there should be no costs to set up the resources we'll be using. Create a new account here: https://portal.aws.amazon.com/billing/signup#/
+
+  * AWS CLI  
+We'll interface with AWS using the Command Line Interface (CLI). Instructions to download and install the AWS CLI for your OS can be found here: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+
+* Installing useful tools
+  * Postbird -> https://github.com/paxa/postbird  
+Postbird is a useful client GUI (graphical user interface) to interact with our provisioned Postgres database. We can establish a remote connection and complete actions like viewing data and changing the schema (tables, columns, ect).
+
+  * Postman -> https://www.getpostman.com/downloads/ 
+Postman is a useful tool to issue and save requests. Postman can create GET, PUT, POST, etc. requests complete with bodies. It can also be used to test endpoints automatically. We've included a [collection in the starter code repository](https://github.com/udacity/cloud-developer/blob/master/course-02/exercises/udacity-c2-restapi/udacity-c2-restapi.postman_collection.json) (./udacity-c2-restapi.postman_collection.json) which contains example requests.
+
+#### How to desing an API
+<img src="docs/02_full_stack_aws/api_rest.png" width="500"> 
+
+*  Only user noums and no verbs. They should be plural and consistent.
+* APIs should be versioned  
+  > {{host}}/api/v0/cars/5
+* List should be paginated to limit the amount of date sent
+  > {{host}}/api/v0/cars/?ofset=50&limit10
+* All responses should be attempt to use status codes
+* All responses should include data format
+  * i.e. application/json
+* Error payloads should include
+
+### Lesson 3: storing data in the cloud
+### Lesson 4: building and deplouing
+### Lesson 5: user authentication and security
+### Lesson 6: scaling and fixing
+### Project: udagram, your own instagram on AWS
+
+
+
 
 
 ## Monolith to Microservices at Scale
