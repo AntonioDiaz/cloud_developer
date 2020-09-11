@@ -64,6 +64,9 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 2: develop](#lesson-2-develop)
         - [Getting Setup](#getting-setup)
         - [How to desing an API](#how-to-desing-an-api)
+        - [Standing up a Cloud Capable Server](#standing-up-a-cloud-capable-server)
+        - [Verification Testing](#verification-testing)
+        - [Using Git Effectively for the Cloud](#using-git-effectively-for-the-cloud)
     - [Lesson 3: storing data in the cloud](#lesson-3-storing-data-in-the-cloud)
     - [Lesson 4: building and deplouing](#lesson-4-building-and-deplouing)
     - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
@@ -685,15 +688,51 @@ Postman is a useful tool to issue and save requests. Postman can create GET, PUT
 #### How to desing an API  
 <img src="docs/02_full_stack_aws/api_rest.png" width="500"> 
 
-*  Only user noums and no verbs. They should be plural and consistent.
+*  Only user noums and no verbs.  
+They should be plural and consistent.
 * APIs should be versioned  
   > {{host}}/api/v0/cars/5
 * List should be paginated to limit the amount of date sent
-  > {{host}}/api/v0/cars/?ofset=50&limit10
+  > {{host}}/api/v0/cars/?ofset=50&limit=10
 * All responses should be attempt to use status codes
 * All responses should include data format
   * i.e. application/json
 * Error payloads should include
+
+#### Standing up a Cloud Capable Server
+* Introduction to Node  
+Node (aka NodeJs) is a powerful framework to build network applications using JavaScript (in our case using TypeScript) outside of browsers. It has an asynchronous concurrent model which releases the developer from many concerns involving threading and dead-locking.  
+Node is used as our server framework along with Express to handle web http requests and responses.  
+Node -> https://nodejs.org/en/  
+Express -> https://expressjs.com/insert%20link
+* Introduction to TypeScript  
+Typescript is a flavor of JavaScript that forces hard typing on variables and methods. This prevents implementation errors like passing a string instead of a number. It compiles to pure JavaScript.  
+https://github.com/Microsoft/TypeScript
+
+* Github link to basic server  
+  * In this lesson, we'll be referencing a prewritten, simple server which uses Node/Express.  
+  * The github link to clone and follow along is: https://github.com/grutt/udacity-c2-basic-server.  
+  * Alternatively, you can clone the repo for the entire nanodegree cloud-developer and find the files for this course in the path https://github.com/udacity/cloud-developer/tree/master/course-02/exercises
+* Clone Repository
+* Installing project dependencies  
+  * This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository.  
+  * After cloning, open your terminal in the repo directory and run:  
+     * > npm install
+* Understanding the Code
+* Running our server and making requests
+  * > npm run dev
+
+#### Verification Testing
+* Unit Tests  
+Ensure our atomic functions and methods perform their tasks correctly or fail appropriately. We'll be playing with Mocha and Chai as our unit testing framework. We'll be covering the basics so checkout the docs!  
+https://mochajs.org/
+
+* Integration Tests  
+Integration Tests ensure every endpoint in our software package perform their tasks correctly, fails appropriately, and communicates with other systems in a predictable manner (so they integrate properly). We'll be playing with Postman as our integration testing framework. We'll be covering the basics so checkout the docs!
+---
+
+#### Using Git Effectively for the Cloud
+
 
 ### Lesson 3: storing data in the cloud
 ### Lesson 4: building and deplouing
