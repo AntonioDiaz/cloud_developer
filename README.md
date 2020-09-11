@@ -68,6 +68,12 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Verification Testing](#verification-testing)
         - [Using Git Effectively for the Cloud](#using-git-effectively-for-the-cloud)
     - [Lesson 3: storing data in the cloud](#lesson-3-storing-data-in-the-cloud)
+        - [Difficulties ofd Persistent Data](#difficulties-ofd-persistent-data)
+        - [Database Basics](#database-basics)
+        - [Provisioning a Cloud Database](#provisioning-a-cloud-database)
+        - [Filestore Basics](#filestore-basics)
+        - [Creating an S3 Filestore Bucket](#creating-an-s3-filestore-bucket)
+        - [Understanding Secrets](#understanding-secrets)
     - [Lesson 4: building and deplouing](#lesson-4-building-and-deplouing)
     - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
@@ -730,11 +736,87 @@ https://mochajs.org/
 * Integration Tests  
 Integration Tests ensure every endpoint in our software package perform their tasks correctly, fails appropriately, and communicates with other systems in a predictable manner (so they integrate properly). We'll be playing with Postman as our integration testing framework. We'll be covering the basics so checkout the docs!
 ---
-
 #### Using Git Effectively for the Cloud
 
-
 ### Lesson 3: storing data in the cloud
+#### Difficulties ofd Persistent Data
+* __RAM (Random Access Memory)__: Data can be accessed quickly, but is erased once the server restarts. It may be okay to use RAM when prototyping, and later replace it with a database.
+* __Hard Drive Disk__: Data remains after server restarts, but is specific to that server (not shared across servers).
+* __Race Condition__: When an application’s behavior is dependent on other uncontrollable events. This is an issue with storing data on disks or RAM of multiple servers.
+* __Relational Database__: can store at scale, improve search runtime, and maintain relationships between data fields. We recommend using a database for storing data.
+
+#### Database Basics
+* Indexing Our Data for Better Recall
+* NoSQL - Simple Key:Value Stores
+* Relational Databases - Structured and Queryable Datastores  
+
+__B-Tree__: a generalization of a binary search tree, which stores sorted data, but can have more than 2 child nodes.  
+__Bloom Filters__: a data structure that is useful for determining if an item is probably in a data set, or definitely not in the data set. Bloom filters don’t actually store the data themselves.  
+__primary key and foreign key__: The primary consists of one or more column in a table that are unique to each record (each row). A foreign key in a table contains the primary key of another table.  
+
+__Scaling out__ -> noSQL easier         -> more instances  
+__Scale up__    -> SQL database easier  -> make computer bigger (more CPU, RAM,...)
+
+#### Provisioning a Cloud Database
+* Configuring Amazon Web Services' Relational Database Service
+* Allowing Public Traffic to RDS
+* Interfacing with our Database using Postbird
+* Connecting to RDS with Postbird
+* Creating Tables in RDS with Postbird
+* Making SQL Commands with Postbird
+
+#### Filestore Basics
+* File stores allow for archiving data. In AWS, the file store is called S3, and the archive resource is called “glacier”.
+* Content Delivery Network (CDN): are a network of proxy servers that are placed closer to end users to deliver data and compute. CDNs reduce latency for end users.
+* SignedURLs allow clients to send and receive data by directly communicating with the file store.  
+This saves the server from using its bandwidth to serve as the intermediary that transmits data to and from the client.   
+This is faster for clients as well.
+* Buckets: a simple directory-like system in which to store data.
+
+* Signed URL pattern  
+<img src="docs/02_full_stack_aws/signed_url_pattern_01.png" width="500">  
+<img src="docs/02_full_stack_aws/signed_url_pattern_02.png" width="500">  
+
+---
+#### Creating an S3 Filestore Bucket
+* Create “dev” resources: Use the “dev” set of infrastructure (set of servers, filestores, databases) for development, and a separate set of infrastructure for production.
+* AES 256: Advanced Encryption Standard with a 256-bit key. This is a popular encryption standard.
+* CORS: Cross Origin Resource Sharing: defines how a client can interact with a resource, and what the client can and cannot do with that resource. Setting the CORS policy of our S3 bucket allows our client to communicate with the S3 bucket using the SignedURL pattern.
+
+Bucket CORS Policy  
+You'll need this policy to create a bucket where we can use the SignedURL pattern.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+<CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>POST</AllowedMethod>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>PUT</AllowedMethod>
+    <AllowedMethod>DELETE</AllowedMethod>
+    <AllowedMethod>HEAD</AllowedMethod>
+    <AllowedHeader>*</AllowedHeader>
+</CORSRule>
+</CORSConfiguration>
+```
+---
+#### Understanding Secrets
+* What are permissions?  
+  * HIPPA: HIPAA (Health Insurance Portability and Accountability Act) is a law in the U.S that requires data privacy and security for medical information.
+  * Use environment variables to store your username and password, to avoid hard-coding username and password information in your code.
+  * Avoid committing your passwords to git. Use .gitignore to define files that you do not want to commit to git.
+  * IAM user role: an IAM role can give a user a set of permissions to access one or more services.
+  * IAM service role: an IAM role gives a service a set of permissions to access one or more services.
+  
+* User IAM profiles on AWS
+  * It’s beneficial to create a role that contains a policy group (a set of permissions), rather than to assign individual permissions to a specific user.  
+  Imagine if a user leaves the company and a new hire takes their place. Instead of re-assigning all the permissions needed for their job, we can assign the existing IAM role to that new employee.
+<img src="docs/02_full_stack_aws/permisions_01.png" width="500">  
+
+* Creating User Profiles Using the AWS Console
+
+---
+
 ### Lesson 4: building and deplouing
 ### Lesson 5: user authentication and security
 ### Lesson 6: scaling and fixing
