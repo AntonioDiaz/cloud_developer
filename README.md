@@ -814,10 +814,50 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
 <img src="docs/02_full_stack_aws/permisions_01.png" width="500">  
 
 * Creating User Profiles Using the AWS Console
+  * Create user, download __credential.csv__.
+  * Assign that user in a group.
+  * Create a new policy and assing that policy to the new group.
 
+* Installing AWS User IAM Profiles Locally
+  * From the __credentials.csv__ you will need:
+    <img src="docs/02_full_stack_aws/credentials_csv.png" width="500">      
+    * Access key ID
+    * Secret access key  
+    
+  * Run command: 
+      > aws configure
+  * This will add the profile to 
+    * ~/.aws/credentials
+    ```
+    [default]
+    aws_access_key_id=########################
+    aws_secret_access_key=########################
+
+    [profile1]
+    aws_access_key_id=########################
+    aws_secret_access_key=########################
+
+    [profile2]
+    aws_access_key_id=########################
+    aws_secret_access_key=########################    
+    ```
+    * ~/.aws/config
+    ```
+    [default]
+    region=us-east-1
+
+    [profile1]
+    region=us-west-2
+
+    [profile2]
+    region=us-east-2
+    ```
+* Creating IAM Service Roles  
+  * Role is consumed by a service  
+  * Role has policies asociated
 ---
-
 ### Lesson 4: building and deplouing
+
 ### Lesson 5: user authentication and security
 ### Lesson 6: scaling and fixing
 ### Project: udagram, your own instagram on AWS
