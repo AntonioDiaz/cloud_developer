@@ -75,6 +75,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Creating an S3 Filestore Bucket](#creating-an-s3-filestore-bucket)
         - [Understanding Secrets](#understanding-secrets)
     - [Lesson 4: building and deplouing](#lesson-4-building-and-deplouing)
+        - [Organizing Our Code](#organizing-our-code)
+        - [Intro to Object-Relational Maps ORM](#intro-to-object-relational-maps-orm)
     - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
     - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
@@ -857,6 +859,106 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   * Role has policies asociated
 ---
 ### Lesson 4: building and deplouing
+#### Organizing Our Code
+* Designing the Application to be Extensible
+  * Features and Modularity  
+    * In this concept, we dive into splitting our code into logical "features".  This is a way of describing modular programming where the code which relates to one task is grouped together.  
+In this example, the __/feed__ and __/auth__ endpoints are our features.  
+All routing, models, business logic, and helper functions for these modules should be separated as much as possible.  
+This way, we have an understanding of where code responsibilities just by looking at the general structure.
+
+    * Often one feature may depend on another feature - for example, user authentication will be needed within the feed. But these dependencies should be kept loose and consistent with only a few methods being consumed.  
+    The goal as the system continues to grow, is to minimize refactoring outside of specific features. As you continue to learn cloud and explore microservices, often entire features might be ported to their own servers infrastructure making this loose coupling even more critical.  
+    
+<img src="docs/02_full_stack_aws/api_feed.png" width="500">    
+<img src="docs/02_full_stack_aws/api_user.png" width="500">    
+<img src="docs/02_full_stack_aws/code_structure.png" width="500">    
+
+* Github link to the project RestAPI Server  
+In this lesson, we'll be referencing a stubbed, more complex server which uses Node/Express.  
+The GitHub link to clone and follow along is in the exercises folder of the course repo: https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-restapi.
+
+__Installing project dependencies__  
+This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository.  
+After cloning, open your terminal in the repo directory and run:
+
+> npm install
+
+* RestAPI Source Walkthrough
+  * Code Structure and Organization
+    * In the file controllers/v0/feed/routes/feed.router.ts, the root directory router.get('/',... is not the server root directory.  
+    The root in this case is based on where the server is entering from, which in this case, is api/v0/feed/routes.
+    * We’ll keep S3 related code in its own file aws.ts, and database connection code in its own file sequelize.ts.  
+---
+#### Intro to Object-Relational Maps (ORM)
+We'll be using an ORM called Sequelize to manage the connection to our database.  
+We'll cover the basics in this concept, but Sequelize is a powerful tool and is extremely well documented at http://docs.sequelizejs.com/
+
+* Models  
+A model is the data representation of some group of data. In object-oriented programing terms, a model is an object and is represented by a new class. It should usually represent a noun such as a user, a feed item, an order, etc.  
+We use the _@Table__ decorator and extend the base sequelize Model class to link our model to our database table.
+
+* Parameters  
+The model contains instance parameters.  
+These can be other models or primitive fields.  
+We use the __@Column__ decorator to link our parameters to the table columns.  
+The bang symbol ! specifies if the field in the table can be null.  
+Sequelize handles the datatype mappings from TypeScript types to Postgres column datatypes.
+
+```js
+import {Table, Column, Model, HasMany, PrimaryKey, CreatedAt, UpdatedAt, ForeignKey} from 'sequelize-typescript';
+import { User } from '../../users/models/User';
+
+@Table
+export class FeedItem extends Model<FeedItem> {
+  @Column
+  public caption!: string;
+
+  @Column
+  public url!: string;
+
+  @Column
+  @CreatedAt
+  public createdAt: Date = new Date();
+
+  @Column
+  @UpdatedAt
+  public updatedAt: Date = new Date();
+}
+```
+
+Read more at the Sequelize docs entry on models -> http://docs.sequelizejs.com/class/lib/model.js~Model.html
+
+* ORMS allow us to easily switch to a different dialect of SQL (e.g. PostgreSQL, MySQL), without having to modify the code that interacts with the database. If we were to write SQL queries directly, instead of using an ORM, we would have to modify our SQL statements to be compatible with the dialect of the database that we are using.
+
+* Migrations  
+  * Migration refers to modifying the database (by adding or removing tables or columns, for instance, or switching to a different dialect of SQL) to a newer version (usually based on new business requirements).
+  * Up migration is the process of modifying the database to a newer state.
+  * Down migration is the process of reversing an up migration, to a prior state.
+  
+Read more at the Sequelize docs on migrations
+
+>Note Migrations is a loaded term. We most commonly refer to migrations when changing database table states (new columns, adding tables, etc). However, it can also refer to migrating infrastructure - for examples Postgres to MySQL.
+
+* Seeding  
+Seeds are default rows of data that will be inserted upon database formation.  
+This may be helpful when provisioning databases frequently for specific applications and having welcome data populated, or when running tests on staging systems to simulate real-world conditions.
+
+Read more at the Sequelize docs on seeding -> http://docs.sequelizejs.com/manual/migrations.html#creating-first-seed
+
+* Using Sequelize in our Node RestAPI Source Code
+  * The following video uses PostBird to run SQL queries -> https://github.com/Paxa/postbird
+
+  * In the video, we also go the AWS console to get the RDS endpoint.   
+  To steps are: Go to AWS console, click RDS. In the new page, in the left-hand menu, click “Databases”. In the “connectivity & security” section, under “Endpoint”, copy the endpoint URL.  
+<img src="docs/02_full_stack_aws/db_connection.png" width="500">  
+
+* Decorators  
+The Decorators (also known as Annotations) mentioned in this video are a feature of the sequelize-typescript package which allows us to link database features with our models.  
+We exemplify this using the @CreatedAt and @UpdatedAt. This will set the option in the Postgres database to automatically set the date when any row is created, or updated and is useful when sorting and filtering our data.
+[Read more and view complete details on the model definition in the sequelize-typescript docs](https://www.npmjs.com/package/sequelize-typescript#model-definition)
+
+Enter __npm run dev__ in terminal to start the server
 
 ### Lesson 5: user authentication and security
 ### Lesson 6: scaling and fixing
