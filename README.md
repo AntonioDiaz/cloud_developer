@@ -955,10 +955,15 @@ Read more at the Sequelize docs on seeding -> http://docs.sequelizejs.com/manual
 
 * Decorators  
 The Decorators (also known as Annotations) mentioned in this video are a feature of the sequelize-typescript package which allows us to link database features with our models.  
-We exemplify this using the @CreatedAt and @UpdatedAt. This will set the option in the Postgres database to automatically set the date when any row is created, or updated and is useful when sorting and filtering our data.
+We exemplify this using the @CreatedAt and @UpdatedAt. This will set the option in the Postgres database to automatically set the date when any row is created, or updated and is useful when sorting and filtering our data.  
 [Read more and view complete details on the model definition in the sequelize-typescript docs](https://www.npmjs.com/package/sequelize-typescript#model-definition)
 
-Enter __npm run dev__ in terminal to start the server
+* Enter __npm run dev__ in terminal to start the server
+
+* Associations In Sequelize  
+Check out the Sequelize documentation on associations to understand how to implement this pattern: http://docs.sequelizejs.com/manual/associations.html
+
+
 
 ### Lesson 5: user authentication and security
 ### Lesson 6: scaling and fixing
