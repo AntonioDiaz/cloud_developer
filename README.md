@@ -77,6 +77,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 4: building and deplouing](#lesson-4-building-and-deplouing)
         - [Organizing Our Code](#organizing-our-code)
         - [Intro to Object-Relational Maps ORM](#intro-to-object-relational-maps-orm)
+        - [Connecting our S3 Filestore in Node](#connecting-our-s3-filestore-in-node)
     - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
     - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
@@ -962,7 +963,12 @@ We exemplify this using the @CreatedAt and @UpdatedAt. This will set the option 
 
 * Associations In Sequelize  
 Check out the Sequelize documentation on associations to understand how to implement this pattern: http://docs.sequelizejs.com/manual/associations.html
-
+---
+#### Connecting our S3 Filestore in Node
+* Signed URL Pattern  
+  * We'll be using the Amazon Web Services (AWS) Javascript Software Development Kit (SDK) to implement the SignedURL pattern within our Node server.  
+<img src="docs/02_full_stack_aws/signed_url_pattern.png" width="500">  
+tip: AWS SDK dependencies are included in the project's package.json file. If you're starting a new project, you will need to install these dependencies using NPM. AWS offers clear instructions for setting it up in a new project: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jssdk.html.
 
 
 ### Lesson 5: user authentication and security
