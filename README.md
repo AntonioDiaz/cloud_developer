@@ -78,6 +78,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Organizing Our Code](#organizing-our-code)
         - [Intro to Object-Relational Maps ORM](#intro-to-object-relational-maps-orm)
         - [Connecting our S3 Filestore in Node](#connecting-our-s3-filestore-in-node)
+        - [Handling Secrets with Environment Variables](#handling-secrets-with-environment-variables)
     - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
     - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
@@ -968,7 +969,10 @@ Check out the Sequelize documentation on associations to understand how to imple
 * Signed URL Pattern  
   * We'll be using the Amazon Web Services (AWS) Javascript Software Development Kit (SDK) to implement the SignedURL pattern within our Node server.  
 <img src="docs/02_full_stack_aws/signed_url_pattern.png" width="500">  
-tip: AWS SDK dependencies are included in the project's package.json file. If you're starting a new project, you will need to install these dependencies using NPM. AWS offers clear instructions for setting it up in a new project: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jssdk.html.
+* Tip  
+AWS SDK dependencies are included in the project's package.json file.  
+If you're starting a new project, you will need to install these dependencies using NPM.  
+AWS offers clear instructions for setting it up in a new project: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jssdk.html.
 
 ```js
 //Configure AWS
@@ -1014,8 +1018,52 @@ export function getPutSignedUrl( key: string ){
     return url;
 }
 ```
+---
+#### Handling Secrets with Environment Variables
+1. __Shell__ - Linux/Mac Users  
+    * For Unix/Linux/Mac operating systems, a shell is a command-line program that accepts users' commands and executes those commands on the underlying kernel. Each command has a specific job to perform.
+    * There are multiple shells available. The default shell for (most) Linux systems is the bash shell. Other examples are ksh, tcsh, and zsh. The default shell for macOS 10+ is zsh.
+    * Your default shell boots when you open a terminal, which allows you to execute commands.
+2. __Environment Variables__ - Linux/Mac Users  
+    * Assume you store the user-specific secrets, such as username, password, or private key, into a simple file. It might not be a safe approach because all the sensitive information may become public if you put that information on Github/any other Version Control System. User-specific secrets, visible publicly, are never a good thing.
 
-
+    * Here comes the role of Environment variables in this scenario. Environment variables are pretty much like standard variables, in that they have a name and hold value. The environment variables only belong to your local system and won't be visible when you push your code to a different environment like Github.
+  * The __.env__ file  
+    * The .env file is one of the hidden files in which you can store your choice of environment variables.  
+    * The variables stored in this file are your individual working environment variables.  
+    * Note that the environment variables that are stored in the .env file override the variables set in the /etc/environment file, that is shared by all users of that computer. 
+    * You will need to follow the steps below to configure environment variables in a .env file:  
+        1. Install environment variables package:  
+            ``` npm install dotenv --save  ```  
+          This will allow you to use the environment variables that you'll set in a new file.
+        2. Create a new .env file in the root of your project.  
+        Fill the .env file with your new variables, and their corresponding values.  
+        For example:  
+            ```properties
+            POSTGRES_USERNAME = yourUsername
+            POSTGRES_PASSWORD = yourpassword
+            AWS_REGION = yourAWSRegion
+            AWS_PROFILE=awsProfileName 
+            ```
+        3. __Require the package in your server__ - Add the following code on top of the __server.ts__ file
+        ```` require('dotenv').config(); ````  
+        4. __Use your environment variables__ - If you want to refer the environment variables that you just saved in the .env file, anywhere in the code, try putting a prefix __process.env.__ in front of the variable name. For example, __process.env.POSTGRES_USERNAME__ will fetch you the value stored in it.
+        5. Add __.env__ to your __.gitignore__ - You wouldn't want your .env file to be available publicly in the project Github repository. For this reason, go to the .gitignore file in the project root, and add and entry .env to it. It will make sure that you don't push our environment variables to Github!  
+  * The process.env file
+      * The process.env file is a default file that stores the variables for the current terminal environment. When you run the following command, it will store the POSTGRES_USERNAME to the current terminal environment:  
+      ``` export POSTGRES_USERNAME = yourUsername ```  
+      * By default, the Node is accessing the same set of variables that are defined in your process.env file.
+  * Bash Profile - __.profile__ file  
+    * You won't want to export the user-specific variables every time you'll log in to your system, and do not want to override the variables set in the root level /etc/environment file. 
+    * The solution is to store the new variables either in .profile,.bashrc or .zshrc file, depending on your shell. 
+    * These are the files that the shell executes even before you type your first command to it. 
+    * Note that every user of the computer has its own __.profile__ file.
+    * When you put  
+    ``` export AWS_PROFILE=awsProfileName ```  
+    * inside the .profile file, it will run this command before you start firing commands in your shell.
+    * Usually, the bash profile is found at ~/.profile, where ~ represents your current logged in user's home directory. Keep in mind the . preceding profile means this file will be hidden.
+    * If you wish to instruct your Node to execute the .profile file anytime, you can run the following command:  
+    ``` source ~/.profile ```
 
 ### Lesson 5: user authentication and security
 ### Lesson 6: scaling and fixing
