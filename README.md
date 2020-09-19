@@ -80,7 +80,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Connecting our S3 Filestore in Node](#connecting-our-s3-filestore-in-node)
         - [Handling Secrets with Environment Variables](#handling-secrets-with-environment-variables)
         - [Permissions for Elastic Beanstalk](#permissions-for-elastic-beanstalk)
-- [Add permissions _AWSElasticBeanstalkFullAccess_ and _AdministratorAccess_](#add-permissions-_awselasticbeanstalkfullaccess_-and-_administratoraccess_)
+        - [Deploying Our Server to the Cloud](#deploying-our-server-to-the-cloud)
     - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
     - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
@@ -1067,12 +1067,21 @@ export function getPutSignedUrl( key: string ){
     * If you wish to instruct your Node to execute the .profile file anytime, you can run the following command:  
     ``` source ~/.profile ```
 ---
-#### Permissions for Elastic Beanstalk
-Add permissions _AWSElasticBeanstalkFullAccess_ and _AdministratorAccess_   
+#### Permissions for Elastic Beanstalk  
+* Add permissions _AWSElasticBeanstalkFullAccess_ and _AdministratorAccess_   
 <img src="docs/02_full_stack_aws/permissions.png" width="800" alt=""> 
+
 ---
+#### Deploying Our Server to the Cloud
+* Basic AWS Architecture  
+<img src="docs/02_full_stack_aws/beanstalk_01.png" width="500" alt=""> 
+<img src="docs/02_full_stack_aws/beanstalk_02.png" width="500" alt=""> 
 
-
+* Build process
+  1. Transpile TypeScript
+  2. Include some source files
+  3. Zip a file
+  4. Upload to Elastic Beanstalk
 
 
 ### Lesson 5: user authentication and security
