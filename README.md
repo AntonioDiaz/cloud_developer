@@ -1074,8 +1074,8 @@ export function getPutSignedUrl( key: string ){
 ---
 #### Deploying Our Server to the Cloud
 * Basic AWS Architecture  
-<img src="docs/02_full_stack_aws/beanstalk_01.png" width="500" alt=""> 
-<img src="docs/02_full_stack_aws/beanstalk_02.png" width="500" alt=""> 
+<img src="docs/02_full_stack_aws/beanstalk_01.png" width="500" alt="">  
+<img src="docs/02_full_stack_aws/beanstalk_02.png" width="500" alt="">  
 
 * Build process
   1. Transpile TypeScript
