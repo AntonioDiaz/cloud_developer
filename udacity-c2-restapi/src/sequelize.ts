@@ -19,3 +19,4 @@ export const sequelize = new Sequelize({
   storage: ':memory:',
 });
 
+console.log("exporttttt")

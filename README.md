@@ -1083,6 +1083,31 @@ export function getPutSignedUrl( key: string ){
   3. Zip a file
   4. Upload to Elastic Beanstalk
 
+* Using AWS Elastic Beanstalk  
+Elastic Beanstalk is a powerful Development Operations tool (Dev Ops) to deploy your code to AWS services and infrastructure with minimal effort.
+
+  * EB CLI  
+    * We'll be using the Command Line Interface to work with Elastic Beanstalk.  
+This will provide us with a set of commands to create new applications and deploy code to these systems.  
+Before continuing, you must install the EB CLI by reading the [AWS Doc Instructions](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html) for Install for your platform.
+
+    * After running the _eb init_ command and following the guided setup will create a new directory in our project named _.elasticbeanstalk_.  
+Within this configuration file, there is a configuration file named _config.yml_. This is the set of instructions Elastic Beanstalk will follow when provisioning your AWS infrastructure and deploying your code.
+
+* Generating SSH Keypairs  
+Public-Key Cryptography is a method to encrypt and decrypt authentication information for connecting to your resources in the cloud. The keys you generate replace your password, but they should be treated as sensitive data that would grant anyone who holds them access to your running instance. AWS offers a great guide on how to create [Key Pairs for your EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
+
+* Creating Deployable Build Archives and Deploying  
+  * Now that you have a running Beanstalk instance, we must package our code into a format that is usable by Elastic Beanstalk.  
+  * We do this by transpiring our typescript into javascript and then zipping the contents into a single file which we can upload. NPM allows us to define simple script commands in the package.json file. As described in the video, we've included the build command to perform these steps for us.  
+  * After running __npm run build__ to transpile and package our code into a zip, we need to configure Elastic Beanstalk to use this build archive. This is accomplished with the following addition to the .easticbeanstalk/config.yml configuration file:
+    * Inside the .elasticbeanstalk folder there is a file __config.yml__, this must be added:
+      ```yml
+      deploy:
+        artifact: ./www/Archive.zip
+      ```
+
+
 
 ### Lesson 5: user authentication and security
 ### Lesson 6: scaling and fixing
