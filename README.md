@@ -74,7 +74,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Filestore Basics](#filestore-basics)
         - [Creating an S3 Filestore Bucket](#creating-an-s3-filestore-bucket)
         - [Understanding Secrets](#understanding-secrets)
-    - [Lesson 4: building and deplouing](#lesson-4-building-and-deplouing)
+    - [Lesson 4: building and deploying](#lesson-4-building-and-deploying)
         - [Organizing Our Code](#organizing-our-code)
         - [Intro to Object-Relational Maps ORM](#intro-to-object-relational-maps-orm)
         - [Connecting our S3 Filestore in Node](#connecting-our-s3-filestore-in-node)
@@ -82,6 +82,9 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Permissions for Elastic Beanstalk](#permissions-for-elastic-beanstalk)
         - [Deploying Our Server to the Cloud](#deploying-our-server-to-the-cloud)
     - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
+        - [Basic Security and User Auth](#basic-security-and-user-auth)
+        - [Tips to Follow Along](#tips-to-follow-along)
+        - [Implementing Salted Hashed Password](#implementing-salted-hashed-password)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
     - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
@@ -862,7 +865,7 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   * Role is consumed by a service  
   * Role has policies asociated
 ---
-### Lesson 4: building and deplouing
+### Lesson 4: building and deploying
 #### Organizing Our Code
 * Designing the Application to be Extensible
   * Features and Modularity  
@@ -1132,7 +1135,67 @@ On aws console > Elastic Beanstalk > Configuration > Software
 ```
 
 ### Lesson 5: user authentication and security
+#### Basic Security and User Auth
+* Authentication: Who is asking? 
+* Authorization: Can they ask?
+* Schema  
+<img src="docs/02_full_stack_aws/aws_security.png" width="500" alt="">  
+
+* Storing and Using Passwords: do not store passwords as plain text.
+* Improving our Password Storage
+  * Symmetric key  
+  <img src="docs/02_full_stack_aws/aws_symmetric_key.png" width="500" alt=""> 
+  * One way hash  
+  <img src="docs/02_full_stack_aws/aws_hash_key.png" width="500" alt=""> 
+  * Salt  
+  <img src="docs/02_full_stack_aws/aws_salt.png" width="500" alt=""> 
+  * Other things to keep in mind:  
+    * Don't reuse your salt
+    * Keep your salt long
+    * Dont't trunst anyone
+      * Including yourself. Don't invent your own crypto!
+      * Review policies of 3rd pariteis and ask hard questions
+      * Secrets are high risk, keep them limited and secure
+      * MFA, email verifications, etc.
+  * Cognito, service of aws to manage users: https://aws.amazon.com/es/cognito/
+
+#### Tips to Follow Along
+* Adding Authentication  
+In this lesson, we'll be adding a new feature to our server. Each concept will build on prior steps so make sure you're comfortable before moving forward.
+
+* Git Process  
+It may be good practice to branch off your dev branch with a feature branch for f-auth. This way you have an easy way to go back in time to see what you've changed.
+
+* Running the Server  
+Don't forget, you can run the server in developer mode by running ```npm run dev``` in the terminal.
+
+#### Implementing Salted Hashed Password
+* Using bcrypt to salt, hash, and compare  
+We'll be using the bcrypt library to perform these functions. Check out the bcrypt docs for some more information: https://www.npmjs.com/package/bcrypt
+* Install bcrypt
+> npm i bcrypt --save  
+npm i --save-dev @types/bcrypt
+
+* __BCrypt Clarification__  
+  * __Salt Rounds__: the password is passed through the salted hashing function, and the output is again passed through the hashing function in a loop. The more times we iterate on the hashing function, the more we can guard against brute force attacks that try to guess the password. The salt rounds decide how many times to go through this loop. Settings salt rounds to 10 means we iterate on this hashing function 2^10 times.  
+
+  * __Comparing Passwords__: When you're using the ```bcrypt.compare``` method, it may appear that the salt is ignored. However, if you look closely at the example outputs in the video above, it is clear that the salt is actually prepended to the hash which we are using in the compare method. In other words, when we save the hash in our database - it is storing both the salt and the resulting hash as one value. Then, when comparing the plain text password, the stored salt and hash are split and the salt is used to produce the new hash, which is ultimately what is being compared.
+
+#### bcrypt implementation solution
+```js
+async function generatePassword(plainTextPassword: string): Promise<string> {
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
+    return await bcrypt.hash(plainTextPassword, salt);
+}
+
+async function comparePasswords(plainTextPassword: string, hash: string): Promise<boolean> {
+    return await bcrypt.compare(plainTextPassword, hash);
+}
+```
+
 ### Lesson 6: scaling and fixing
+
 ### Project: udagram, your own instagram on AWS
 
 

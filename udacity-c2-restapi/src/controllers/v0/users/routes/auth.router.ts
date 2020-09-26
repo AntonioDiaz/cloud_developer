@@ -12,13 +12,13 @@ const router: Router = Router();
 
 
 async function generatePassword(plainTextPassword: string): Promise<string> {
-    //@TODO Use Bcrypt to Generated Salted Hashed Passwords
-    return null;
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
+    return await bcrypt.hash(plainTextPassword, salt);
 }
 
 async function comparePasswords(plainTextPassword: string, hash: string): Promise<boolean> {
-    //@TODO Use Bcrypt to Compare your password to your Salted Hashed Password
-    return null;
+    return await bcrypt.compare(plainTextPassword, hash);
 }
 
 
@@ -88,7 +88,7 @@ router.post('/login', async (req: Request, res: Response) => {
     res.status(200).send({ auth: true, token: jwt, user: user.short()});
 });
 
-//register a new user
+//register a new user /api/v0/users/auth/
 router.post('/', async (req: Request, res: Response) => {
     const email = req.body.email;
     const plainTextPassword = req.body.password;
@@ -96,12 +96,10 @@ router.post('/', async (req: Request, res: Response) => {
     if (!email || !EmailValidator.validate(email)) {
         return res.status(400).send({ auth: false, message: 'Email is required or malformed' });
     }
-
     // check email password valid
     if (!plainTextPassword) {
         return res.status(400).send({ auth: false, message: 'Password is required' });
     }
-
     // find the user
     const user = await User.findByPk(email);
     // check that user doesnt exists
