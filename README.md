@@ -1066,6 +1066,19 @@ export function getPutSignedUrl( key: string ){
     * Usually, the bash profile is found at ~/.profile, where ~ represents your current logged in user's home directory. Keep in mind the . preceding profile means this file will be hidden.
     * If you wish to instruct your Node to execute the .profile file anytime, you can run the following command:  
     ``` source ~/.profile ```
+
+* Adding to .zshrc file:
+```properties
+export POSTGRESS_USERNAME=xxxxx
+export POSTGRESS_PASSWORD=xxxxxx
+export POSTGRESS_DATABASE=udagram
+export POSTGRESS_HOST=xxxxx.cjvquh78n3mk.eu-west-3.rds.amazonaws.com
+export AWS_REGION=eu-west-3
+export AWS_PROFILE=default
+export AWS_MEDIA_BUCKET=udagram-xxxxx-dev
+export JWT_SECRET=helloworld
+```
+
 ---
 #### Permissions for Elastic Beanstalk  
 * Add permissions _AWSElasticBeanstalkFullAccess_ and _AdministratorAccess_   
@@ -1106,8 +1119,17 @@ Public-Key Cryptography is a method to encrypt and decrypt authentication inform
       deploy:
         artifact: ./www/Archive.zip
       ```
+* Setting Environment Variables in Elastic Beanstalk  
+Just like our local code, we'll need to access certain variables from our system within our Node server. 
+We can set these variables through the AWS Console.  
+On aws console > Elastic Beanstalk > Configuration > Software
 
+<img src="docs/02_full_stack_aws/aws_environment_variables.png" width="500" alt="">  
 
+* Change at package.json required to deploy at Elastic Beanstalk.  
+```js
+"main": "server.js",
+```
 
 ### Lesson 5: user authentication and security
 ### Lesson 6: scaling and fixing
