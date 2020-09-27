@@ -89,6 +89,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Storing Passwords on our Clients](#storing-passwords-on-our-clients)
         - [Implementing JWTs in Node](#implementing-jwts-in-node)
         - [Deploy Changes](#deploy-changes)
+        - [Closing tips on security](#closing-tips-on-security)
+        - [Lesson Recap](#lesson-recap)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
     - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
@@ -1264,8 +1266,18 @@ If you recall, this will create a new artifact to run on the cloud server at www
 Once built, you can deploy changes to the elastic beanstalk instance by running: ```eb deploy```  
 This will upload the new code and restart the running instances!
 ---
-
-
+#### Closing tips on security
+* Examples of Good Security Policies
+  * [NPM](https://www.npmjs.com/policies/security)
+  * [Nylas](https://www.nylas.com/security/)
+  * [AWS](https://aws.amazon.com/security/)
+---
+#### Lesson Recap
+* Some Resources to Stay On Point:
+  * [owasp.org Top 10](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet)
+  * [npm auditing](https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities)
+  * [github security alerts](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)
+---
 
 
 ### Lesson 6: scaling and fixing
