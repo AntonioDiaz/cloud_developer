@@ -92,6 +92,10 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Closing tips on security](#closing-tips-on-security)
         - [Lesson Recap](#lesson-recap)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
+        - [How the Internet Routes: DNS](#how-the-internet-routes-dns)
+- [<img src="docs/02_full_stack_aws/aws_route53.png" width="500" alt="">](#img-srcdocs02_full_stack_awsaws_route53png-width500-alt)
+        - [Frontend Super Basics](#frontend-super-basics)
+        - [Intro to Content Delivery Networks CDN](#intro-to-content-delivery-networks-cdn)
     - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
@@ -1278,10 +1282,61 @@ This will upload the new code and restart the running instances!
   * [npm auditing](https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities)
   * [github security alerts](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)
 ---
-
-
 ### Lesson 6: scaling and fixing
+#### How the Internet Routes: DNS
+* AWS Route 53 Developer Guide  
+  * Amazon Web Services' flavor of DNS is called Route53. This service allows you to set up routing profiles for your domain names and direct traffic to services inside of and external to AWS.  
+  * Amazon provides great documentation on using Route53 in their [developer guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html).  
 
+<img src="docs/02_full_stack_aws/aws_dns_01.png" width="500" alt="">
+
+<img src="docs/02_full_stack_aws/aws_dns_02.png" width="500" alt="">
+
+<img src="docs/02_full_stack_aws/aws_dns_03.png" width="500" alt="">
+
+<img src="docs/02_full_stack_aws/aws_route53.png" width="500" alt="">
+---
+
+#### Frontend Super Basics
+* Intro to Frontend JavaScript Frameworks  
+  * Frontend frameworks allow us to quickly standup compelling, highly interactive user experiences to interface with our cloud services. 
+  * Many frameworks use JavaScript or TypeScript which is another great reason to use Node for our servers - we'll have the same technology requirements throughout our stack!
+
+* Github link to frontend
+  * In this lesson, we'll be referencing a prewritten, simple server which uses Node/Express. The github link to clone and follow along is: https://github.com/grutt/udacity-c2-frontend
+
+* Installing project dependencies
+  * This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository. 
+  * After cloning, open your terminal in the repo directory and run:  
+  ```npm install```
+
+  * Running the frontend development server  
+    * Before running the frontend development server, you either need to run your backend RestAPI server or have a running RestAPI server running in the cloud. In either case, make sure you set an accessible endpoint as the apiHost variable in ```./src/environments/environments.ts```.
+    * To run the developer server and live reload the frontend, open terminal and run:  
+    ```ionic serve```
+
+* tip: the ionic-cli must be installed to run ```ionic serve```. Read [the docs](https://ionicframework.com/docs/cli) to make sure this is installed globally.  
+```npm i -g ionic```
+---
+#### Intro to Content Delivery Networks (CDN)
+
+<img src="docs/02_full_stack_aws/aws_cdn.png" width="500" alt="">  
+
+* Using CDNs to Serve Our Frontend  
+Our frontend is loosely coupled and can be served from a separate server than our backend. This allows us to create static build artifacts (pure html/css/javascript files that can be directly used by a browser) that can be served efficiently using content delivery networks.
+
+* Deploying the frontend using AWS S3 and CloudFront  
+The static build artifacts in the www/ directory can be uploaded to an S3 bucket which can be linked to a CloudFront distribution.  
+This is beyond the scope of required work for this course, but it is a good skill to practice.
+
+* Amazon provides a great resource to configure S3 and CloudFront to accomplish this goal: https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/
+
+* Command:  
+``` ionic build ```  
+``` ionic build --prod```
+
+
+---
 ### Project: udagram, your own instagram on AWS
 
 
