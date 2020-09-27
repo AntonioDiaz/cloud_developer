@@ -16,7 +16,6 @@ router.get('/', async (req: Request, res: Response) => {
     res.send(items);
 });
 
-//@TODO
 //Add an endpoint to GET a specific resource by Primary Key
 router.get('/:id', 
     async(req: Request, res: Response) => {
@@ -52,10 +51,11 @@ router.patch('/:id',
 router.get('/signed-url/:fileName', 
     requireAuth, 
     async (req: Request, res: Response) => {
-    let { fileName } = req.params;
-    const url = AWS.getPutSignedUrl(fileName);
-    res.status(201).send({url: url});
-});
+        let { fileName } = req.params;
+        const url = AWS.getPutSignedUrl(fileName);
+        res.status(201).send({url: url});
+    }
+);
 
 // Post meta data and the filename after a file is uploaded 
 // NOTE the file name is they key name in the s3 bucket.
@@ -65,24 +65,19 @@ router.post('/',
     async (req: Request, res: Response) => {
     const caption = req.body.caption;
     const fileName = req.body.url;
-
     // check Caption is valid
     if (!caption) {
         return res.status(400).send({ message: 'Caption is required or malformed' });
     }
-
     // check Filename is valid
     if (!fileName) {
         return res.status(400).send({ message: 'File url is required' });
     }
-
     const item = await new FeedItem({
             caption: caption,
             url: fileName
     });
-
     const saved_item = await item.save();
-
     saved_item.url = AWS.getGetSignedUrl(saved_item.url);
     res.status(201).send(saved_item);
 });

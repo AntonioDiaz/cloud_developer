@@ -85,6 +85,10 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Basic Security and User Auth](#basic-security-and-user-auth)
         - [Tips to Follow Along](#tips-to-follow-along)
         - [Implementing Salted Hashed Password](#implementing-salted-hashed-password)
+        - [bcrypt implementation solution](#bcrypt-implementation-solution)
+        - [Storing Passwords on our Clients](#storing-passwords-on-our-clients)
+        - [Implementing JWTs in Node](#implementing-jwts-in-node)
+        - [Deploy Changes](#deploy-changes)
     - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
     - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
@@ -1133,7 +1137,7 @@ On aws console > Elastic Beanstalk > Configuration > Software
 ```js
 "main": "server.js",
 ```
-
+---
 ### Lesson 5: user authentication and security
 #### Basic Security and User Auth
 * Authentication: Who is asking? 
@@ -1145,10 +1149,13 @@ On aws console > Elastic Beanstalk > Configuration > Software
 * Improving our Password Storage
   * Symmetric key  
   <img src="docs/02_full_stack_aws/aws_symmetric_key.png" width="500" alt=""> 
+  
   * One way hash  
   <img src="docs/02_full_stack_aws/aws_hash_key.png" width="500" alt=""> 
-  * Salt  
+  
+  * Salt    
   <img src="docs/02_full_stack_aws/aws_salt.png" width="500" alt=""> 
+  
   * Other things to keep in mind:  
     * Don't reuse your salt
     * Keep your salt long
@@ -1168,7 +1175,7 @@ It may be good practice to branch off your dev branch with a feature branch for 
 
 * Running the Server  
 Don't forget, you can run the server in developer mode by running ```npm run dev``` in the terminal.
-
+---
 #### Implementing Salted Hashed Password
 * Using bcrypt to salt, hash, and compare  
 We'll be using the bcrypt library to perform these functions. Check out the bcrypt docs for some more information: https://www.npmjs.com/package/bcrypt
@@ -1193,6 +1200,73 @@ async function comparePasswords(plainTextPassword: string, hash: string): Promis
     return await bcrypt.compare(plainTextPassword, hash);
 }
 ```
+---
+#### Storing Passwords on our Clients
+* Sessions, JWTs, and Environment Variables   
+  * Our client can be a web browser or another server. In either of these cases, we need to send some authentication information along with each request.
+
+  * On our web browser, this is most commonly performed by storing some kind of credentials in something like the localstorage which allows us to store information for a specific site in a key-value store. JSON Web Tokens are one type of credential that can be stored locally in this fashion.
+
+  * On our servers, we'll usually want to use something like an environment variable. This is a variable which is accessible within that instance and only that instance.
+
+  * The idea is to avoid sending password every request, methods
+    * Cockies  
+    <img src="docs/02_full_stack_aws/aws_cookies.png" width="500" alt=""> 
+    * JSON Web Tokens  (JWT), authorization header  
+    Visit the site and play with JSON Web Tokens at jwt.io
+    <img src="docs/02_full_stack_aws/aws_jwt.png" width="500" alt=""> 
+    * Server  
+    <img src="docs/02_full_stack_aws/aws_auth_server_01.png" width="500" alt=""> 
+    <img src="docs/02_full_stack_aws/aws_auth_server_02.png" width="500" alt=""> 
+---
+
+#### Implementing JWTs in Node
+* Steps
+  1. Import library  
+  ```js
+  import * as jwt from 'jsonwebtoken';
+  ```
+  2. Generate de JWT  
+  ```js
+  function generateJWT(user: User): string {
+      return jwt.sign(user, config.jwt.secret);
+  }
+  ``` 
+
+  3. Return the JWT on the register user request  
+  ```js
+  router.post('/', async (req: Request, res: Response) => {
+    ....
+    res.status(201).send({token: jwt, user: savedUser.short()});
+  }
+  ```
+* Requiring Auth to Restrict Endpoint Usage  
+  * In the next video, we'll be calling our requireAuth method to validate the JWT is in the request authorization header. Before continuing, it's recommended you read this [express resource](https://expressjs.com/en/guide/writing-middleware.html) on writing middleware to clarify this concept.
+
+  * Each protected endpoint adds a middleware function ```requireAuth``` which is defined in the ```auth.router.ts``` file.  
+  This method will check if the authorization header exists and is a valid JWT. 
+    * If yes, it allows the endpoint to continue processing. 
+    * If no, it rejects the request and sends appropriate HTTP status codes.
+---
+#### Deploy Changes
+* Integrate Changes in Git  
+If you've been following the Git process, create an merge a pull request to integrate your stable feature branch with dev. Keep in mind, if this was a real project, this is when you'd want to make sure your system is passing unit and integration tests, and conduct a peer code review.
+
+* Build from Source  
+To create fresh build artifacts to deploy run:
+>npm run build  
+
+If you recall, this will create a new artifact to run on the cloud server at www/Archive.zip.
+
+* Deploy to the Cloud  
+Once built, you can deploy changes to the elastic beanstalk instance by running:
+>eb deploy
+---
+
+This will upload the new code and restart the running instances!
+
+
+
 
 ### Lesson 6: scaling and fixing
 
