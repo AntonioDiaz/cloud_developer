@@ -1212,12 +1212,15 @@ async function comparePasswords(plainTextPassword: string, hash: string): Promis
   * The idea is to avoid sending password every request, methods
     * Cockies  
     <img src="docs/02_full_stack_aws/aws_cookies.png" width="500" alt=""> 
+
     * JSON Web Tokens  (JWT), authorization header  
     Visit the site and play with JSON Web Tokens at jwt.io
-    <img src="docs/02_full_stack_aws/aws_jwt.png" width="500" alt=""> 
+    <img src="docs/02_full_stack_aws/aws_jwt.png" width="500" alt="">
+
     * Server  
     <img src="docs/02_full_stack_aws/aws_auth_server_01.png" width="500" alt=""> 
     <img src="docs/02_full_stack_aws/aws_auth_server_02.png" width="500" alt=""> 
+    
 ---
 
 #### Implementing JWTs in Node
@@ -1253,17 +1256,14 @@ async function comparePasswords(plainTextPassword: string, hash: string): Promis
 If you've been following the Git process, create an merge a pull request to integrate your stable feature branch with dev. Keep in mind, if this was a real project, this is when you'd want to make sure your system is passing unit and integration tests, and conduct a peer code review.
 
 * Build from Source  
-To create fresh build artifacts to deploy run:
->npm run build  
+To create fresh build artifacts to deploy run: ```npm run build```  
 
 If you recall, this will create a new artifact to run on the cloud server at www/Archive.zip.
 
 * Deploy to the Cloud  
-Once built, you can deploy changes to the elastic beanstalk instance by running:
->eb deploy
----
-
+Once built, you can deploy changes to the elastic beanstalk instance by running: ```eb deploy```  
 This will upload the new code and restart the running instances!
+---
 
 
 
