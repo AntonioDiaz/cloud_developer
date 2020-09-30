@@ -9,93 +9,96 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
 
 - [Intro](#intro)
 - [Cloud Fundamentals](#cloud-fundamentals)
-  - [Cloud Computing](#cloud-computing)
-  - [Foundational & Compute Service](#foundational--compute-service)
-    - [EC2: Elastic Cloud Compute](#ec2-elastic-cloud-compute)
-    - [EBS: Elastic Block Store](#ebs-elastic-block-store)
-    - [VPC: Virtual Private Cloud](#vpc-virtual-private-cloud)
-    - [Lab - Launch an EC2 instance](#lab---launch-an-ec2-instance)
-    - [Lambda](#lambda)
-    - [Lab: Lambda](#lab-lambda)
-    - [Elastic Beanstalk](#elastic-beanstalk)
-  - [Storage & Content Delivery](#storage--content-delivery)
-    - [S3 & S3 Glacier](#s3--s3-glacier)
-    - [DynamoDB](#dynamodb)
-    - [Relational Database Service RDS](#relational-database-service-rds)
-    - [Redshift](#redshift)
-    - [Lab: RDS](#lab-rds)
-    - [Content Delivery In The Cloud](#content-delivery-in-the-cloud)
-    - [Cloud Front](#cloud-front)
-    - [Lab: S3 & CloudFront](#lab-s3--cloudfront)
-  - [Security](#security)
-    - [AWS Shield](#aws-shield)
-    - [AWS WAF](#aws-waf)
-    - [Identity & Access Management](#identity--access-management)
-  - [Networking & Elasticity](#networking--elasticity)
-    - [Route 53](#route-53)
-    - [Elasticity in the Cloud](#elasticity-in-the-cloud)
-    - [EC2 Auto Scaling](#ec2-auto-scaling)
-    - [Elastic Load Balancing](#elastic-load-balancing)
-    - [Lab - EC2 Auto Scaling](#lab---ec2-auto-scaling)
-  - [Messaging & Containers](#messaging--containers)
-    - [Simple Notification Service SNS](#simple-notification-service-sns)
-    - [Queues](#queues)
-    - [Simple Queue Service SQS](#simple-queue-service-sqs)
-    - [Lab: SNS](#lab-sns)
-    - [Containers in the Cloud](#containers-in-the-cloud)
-    - [Elastic Container Service ECS](#elastic-container-service-ecs)
-  - [AWS Managment](#aws-managment)
-    - [Logging In The Cloud](#logging-in-the-cloud)
-    - [Cloud Trail](#cloud-trail)
-    - [Cloud Watch](#cloud-watch)
-    - [Lab: Cloud Watch](#lab-cloud-watch)
-    - [Infrastructure as Code](#infrastructure-as-code)
-    - [Cloud Formation](#cloud-formation)
-    - [Lab: Cloud Formation](#lab-cloud-formation)
-    - [AWS Command Line Interface CLI](#aws-command-line-interface-cli)
-  - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
-    - [Cloud Fundamentals Project](#cloud-fundamentals-project)
-    - [Steps](#steps)
+    - [Cloud Computing](#cloud-computing)
+    - [Foundational & Compute Service](#foundational--compute-service)
+        - [EC2: Elastic Cloud Compute](#ec2-elastic-cloud-compute)
+        - [EBS: Elastic Block Store](#ebs-elastic-block-store)
+        - [VPC: Virtual Private Cloud](#vpc-virtual-private-cloud)
+        - [Lab - Launch an EC2 instance](#lab---launch-an-ec2-instance)
+        - [Lambda](#lambda)
+        - [Lab: Lambda](#lab-lambda)
+        - [Elastic Beanstalk](#elastic-beanstalk)
+    - [Storage & Content Delivery](#storage--content-delivery)
+        - [S3 & S3 Glacier](#s3--s3-glacier)
+        - [DynamoDB](#dynamodb)
+        - [Relational Database Service RDS](#relational-database-service-rds)
+        - [Redshift](#redshift)
+        - [Lab: RDS](#lab-rds)
+        - [Content Delivery In The Cloud](#content-delivery-in-the-cloud)
+        - [Cloud Front](#cloud-front)
+        - [Lab: S3 & CloudFront](#lab-s3--cloudfront)
+    - [Security](#security)
+        - [AWS Shield](#aws-shield)
+        - [AWS WAF](#aws-waf)
+        - [Identity & Access Management](#identity--access-management)
+    - [Networking & Elasticity](#networking--elasticity)
+        - [Route 53](#route-53)
+        - [Elasticity in the Cloud](#elasticity-in-the-cloud)
+        - [EC2 Auto Scaling](#ec2-auto-scaling)
+        - [Elastic Load Balancing](#elastic-load-balancing)
+        - [Lab - EC2 Auto Scaling](#lab---ec2-auto-scaling)
+    - [Messaging & Containers](#messaging--containers)
+        - [Simple Notification Service SNS](#simple-notification-service-sns)
+        - [Queues](#queues)
+        - [Simple Queue Service SQS](#simple-queue-service-sqs)
+        - [Lab: SNS](#lab-sns)
+        - [Containers in the Cloud](#containers-in-the-cloud)
+        - [Elastic Container Service ECS](#elastic-container-service-ecs)
+    - [AWS Managment](#aws-managment)
+        - [Logging In The Cloud](#logging-in-the-cloud)
+        - [Cloud Trail](#cloud-trail)
+        - [Cloud Watch](#cloud-watch)
+        - [Lab: Cloud Watch](#lab-cloud-watch)
+        - [Infrastructure as Code](#infrastructure-as-code)
+        - [Cloud Formation](#cloud-formation)
+        - [Lab: Cloud Formation](#lab-cloud-formation)
+        - [AWS Command Line Interface CLI](#aws-command-line-interface-cli)
+    - [Deploy Static Website on AWS](#deploy-static-website-on-aws)
+        - [Cloud Fundamentals Project](#cloud-fundamentals-project)
+        - [Steps](#steps)
 - [Full Stack Apps on AWS](#full-stack-apps-on-aws)
-  - [Lesson 1: Cloud Basic](#lesson-1-cloud-basic)
-    - [Cloud Basics and Parts of a Cloud](#cloud-basics-and-parts-of-a-cloud)
-    - [Monolithic vs. Loosely Coupled Systems](#monolithic-vs-loosely-coupled-systems)
-    - [Request Response and APIs](#request-response-and-apis)
-  - [Lesson 2: develop](#lesson-2-develop)
-    - [Getting Setup](#getting-setup)
-    - [How to desing an API](#how-to-desing-an-api)
-    - [Standing up a Cloud Capable Server](#standing-up-a-cloud-capable-server)
-    - [Verification Testing](#verification-testing)
-    - [Using Git Effectively for the Cloud](#using-git-effectively-for-the-cloud)
-  - [Lesson 3: storing data in the cloud](#lesson-3-storing-data-in-the-cloud)
-    - [Difficulties ofd Persistent Data](#difficulties-ofd-persistent-data)
-    - [Database Basics](#database-basics)
-    - [Provisioning a Cloud Database](#provisioning-a-cloud-database)
-    - [Filestore Basics](#filestore-basics)
-    - [Creating an S3 Filestore Bucket](#creating-an-s3-filestore-bucket)
-    - [Understanding Secrets](#understanding-secrets)
-  - [Lesson 4: building and deploying](#lesson-4-building-and-deploying)
-    - [Organizing Our Code](#organizing-our-code)
-    - [Intro to Object-Relational Maps ORM](#intro-to-object-relational-maps-orm)
-    - [Connecting our S3 Filestore in Node](#connecting-our-s3-filestore-in-node)
-    - [Handling Secrets with Environment Variables](#handling-secrets-with-environment-variables)
-    - [Permissions for Elastic Beanstalk](#permissions-for-elastic-beanstalk)
-    - [Deploying Our Server to the Cloud](#deploying-our-server-to-the-cloud)
-  - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
-    - [Basic Security and User Auth](#basic-security-and-user-auth)
-    - [Tips to Follow Along](#tips-to-follow-along)
-    - [Implementing Salted Hashed Password](#implementing-salted-hashed-password)
-    - [bcrypt implementation solution](#bcrypt-implementation-solution)
-    - [Storing Passwords on our Clients](#storing-passwords-on-our-clients)
-    - [Implementing JWTs in Node](#implementing-jwts-in-node)
-    - [Deploy Changes](#deploy-changes)
-    - [Closing tips on security](#closing-tips-on-security)
-    - [Lesson Recap](#lesson-recap)
-  - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
-    - [How the Internet Routes: DNS](#how-the-internet-routes-dns)
-    - [Frontend Super Basics](#frontend-super-basics)
-    - [Intro to Content Delivery Networks CDN](#intro-to-content-delivery-networks-cdn)
-  - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
+    - [Lesson 1: Cloud Basic](#lesson-1-cloud-basic)
+        - [Cloud Basics and Parts of a Cloud](#cloud-basics-and-parts-of-a-cloud)
+        - [Monolithic vs. Loosely Coupled Systems](#monolithic-vs-loosely-coupled-systems)
+        - [Request Response and APIs](#request-response-and-apis)
+    - [Lesson 2: develop](#lesson-2-develop)
+        - [Getting Setup](#getting-setup)
+        - [How to desing an API](#how-to-desing-an-api)
+        - [Standing up a Cloud Capable Server](#standing-up-a-cloud-capable-server)
+        - [Verification Testing](#verification-testing)
+        - [Using Git Effectively for the Cloud](#using-git-effectively-for-the-cloud)
+    - [Lesson 3: storing data in the cloud](#lesson-3-storing-data-in-the-cloud)
+        - [Difficulties ofd Persistent Data](#difficulties-ofd-persistent-data)
+        - [Database Basics](#database-basics)
+        - [Provisioning a Cloud Database](#provisioning-a-cloud-database)
+        - [Filestore Basics](#filestore-basics)
+        - [Creating an S3 Filestore Bucket](#creating-an-s3-filestore-bucket)
+        - [Understanding Secrets](#understanding-secrets)
+    - [Lesson 4: building and deploying](#lesson-4-building-and-deploying)
+        - [Organizing Our Code](#organizing-our-code)
+        - [Intro to Object-Relational Maps ORM](#intro-to-object-relational-maps-orm)
+        - [Connecting our S3 Filestore in Node](#connecting-our-s3-filestore-in-node)
+        - [Handling Secrets with Environment Variables](#handling-secrets-with-environment-variables)
+        - [Permissions for Elastic Beanstalk](#permissions-for-elastic-beanstalk)
+        - [Deploying Our Server to the Cloud](#deploying-our-server-to-the-cloud)
+    - [Lesson 5: user authentication and security](#lesson-5-user-authentication-and-security)
+        - [Basic Security and User Auth](#basic-security-and-user-auth)
+        - [Tips to Follow Along](#tips-to-follow-along)
+        - [Implementing Salted Hashed Password](#implementing-salted-hashed-password)
+        - [bcrypt implementation solution](#bcrypt-implementation-solution)
+        - [Storing Passwords on our Clients](#storing-passwords-on-our-clients)
+        - [Implementing JWTs in Node](#implementing-jwts-in-node)
+        - [Deploy Changes](#deploy-changes)
+        - [Closing tips on security](#closing-tips-on-security)
+        - [Lesson Recap](#lesson-recap)
+    - [Lesson 6: scaling and fixing](#lesson-6-scaling-and-fixing)
+        - [How the Internet Routes: DNS](#how-the-internet-routes-dns)
+        - [Frontend Super Basics](#frontend-super-basics)
+        - [Intro to Content Delivery Networks CDN](#intro-to-content-delivery-networks-cdn)
+        - [Scaling Our System to Handle More Users](#scaling-our-system-to-handle-more-users)
+        - [Monitoring, Testing, and Debugging After Deployment](#monitoring-testing-and-debugging-after-deployment)
+        - [Project Overview](#project-overview)
+    - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
@@ -1334,7 +1337,68 @@ This is beyond the scope of required work for this course, but it is a good skil
 * Command:  
 ``` ionic build ```  
 ``` ionic build --prod```
+---
+#### Scaling Our System to Handle More Users
+* Scaling Up  
+Making your instance more powerful - more ram, better CPU, blazing fast GPU!
+* Scaling Out  
+Adding more server instances and splitting the responsibility.  
 
+  <img src="docs/02_full_stack_aws/aws_scalling_out.png" width="500" alt="">  
+
+* AWS Autoscaling Group Autoscaling Triggers  
+AWS offers a detailed article on all of the options to scale your elastic beanstalk deployments: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-autoscaling-triggers.html
+* Bottlenecks - Scaling the Whole System  
+
+* AWS RDS Autoscaling Configuration  
+AWS offers a great resource describing scaling of RDS: https://aws.amazon.com/blogs/database/scaling-your-amazon-rds-instance-vertically-and-horizontally/
+
+* Note: AWS uses Vertical Scaling to refer to Scaling Up and Horizontal Scaling to refer to scaling out.
+
+#### Monitoring, Testing, and Debugging After Deployment
+* Automatic Bug Reporting  
+We discuss [Sentry](https://sentry.io/) to automatically catch errors and provide a stack trace to developers so we can quickly find and fix bugs!
+
+    <img src="docs/02_full_stack_aws/aws_errors.png" width="500" alt="">  
+
+* Testing Concurrency  
+As a cloud developer, you'll often want to test how your cloud will react and perform under high load.  
+__Siege__ is a lightweight CLI tool to create a large number of concurrent requests to simulate this kind of situation.  
+It's strongly encouraged to read the manual and, if you're up for it, try issuing some siege tests on your local development RestAPI server.
+* WARNING! Amazon Web Services isn't really "cool" with load testing or other forms of aggressive testing like penetration testing on their platform.  
+Be cautious before running these kinds of tests on AWS infrastructure to prevent your local IP from being blocked or your services being suspended. 
+
+* Monitoring the State of the System
+  * We'll introduce:
+    * CloudFlare for improved DNS with monitoring and failover capabilities.
+    * DataDog for stack performance and health status.
+  * AWS also has native tools to help monitor performance called CloudWatch.
+
+---
+#### Project Overview
+* Starter Code  
+The project starter code can be found here: [Image Filter Starter Code](https://github.com/udacity/cloud-developer/tree/master/course-02/project/image-filter-starter-code)
+
+* Getting Started
+  1. Setup Node Environment  
+    You'll need to create a new node server.  
+    Open a new terminal within the project directory and run:
+      * Initialize a new project: ```npm i```
+      * run the development server with ```npm run dev```
+  2. Create a new endpoint in the ```server.ts``` file  
+      * The starter code has a task for you to complete an endpoint in ```./src/server.ts``` which uses query parameter to download an image from a public URL, filter the image, and return the result.  
+      * We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the ```./src/server.ts``` file.  
+      ```import {filterImageFromURL, deleteLocalFiles} from './util/util';```
+  3. Deploying your system  
+    Follow the process described in the course to ```eb init``` a new application and ```eb create``` a new environment to deploy your image-filter service!  
+    Don't forget you can use ```eb deploy``` to push changes.
+
+  4. Submit your project, the project submission should include:
+      * a Git repository
+      * a screenshot of the elastic beanstalk application dashboard after deployement
+      * a link to the endpoint URL for a running elastic beanstalk deployment either in the Project README or in the project submission notes.
+
+Before submitting, check if you have completed all criteria in the project [rubric](https://review.udacity.com/#!/rubrics/2555/view).
 
 ---
 ### Project: udagram, your own instagram on AWS
