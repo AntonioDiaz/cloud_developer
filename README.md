@@ -98,8 +98,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Scaling Our System to Handle More Users](#scaling-our-system-to-handle-more-users)
         - [Monitoring, Testing, and Debugging After Deployment](#monitoring-testing-and-debugging-after-deployment)
         - [Project Overview](#project-overview)
-    - [Project: udagram, your own instagram on AWS](#project-udagram-your-own-instagram-on-aws)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
+    - [Introduction to Microservices](#introduction-to-microservices)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
 
@@ -1406,13 +1406,8 @@ The project starter code can be found here: [Image Filter Starter Code](https://
 Before submitting, check if you have completed all criteria in the project [rubric](https://review.udacity.com/#!/rubrics/2555/view).
 
 ---
-### Project: udagram, your own instagram on AWS
-
-
-
-
-
 ## Monolith to Microservices at Scale
+### Introduction to Microservices
 
 ## Develop & Deploy Serverless App
 
