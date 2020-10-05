@@ -100,6 +100,17 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Project Overview](#project-overview)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
     - [Introduction to Microservices](#introduction-to-microservices)
+        - [Business Value](#business-value)
+        - [When Not to Use Microservices](#when-not-to-use-microservices)
+        - [Software Delivery History](#software-delivery-history)
+        - [Course Outline](#course-outline)
+        - [Tools](#tools)
+    - [Microservices Design Principles and Best Practices](#microservices-design-principles-and-best-practices)
+    - [Containers Using Docker](#containers-using-docker)
+    - [Authomating the Application Development Lifecycle](#authomating-the-application-development-lifecycle)
+    - [Orchestration with Kubernates](#orchestration-with-kubernates)
+    - [Best Practices/Design Patterns for Kubernetes in Production](#best-practicesdesign-patterns-for-kubernetes-in-production)
+    - [Refactor Monolith to Microservices and Deploy](#refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
 
@@ -1408,6 +1419,103 @@ Before submitting, check if you have completed all criteria in the project [rubr
 ---
 ## Monolith to Microservices at Scale
 ### Introduction to Microservices
+* Deploying Code is Not Easy  
+Deploying changes in code is non-trivial. We have to consider the impact of potential bugs, downtime, ease of deployment, and downstream effects to consumers of the application.
+
+#### Business Value
+<img src="docs/03_microservices/ms_benefits.jpg" width="500" alt="">  
+
+* Business Requirements Drive Teams  
+Teams can be organized around business needs and have a clearer focus on customer requirements. There is clear ownership on who owns what.
+
+* Teams Can Work in Parallel  
+Since projects are deployed independently, teams can develop and deploy code without stepping on each others' toes.
+
+* Flexibility in Technology  
+We are not limited to a certain technology and can choose what may work best for the business need or team.
+
+#### When Not to Use Microservices
+* Monoliths Are Not Bad!
+  * Microservices designs are another architectural pattern and are not intended to replace monolith applications. We should not blindly build applications as microservices without understanding the tradeoffs. Doing so could actually decrease productivity!
+  * One way to think about this is to revisit our analogy with the Sports Superstore. Does it make sense for every aspiring small business owner to open and manage multiple stores at once?
+* Considerations for Not Using Microservices
+  * System Complexity  
+    Rather than deploying a single application, we would be deploying multiple modules separately. There is more overhead in setting up projects.
+  * Network Latency  
+    By introducing a network between modules, we have increased latency in application performance and will find it harder to debug our application.
+  * Difficulty with Debugging  
+    We can no longer rely on a stack trace or tools that can help us pinpoint where a bug is. We may end up relying on logging to find causes of issues.
+
+#### Software Delivery History
+* Release Cycles  
+Software was often released a few times a year with large deployments. Now, containers and deployment strategies have made it possible to deploy multiple times a day with no downtime.  
+<img src="docs/03_microservices/ms_releases.png" width="500" alt="">  
+
+* Team Structure  
+Teams were organized around technologies rather than business requirements.  
+Teams may have previously consisted of separate teams for Quality Assurance, Database Administrators, and Designers. Now, we may have multi-skilled teams grouped together where all of these roles can be found in a single team.  
+  <img src="docs/03_microservices/ms_teams.png" width="500" alt="">  
+
+* Hardware  
+Software was deployed to expensive mainframe computers located in data centers. Now, commodity hardware is powerful enough to run our applications. Distributed computing can help us perform large-scale data processing without the need to purchase dedicated, expensive hardware.  
+<img src="docs/03_microservices/ms_hardware.png" width="500" alt="">  
+
+#### Course Outline
+
+<img src="docs/03_microservices/ms_course.png" width="500" alt="">  
+
+* Microservices Design Principles and Best Practices
+  * Explain different microservices architecture designs
+  * Divide an application into microservices
+* Containers using Docker
+  * Build and run a container image using Docker
+  * Debug a container
+  * Store these images using a container registry
+* Independent Releases and Deployments
+  * Understand CI/CD benefits
+  * Use Travis to build a CI/CD pipeline
+  * Integrate GitHub and CI/CD and automate testing with CI
+  * Understand alternatives to Travis CI including Jenkins
+* Service Orchestration with Kubernetes
+  * Understand the fundamentals of Kubernetes
+  * Configure and launch an auto-scaling, self-healing Kubernetes cluster
+  * Deploy microservices using a Kubernetes cluster
+  * Understand alternative deployment strategies including ECS and Fargate
+* Securing and Tuning Kubernetes Services for Production
+  * Use a reverse proxy to direct requests to the appropriate backend
+  * Securing the microservices
+  * Configure scaling and self-healing for each service
+  * Understand the differences between internal and external traffic
+* Debugging, Monitoring, and Logging
+  * Use best practices for logging with microservices
+  * Use logs to capture metrics for debugging
+  * Implement monitoring and logging for microservices deployment
+  * Improve resilience and availability into cloud applications
+
+#### Tools
+__Tools We Will Be Using__  
+Please create an account for each of these services:
+* [AWS](https://aws.amazon.com/)
+* [Travis CI](https://travis-ci.com/)
+* [GitHub]()
+* [DockerHub](https://hub.docker.com/)
+
+__Software Requirements__
+Please install these so you can run them on the command line:
+* [npm](https://www.npmjs.com/get-npm)
+* [Docker](https://docs.docker.com/get-docker/)
+* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+### Microservices Design Principles and Best Practices
+
+### Containers Using Docker
+
+### Authomating the Application Development Lifecycle
+
+### Orchestration with Kubernates
+
+### Best Practices/Design Patterns for Kubernetes in Production
+### Refactor Monolith to Microservices and Deploy
 
 ## Develop & Deploy Serverless App
 
