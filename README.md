@@ -106,6 +106,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Course Outline](#course-outline)
         - [Tools](#tools)
     - [Microservices Design Principles and Best Practices](#microservices-design-principles-and-best-practices)
+        - [Monolith vs Microservices](#monolith-vs-microservices)
     - [Containers Using Docker](#containers-using-docker)
     - [Authomating the Application Development Lifecycle](#authomating-the-application-development-lifecycle)
     - [Orchestration with Kubernates](#orchestration-with-kubernates)
@@ -1507,6 +1508,23 @@ Please install these so you can run them on the command line:
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Microservices Design Principles and Best Practices
+#### Monolith vs Microservices
+<img src="docs/03_microservices/ms_monolith_vs_microservices.png" width="500" alt="">  
+<img src="docs/03_microservices/ms_tradeoffs.png" width="500" alt="">  
+
+* Microservices are an architectural style where an application is composed of modules that can be independently developed and deployed.
+* In monoliths, all the components of the application are built into a single application.
+
+__Microservice Benefits__  
+* Scale  
+Lean applications that are able to tailor their logic and infrastructure to their specific business needs. More-easily architected for horizontally-scaling.
+* Development in Parallel  
+Teams can develop and deploy their own codebases.
+* Cost Effectiveness  
+Utilize resources only for what is necessary for the specific microservice.
+* Flexibility  
+Choose technologies that make the most sense for the team and business.
+
 
 ### Containers Using Docker
 
