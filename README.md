@@ -107,6 +107,12 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Tools](#tools)
     - [Microservices Design Principles and Best Practices](#microservices-design-principles-and-best-practices)
         - [Monolith vs Microservices](#monolith-vs-microservices)
+        - [Solution: monolith vs microservices](#solution-monolith-vs-microservices)
+- [<img src="docs/03_microservices/ms_compare_developer.png" width="500" alt="">](#img-srcdocs03_microservicesms_compare_developerpng-width500-alt)
+        - [Microservice Architecture Designs](#microservice-architecture-designs)
+        - [Solution Microservice Architecture](#solution-microservice-architecture)
+- [<img src="docs/03_microservices/ms_monolith.png" width="500" alt="">](#img-srcdocs03_microservicesms_monolithpng-width500-alt)
+        - [Divide a Monolith Application Into Microservices](#divide-a-monolith-application-into-microservices)
     - [Containers Using Docker](#containers-using-docker)
     - [Authomating the Application Development Lifecycle](#authomating-the-application-development-lifecycle)
     - [Orchestration with Kubernates](#orchestration-with-kubernates)
@@ -1525,7 +1531,64 @@ Utilize resources only for what is necessary for the specific microservice.
 * Flexibility  
 Choose technologies that make the most sense for the team and business.
 
+#### Solution: monolith vs microservices
+* Any application that can be built as a monolith can be built as a microservice. 
+* It’s up to you to weigh out the benefits of choosing one over the other.  
+* Oftentimes, microservices are harder to manage and take more investment to initially set up  
 
+<img src="docs/03_microservices/ms_compare_developer.png" width="500" alt="">  
+<img src="docs/03_microservices/ms_compare_teams.png" width="500" alt="">  
+<img src="docs/03_microservices/ms_compare_hobby.png" width="500" alt="">  
+<img src="docs/03_microservices/ms_compare_changes.png" width="500" alt="">  
+<img src="docs/03_microservices/ms_compare_poc.png" width="500" alt="">  
+---
+#### Microservice Architecture Designs
+Technical Properties
+* Communication --> REST
+  * Services communicate through a network
+  * REST is currently the most-commonly used network interface
+* Independently Deployed
+  * Deployment to one service should not affect another
+* Fault Tolerant
+  * Diligence in writing code that can anticipate when another microservice isn’t working
+
+* Alternatives to REST  
+While REST is the most popular form of network communication used for microservices, there are many other protocols that can be used.  
+The following are some other ways microservices can communicate with one another:
+  * Publish-Subscribe
+  * Queues
+  * gRPC
+  * SOAP
+  * GraphQL
+* Other
+The following has some more context on microservices in greater detail.
+More on Microservices: https://martinfowler.com/articles/microservices.html
+---
+
+#### Solution Microservice Architecture  
+<img src="docs/03_microservices/ms_monolith.png" width="500" alt="">  
+<img src="docs/03_microservices/ms_microservices.png" width="500" alt="">  
+---
+
+#### Divide a Monolith Application Into Microservices
+* Map Your Dependencies
+  * It's important to understand the application you're working with before breaking it apart.
+  * One strategy is to map out the modules and their dependencies as a directed graph to understand the downstream impact of your changes.
+* Where to Start?
+  * There’s no hard rule: choose the part of the application that makes the most sense to you.
+  * Dependency graph serves merely as a guideline on risk based on the number of dependencies.
+  * A module with the least dependencies will potentially have the downstream effects meaning less risk.
+* How to Start?
+  * The Strangler pattern is a common and effective way to migrate legacy applications.
+  * Rather than replacing your code with a new version, you can gradually replace components of your application.
+* Shared Code
+  * Code duplication can be abstracted into common libraries used across projects.
+
+* Further Reading  
+We went over some strategies and techniques on a high level. Here are some additional resources if you would like to learn more about these topics.
+  * [The Strangler Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler)
+  * [Dependency Graph](https://en.wikipedia.org/wiki/Dependency_graph)
+---
 ### Containers Using Docker
 
 ### Authomating the Application Development Lifecycle
