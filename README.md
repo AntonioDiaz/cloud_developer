@@ -99,28 +99,33 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Monitoring, Testing, and Debugging After Deployment](#monitoring-testing-and-debugging-after-deployment)
         - [Project Overview](#project-overview)
 - [Monolith to Microservices at Scale](#monolith-to-microservices-at-scale)
-    - [Introduction to Microservices](#introduction-to-microservices)
+    - [Lesson 1: Introduction to Microservices](#lesson-1-introduction-to-microservices)
         - [Business Value](#business-value)
         - [When Not to Use Microservices](#when-not-to-use-microservices)
         - [Software Delivery History](#software-delivery-history)
         - [Course Outline](#course-outline)
         - [Tools](#tools)
-    - [Microservices Design Principles and Best Practices](#microservices-design-principles-and-best-practices)
+    - [Lesson 2: Microservices Design Principles and Best Practices](#lesson-2-microservices-design-principles-and-best-practices)
         - [Monolith vs Microservices](#monolith-vs-microservices)
         - [Solution: monolith vs microservices](#solution-monolith-vs-microservices)
         - [Microservice Architecture Designs](#microservice-architecture-designs)
         - [Solution Microservice Architecture](#solution-microservice-architecture)
         - [Divide a Monolith Application Into Microservices](#divide-a-monolith-application-into-microservices)
-    - [Containers Using Docker](#containers-using-docker)
-    - [Authomating the Application Development Lifecycle](#authomating-the-application-development-lifecycle)
-    - [Orchestration with Kubernates](#orchestration-with-kubernates)
-    - [Best Practices/Design Patterns for Kubernetes in Production](#best-practicesdesign-patterns-for-kubernetes-in-production)
-    - [Refactor Monolith to Microservices and Deploy](#refactor-monolith-to-microservices-and-deploy)
+        - [Exercise: divide into microservices](#exercise-divide-into-microservices)
+        - [Adictonal Considerations](#adictonal-considerations)
+        - [Lesson recap](#lesson-recap)
+    - [Lesson 3: Containers Using Docker](#lesson-3-containers-using-docker)
+        - [Containers Using Docker](#containers-using-docker)
+        - [Introducing Containers](#introducing-containers)
+        - [Docker](#docker)
+    - [Lesson 4: Authomating the Application Development Lifecycle](#lesson-4-authomating-the-application-development-lifecycle)
+    - [Lesson 5: Orchestration with Kubernates](#lesson-5-orchestration-with-kubernates)
+    - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
+    - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
 
 <!-- /TOC -->
-
 
 ## Intro
 
@@ -1423,7 +1428,7 @@ Before submitting, check if you have completed all criteria in the project [rubr
 
 ---
 ## Monolith to Microservices at Scale
-### Introduction to Microservices
+### Lesson 1: Introduction to Microservices
 * Deploying Code is Not Easy  
 Deploying changes in code is non-trivial. We have to consider the impact of potential bugs, downtime, ease of deployment, and downstream effects to consumers of the application.
 
@@ -1511,7 +1516,7 @@ Please install these so you can run them on the command line:
 * [Docker](https://docs.docker.com/get-docker/)
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-### Microservices Design Principles and Best Practices
+### Lesson 2: Microservices Design Principles and Best Practices
 #### Monolith vs Microservices
 <img src="docs/03_microservices/ms_monolith_vs_microservices.png" width="500" alt="">  
 <img src="docs/03_microservices/ms_tradeoffs.png" width="500" alt="">  
@@ -1582,6 +1587,8 @@ More on Microservices: https://martinfowler.com/articles/microservices.html
 * How to Start?
   * The Strangler pattern is a common and effective way to migrate legacy applications.
   * Rather than replacing your code with a new version, you can gradually replace components of your application.
+<img src="docs/03_microservices/ms_strangler_pattern.png" width="500" alt="">  
+
 * Shared Code
   * Code duplication can be abstracted into common libraries used across projects.
 
@@ -1590,14 +1597,83 @@ We went over some strategies and techniques on a high level. Here are some addit
   * [The Strangler Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler)
   * [Dependency Graph](https://en.wikipedia.org/wiki/Dependency_graph)
 ---
-### Containers Using Docker
+#### Exercise: divide into microservices
+* Let's plan for how we can refactor a hypothetical e-commerce monolith application.
 
-### Authomating the Application Development Lifecycle
+* Build a dependency graph of the system below. Then, using the graph and business context, decide what parts of the application would make the most sense to begin refactoring using the ```strangler pattern```.
 
-### Orchestration with Kubernates
+* (Hint: there’s no “correct” answer for the dependency graph -- use your intuition to draw the relationships. In practice, we may have to also read through code to build these out!)  
+* Architecture of hypothetical e-commerce website  
+<img src="docs/03_microservices/ms_ecommerce.jpg" width="500" alt="">  
 
-### Best Practices/Design Patterns for Kubernetes in Production
-### Refactor Monolith to Microservices and Deploy
+* Dependency Graph
+  * Dependency graphs are one way to help us visualize and make an informed decision
+  * We often have to use additional context with regards to business functionality to weigh decisions
+  * Database complexity should also be considered for refactors. Services that seem simple may have complicated refactor strategies with their databases.  
+
+  <img src="docs/03_microservices/ms_dependences.png" width="500" alt="">  
+---
+#### Adictonal Considerations
+* Trade-Offs  
+Designing software is not a binary process. There's rarely a right or wrong answer and it's often a decision of balancing both technical and business tradeoffs.
+* Some trade-offs include
+  * Cost of InfrastructureBut
+  * Time of Development
+  * Managing Technical Debt
+* Scope of Refactor  
+Microservices may not just be refactoring code. We also need to also consider other parts of the system including databases and infrastructure.
+---
+#### Lesson recap
+* Microservice Benefits
+  * Scale
+  * Development in Parallel
+  * Cost Effectiveness
+  * Flexibility
+* Microservice Properties
+  * Communication
+  * Independently Deployed
+  * Fault tolerant
+* Refactor Strategies
+  * Dependency Graph as a starting point to understand downstream effects of modules
+  * Strangler Pattern as an approach to how we gradually refactor our code in pieces
+
+Next Lesson  
+In this lesson, we often mentioned how microservices are deployed independently. In the next lesson, we’ll dive into this in greater detail and learn about the industry standard of deploying our code with a technology named Docker.
+
+---
+### Lesson 3: Containers Using Docker
+#### Containers Using Docker
+* Your Code is Not a Black Box...Yet
+  * Applications often require many packages and dependencies to run properly
+  * It’s common for an application to work on one computer but not another
+* Deployment Headaches
+  * Organizations often have different development environments. These often include development and production.
+  * Deploying and testing the same code across different environments can be cumbersome
+  * In practice, it’s difficult to keep a development and production environment perfectly synchronized with regards to their versions, operating systems, dependencies, etc.
+  * It is common for code to work in a development environment and not behave as expected in production
+* Let’s Learn About Containers!
+  * What containers are
+  * When it is helpful to use them
+  * How to build a container with Docker
+  * How to debug containers
+  * How to use container registries
+  * How to modify containers
+
+---
+#### Introducing Containers
+
+---
+#### Docker
+
+---
+### Lesson 4: Authomating the Application Development Lifecycle
+
+### Lesson 5: Orchestration with Kubernates
+
+### Lesson 6: Best Practices/Design Patterns for Kubernetes in Production
+
+### Project: Refactor Monolith to Microservices and Deploy
+
 
 ## Develop & Deploy Serverless App
 
