@@ -108,10 +108,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Microservices Design Principles and Best Practices](#microservices-design-principles-and-best-practices)
         - [Monolith vs Microservices](#monolith-vs-microservices)
         - [Solution: monolith vs microservices](#solution-monolith-vs-microservices)
-- [<img src="docs/03_microservices/ms_compare_developer.png" width="500" alt="">](#img-srcdocs03_microservicesms_compare_developerpng-width500-alt)
         - [Microservice Architecture Designs](#microservice-architecture-designs)
         - [Solution Microservice Architecture](#solution-microservice-architecture)
-- [<img src="docs/03_microservices/ms_monolith.png" width="500" alt="">](#img-srcdocs03_microservicesms_monolithpng-width500-alt)
         - [Divide a Monolith Application Into Microservices](#divide-a-monolith-application-into-microservices)
     - [Containers Using Docker](#containers-using-docker)
     - [Authomating the Application Development Lifecycle](#authomating-the-application-development-lifecycle)
@@ -1541,6 +1539,7 @@ Choose technologies that make the most sense for the team and business.
 <img src="docs/03_microservices/ms_compare_hobby.png" width="500" alt="">  
 <img src="docs/03_microservices/ms_compare_changes.png" width="500" alt="">  
 <img src="docs/03_microservices/ms_compare_poc.png" width="500" alt="">  
+
 ---
 #### Microservice Architecture Designs
 Technical Properties
@@ -1563,11 +1562,13 @@ The following are some other ways microservices can communicate with one another
 * Other
 The following has some more context on microservices in greater detail.
 More on Microservices: https://martinfowler.com/articles/microservices.html
+
 ---
 
 #### Solution Microservice Architecture  
 <img src="docs/03_microservices/ms_monolith.png" width="500" alt="">  
 <img src="docs/03_microservices/ms_microservices.png" width="500" alt="">  
+
 ---
 
 #### Divide a Monolith Application Into Microservices
