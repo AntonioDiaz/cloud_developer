@@ -117,7 +117,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 3: Containers Using Docker](#lesson-3-containers-using-docker)
         - [Containers Using Docker](#containers-using-docker)
         - [Introducing Containers](#introducing-containers)
-        - [Docker](#docker)
+        - [Containers Using Docker](#containers-using-docker)
+        - [Debugging Containers](#debugging-containers)
     - [Lesson 4: Authomating the Application Development Lifecycle](#lesson-4-authomating-the-application-development-lifecycle)
     - [Lesson 5: Orchestration with Kubernates](#lesson-5-orchestration-with-kubernates)
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
@@ -1661,9 +1662,107 @@ In this lesson, we often mentioned how microservices are deployed independently.
 
 ---
 #### Introducing Containers
+* Your Code is Now Kind of a Black Box
+  * Containers are self-contained applications with all the dependencies needed to run
+  * Containers can be treated as one unit of deployment
+  * Rolling back code with containers is simply re-deploying an older snapshot
+* Why Kind of?
+  * Containers make things easier but don’t magically make deployment problems disappear
+  * Code may still work in one environment and fail in another, though now we have an understanding of what might have failed
+* Containers are Ephemeral
+  * Containers should be stateless and are expected to be destroyed.
+* Containers Help Manage Dependencies  
+  * Each container can be running its own versioned software. We resolve the issue where different applications may have different dependencies.
+* Simplify Deployment
+  * Containers are self-contained so deployment is simply swapping out an existing container with a new one.
+
+#### Containers Using Docker  
+<img src="docs/03_microservices/ms_docker.png" width="500" alt="">  
+
+* Overview  
+Docker is a platform that helps us manage the process of creating and managing our containers.
+* Docker Image  
+When we have an application that we want to deploy, we can package it into a Docker Image. The image contains all of your code and dependencies.
+
+* Docker Container  
+A Docker Container is an ephemeral running instance of a Docker Image.
+
+* Sample Dockerfile
+```  
+# Use NodeJS base image
+FROM node:13
+
+# Create app directory in Docker
+WORKDIR /usr/src/app
+
+# Install app dependencies by copying
+# package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies in Docker
+RUN npm install
+
+# Copy app from local environment into the Docker image
+COPY . .
+
+# Set the API’s port number
+EXPOSE 8080
+
+# Define Docker’s behavior when the image is run
+CMD ["node", "server.js"]
+```
+
+* Docker basic commands:  
+
+|         |            | 
+| ------------- |:-------------| 
+| ```docker build -t simple-node .```| will run the Dockerfile to create an image | 
+| ```docker images ```| will print all the available images | 
+| ```docker run <IMAGE_ID> ```   | will run a container with the image | 
+| ```docker ps ```  | will print all the running containers | 
+| ```docker kill <CONTAINER_ID>``` | will terminate the container | 
+<br>  
+
+* Key Terms - Docker
+
+|         |            | 
+| ------------- |:-------------| 
+|```Base Image```|A set of common dependencies built into a Docker image that acts as a starting point to build an application’s Docker images to reduce build times|
+|```Container```|Grouped software dependencies and packages that make it easier and more reliable to deploy software|
+|```Container Registry```|A centralized place to store container images| 
+|```Docker-compose```|A tool used to run multiple Docker containers at once; often used to specify dependent relationships between containers|
+|```Dockerfile```|A file containing instructions on how to translate an application into an image that can be run in containers|
+|```Ephemeral```|Software property where an application is expected to be short-lived|
+|```Image```|A snapshot of dependencies and code used by Docker containers to run an application|
+<br>  
+
+* Further Optional Research on Docker  
+Dockerfiles are very open-ended and can become very messy very quickly. The following is an article on some best practices for writing Dockerfiles:  
+[Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ---
-#### Docker
+#### Debugging Containers
+* Development  
+Troubleshooting Docker Containers is different as we lose access to some of our development tools.
+
+* Viewing Logs  
+``` docker logs ```
+* Attaching to a Container  
+``` docker exec -it sh ```
+* View Docker Processes  
+```docker ps```
+* View Details of Docker Objects  
+```docker inspect```
+* New Term  
+__System Process__:	a computer program run by the operating system
+* Further Research  
+We’ve gone over some Docker commands and how to use them to build images and run containers.  
+The following are some documentation on the commands for further understanding of other ways they can be useful.
+  * More help: https://docs.docker.com/engine/reference/commandline/
+  * docker logs  
+  * docker exec  
+  * docker ps  
+  * docker inspect
 
 ---
 ### Lesson 4: Authomating the Application Development Lifecycle
