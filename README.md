@@ -119,6 +119,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Introducing Containers](#introducing-containers)
         - [Containers Using Docker](#containers-using-docker)
         - [Debugging Containers](#debugging-containers)
+        - [Exercise: Debugging](#exercise-debugging)
+        - [Container Registries](#container-registries)
     - [Lesson 4: Authomating the Application Development Lifecycle](#lesson-4-authomating-the-application-development-lifecycle)
     - [Lesson 5: Orchestration with Kubernates](#lesson-5-orchestration-with-kubernates)
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
@@ -1763,6 +1765,48 @@ The following are some documentation on the commands for further understanding o
   * docker exec  
   * docker ps  
   * docker inspect
+---
+#### Exercise: Debugging
+* Let’s debug an application in a container.   
+A Docker image has been prepared that has an error during runtime. Using some of the commands we learned earlier, diagnose the cause of the issue.
+* Key Commands  
+  * ```docker pull isjustintime/debug-me:latest```  
+Downloads a container onto your development environment.
+  * ```docker run -d isjustintime/debug-me```  
+Runs the image in a container as a background task so the container doesn’t prevent us from being able to run other commands in our terminal
+
+* Solution  
+docker images  
+docker run -d xxxxx  
+docker ps  
+docker inspect xxxxx  
+docker exec -it xxxxx sh -> go inside the container
+```
+# pwd 
+# ps aux
+# exit
+```
+docker logs xxxxx  
+
+---
+
+#### Container Registries
+<img src="docs/03_microservices/ms_docker_registry.png" width="500" alt="">  
+<img src="docs/03_microservices/ms_docker_workflow.png" width="500" alt="">  
+
+* Register image on https://docs.docker.com/registry/  
+* Asociate the image with the container registered:  
+``` docker tag simple-node adiazarroyo/testingnode ```
+* Login at docker:  
+```docker login --username=adiazarroyo```
+* Push image to registry:  
+```docker push adiazarroyo/testingnode```
+* Pull image to registry:  
+```docker pull adiazarroyo/testingnode:latest```
+* Additional Reading  
+Here are some more reading materials that you can reference for improving how Docker is used in a production system.
+  * [Docker Registry](https://docs.docker.com/registry/)
+  * [Best practices for speeding up builds](https://cloud.google.com/cloud-build/docs/speeding-up-builds)
 
 ---
 ### Lesson 4: Authomating the Application Development Lifecycle
