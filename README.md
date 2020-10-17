@@ -126,6 +126,10 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 4: Authomating the Application Development Lifecycle](#lesson-4-authomating-the-application-development-lifecycle)
         - [Deploying Code](#deploying-code)
         - [CI/CD Benefits](#cicd-benefits)
+        - [Travis CI](#travis-ci)
+        - [Using Environment Variables with Travis](#using-environment-variables-with-travis)
+        - [Exercise: Environment Variables and Travis](#exercise-environment-variables-and-travis)
+        - [Travis alternatives](#travis-alternatives)
     - [Lesson 5: Orchestration with Kubernates](#lesson-5-orchestration-with-kubernates)
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
@@ -1886,8 +1890,73 @@ The following information is available for further reading on key ideas for depl
   * Backing up the code is not always a comprehensive backup of the existing state since we may have other dependencies such as databases
   * Packages and dependencies may have to be downgraded and would introduce downtime
 ----
+#### Travis CI
 
+* Travis is a tool that helps us with the CI process
+* Travis integrates with your application using a YAML file
+* YAML files are often used to specify configurations.
+* Travis can be used to build and push images to DockerHub  
 
+__Travis File__  
+* The Travis file is always named ```.travis.yaml``` and stored in the top-level of your git directory.  
+* This is detected by Travis CI and turned into a ```build pipeline```
+* Example: 
+```yaml
+language: node_js
+node_js:
+  - 13
+
+services:
+  - docker
+
+# Pre-testing installs
+install:
+  - echo "nothing needs to be installed"
+
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
+  - docker build -t simple-node .
+  - docker tag simple-node YOUR_DOCKER_HUB/simple-node:latest
+
+# Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push YOUR_DOCKER_HUB/simple-node
+```
+* Additional Reading  
+https://docs.travis-ci.com/user/for-beginners/
+---
+#### Using Environment Variables with Travis
+* Environment variables are a useful way to handle variables that shouldn’t be hard-coded into our application. 
+* These values are often credentials that shouldn’t be stored in the code.
+
+<img src="docs/03_microservices/ms_travis_env_variables.png" width="500" alt="">  
+
+* Aditional reading:   
+[Best Practices in Securing Your Data](https://docs.travis-ci.com/user/best-practices-security/)
+---
+#### Exercise: Environment Variables and Travis
+* Environment Variables in NodeJS Review
+  * We can set environment variables locally using the command:  
+  ```export VARIABLE_NAME=VALUE```
+  * For NodeJS to pick up the environment variable to be used, we use ```process.env```.
+  * To illustrate, if we set an environment variable with ```export FAVORITE_FOOD=pizza```, we can programmatically reference the value in NodeJS as follows:
+```js
+const favoriteFood = process.env.FAVORITE_FOOD;
+console.log(`My favorite food is ${favoriteFood}`);
+```
+---
+#### Travis alternatives
+<img src="docs/03_microservices/ms_travis_alternatives.png" width="500" alt="">  
+
+* Jenkins - most flexible but more overhead of setup
+* CircleCI - alternative to Travis CI with many competing features
+* AWS CodeBuild - integrates easily with other AWS tools
+---
 ### Lesson 5: Orchestration with Kubernates
 
 ### Lesson 6: Best Practices/Design Patterns for Kubernetes in Production
