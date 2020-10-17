@@ -121,7 +121,11 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Debugging Containers](#debugging-containers)
         - [Exercise: Debugging](#exercise-debugging)
         - [Container Registries](#container-registries)
+        - [Modifying Containers](#modifying-containers)
+        - [Glossary](#glossary)
     - [Lesson 4: Authomating the Application Development Lifecycle](#lesson-4-authomating-the-application-development-lifecycle)
+        - [Deploying Code](#deploying-code)
+        - [CI/CD Benefits](#cicd-benefits)
     - [Lesson 5: Orchestration with Kubernates](#lesson-5-orchestration-with-kubernates)
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
@@ -1808,8 +1812,69 @@ Here are some more reading materials that you can reference for improving how Do
   * [Docker Registry](https://docs.docker.com/registry/)
   * [Best practices for speeding up builds](https://cloud.google.com/cloud-build/docs/speeding-up-builds)
 
+#### Modifying Containers
+* Docker images should be considered a single unit of deployment. 
+* You shouldn't be editing code or making changes to the system at all in a container. 
+* If something is broken, you build a new image and deploy that to a new container.
+---
+#### Glossary
+|         |            | 
+| ------------- |:-------------| 
+|Base Image |A set of common dependencies built into a Docker image that acts as a starting point to build an application’s Docker images to reduce build times|
+|Container	| Grouped software dependencies and packages that make it easier and more reliable to deploy software|
+|Container Registry	| A centralized place to store container images|
+|Docker-compose	| A tool used to run multiple Docker containers at once; often used to specify dependent relationships between containers|
+|Dockerfile	| A file containing instructions on how to translate an application into an image that can be run in containers|
+|Ephemeral	| Software property where an application is expected to be short-lived|
+|Image	|A snapshot of dependencies and code used by Docker containers to run an application|
+
 ---
 ### Lesson 4: Authomating the Application Development Lifecycle
+* We'll be going over how to streamline the process in how our code gets built and deployed.
+
+We’ll review:
+
+Why we use deployment pipelines
+Best practices for deploying code
+Understanding CI/CD
+Using Travis as a CI tool integrated with GitHub and DockerHub
+
+* Deployment Pipelines  
+  * A deployment pipeline may contain stages for committing, building, testing, and deploying code  
+<img src="docs/03_microservices/ms_pipeline.png" width="500" alt="">  
+
+* We now have industry standards and tools for how we can deploy our code.
+Docker containers simplify what we deploy.
+* Deployment pipelines simplify how we deploy Docker containers.
+* Code is often deployed multiple times to different environments to validate functionality and minimize bugs.
+* Deployment pipelines enable us to have an automated process that is reliable and reproducible.
+
+#### Deploying Code
+* Code After Coding  
+Once your code is done, how do you ship it? Typically, the software development cycle will proceed with building the code, installing all of the dependencies, running automated tests, manually testing, and then repeating for each development environment the application needs to be deployed to.
+
+* It’s a common fallacy to underestimate the time it takes to deploy code
+* Teams deploying enterprise software often involves many internal and external dependencies that may include: infrastructure changes, security changes, permissions provisioning, load testing
+
+#### CI/CD Benefits  
+* CI/CD enables us to have a streamlined process for how our code transforms from being written to being deployed to production.
+
+<img src="docs/03_microservices/ms_cicd_benefits.png" width="500" alt="">  
+
+<img src="docs/03_microservices/ms_cicd_docker.png" width="500" alt="">  
+
+* Continuous Integration  
+Process in which code is tested, built into a Docker image, and deployed to a container registry.
+
+* Continuous Deployment  
+Process in which our Docker image is deployed to containers.
+
+* Additional Benefits  
+By streamlining our build and deploy to an automated process, developers are provided the least privilege that they need to write their code.
+
+* Additional Reading
+The following information is available for further reading on key ideas for deploying code.  
+[Ship Early and Often](https://blog.ycombinator.com/tips-ship-early-and-often/)
 
 ### Lesson 5: Orchestration with Kubernates
 
