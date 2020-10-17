@@ -1876,6 +1876,18 @@ By streamlining our build and deploy to an automated process, developers are pro
 The following information is available for further reading on key ideas for deploying code.  
 [Ship Early and Often](https://blog.ycombinator.com/tips-ship-early-and-often/)
 
+* By using a CI/CD pipeline, we reduce the risk of failed deployments from user error.  
+* All of these steps can become automated. 
+* If there is an issue with the deployed code, a user can revert the changes with an older container rather than backtracking by using older code and downgrading packages and dependencies.
+
+* __Benefits of CI/CD__
+  * Reduce risk of failed deployments
+  * Connecting to a production environment is a security risk
+  * Backing up the code is not always a comprehensive backup of the existing state since we may have other dependencies such as databases
+  * Packages and dependencies may have to be downgraded and would introduce downtime
+----
+
+
 ### Lesson 5: Orchestration with Kubernates
 
 ### Lesson 6: Best Practices/Design Patterns for Kubernetes in Production
