@@ -131,6 +131,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Exercise: Environment Variables and Travis](#exercise-environment-variables-and-travis)
         - [Travis alternatives](#travis-alternatives)
     - [Lesson 5: Orchestration with Kubernates](#lesson-5-orchestration-with-kubernates)
+        - [Fundamentals of Kubernetes](#fundamentals-of-kubernetes)
+        - [Kubernetes on AWS](#kubernetes-on-aws)
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
@@ -1958,6 +1960,106 @@ console.log(`My favorite food is ${favoriteFood}`);
 * AWS CodeBuild - integrates easily with other AWS tools
 ---
 ### Lesson 5: Orchestration with Kubernates
+* Orchestration is the automated management of the lifecycle of our application  
+  * With CI/CD, if Travis is our CI tool, then Kubernetes is our CD tool
+  * Orchestration helps us handle complicated workflows in deploying our application
+  * Helps us automate our deployment process for continuous deployment
+
+#### Fundamentals of Kubernetes
+* Kubernetes
+  * A container orchestration system packed with features for automating our application’s deployment
+  * Enables us to easily scale our application and ship new code
+* Pods
+  * Containers often need to communicate with one another. It's not uncommon to see a deployment involving a few containers to be deployed.
+  * Kubernetes pods are abstractions of multiple containers and are also ephemeral.
+* Services
+  * Applications are often deployed with multiple ```replicas```. This helps with ```load balancing``` and ```horizontal scaling```.
+  * Services are an abstraction of a set of pods to expose them through a network.
+
+* A service is an abstraction of pods and pods are abstractions of containers
+<img src="docs/03_microservices/ms_k8s_pods.png" width="500" alt="">  
+
+* New terms:
+  * ```Horizontal Scaling```  
+  Handling increased traffic by creating additional replicas so that traffic can be divided across the replicas
+  * ```Kubernetes Service```  
+  An abstraction of a set of pods and interface for how to interact with the pods
+  * ```Pods```  
+  A set of containers that are deployed together
+  * ```Load Balancing```  
+  Handling traffic by distributing it across different endpoints
+  * ```Replica```  
+  A redundant copy of a resource often used for backups or load balancing
+  * ```Consumer```  
+  An external entity such as a user or program that interfaces with an application
+---
+#### Kubernetes on AWS
+* ```AWS EKS``` Elastic Kubernetes Service is a service that we can use to set up Kubernetes.
+* The ```deployment.yaml``` file is used to specify how our pods should be created.  
+  * Example
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  labels:
+    app: my-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: simple-node
+        image: YOUR_DOCKER_HUB/simple-node
+        ports:
+        - containerPort: 80
+```
+* The ```service.yaml``` file is used to specify how our pods are exposed.  
+  * Example
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app
+  labels:
+    run: my-app
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: my-app
+```
+__Creating a Kubernetes Cluster on AWS__
+
+* Creating an EKS Cluster
+  1. Create cluster in EKS
+  <img src="docs/03_microservices/ms_eks_create_cluster_01.png" width="500" alt="">  
+  2. Create and specify role for Kubernetes cluster
+<img src="docs/03_microservices/ms_eks_create_cluster_02.png" width="500" alt="">    
+  3. Enable public access
+* Creating a Node Group
+  1. Add Node Group in the newly-created cluster
+<img src="docs/03_microservices/ms_eks_ceate_node_group_01.png" width="500" alt="">    
+  2. Create and specify role for IAM role for node group
+  3. Create and specify SSH key for node group
+  4. Set instance type to ```t3.micro``` for cost-savings as we learn how to use Kubernetes
+  5. Specify desired number of nodes
+<img src="docs/03_microservices/ms_eks_ceate_node_group_02.png" width="500" alt="">      
+* Docker images are loaded from the container registry into Kubernetes pods. Access to the pods are exposed to consumers through a service.
+<img src="docs/03_microservices/ms_k8s_cdnd.jpg" width="500" alt="">  
+
+* Additional Reading  
+The following are some additional resources for more information about EKS.
+  * [AWS EKS](https://aws.amazon.com/eks/)
+  * [AWS EKS Versioning](https://aws.amazon.com/blogs/compute/updates-to-amazon-eks-version-lifecycle/)
+  * [Why use EKS](https://itnext.io/kubernetes-is-hard-why-eks-makes-it-easier-for-network-and-security-architects-ea6d8b2ca965)
 
 ### Lesson 6: Best Practices/Design Patterns for Kubernetes in Production
 
