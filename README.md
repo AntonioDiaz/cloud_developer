@@ -177,6 +177,7 @@ In the capstone project, each project is unique to the student. You’ll build a
 ### Foundational & Compute Service
 #### EC2: Elastic Cloud Compute
 * Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides __servers for rent in the cloud__.  
+
   <img src="docs/01_cloud_fundamentals/ec2.png" width="400"> 
 
 * __Pricing Options__: there are several pricing options for EC2.
@@ -862,31 +863,47 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
 ```
 ---
 #### Understanding Secrets
+* All access should be revocable  
+  <img src="docs/02_full_stack_aws/access_revocable.png" width="400">  
+
 * What are permissions?  
-  * HIPPA: HIPAA (Health Insurance Portability and Accountability Act) is a law in the U.S that requires data privacy and security for medical information.
-  * Use environment variables to store your username and password, to avoid hard-coding username and password information in your code.
-  * Avoid committing your passwords to git. Use .gitignore to define files that you do not want to commit to git.
-  * IAM user role: an IAM role can give a user a set of permissions to access one or more services.
-  * IAM service role: an IAM role gives a service a set of permissions to access one or more services.
-  
+  * `HIPAA` (Health Insurance Portability and Accountability Act) is a law in the U.S that requires data privacy and security for medical information.
+  * Use `environment variables` to store your username and password, to avoid hard-coding username and password information in your code.
+  * Avoid committing your passwords to git. Use `.gitignore` to define files that you do not want to commit to git.
+  * `IAM user role`: an IAM role can give a user a set of permissions to access one or more services.
+  * `IAM service role`: an IAM role gives a service a set of permissions to access one or more services.
+  <img src="docs/02_full_stack_aws/iam_user_vs_iam_roles.png" width="400">  
+
 * User IAM profiles on AWS
   * It’s beneficial to create a role that contains a policy group (a set of permissions), rather than to assign individual permissions to a specific user.  
-  Imagine if a user leaves the company and a new hire takes their place. Instead of re-assigning all the permissions needed for their job, we can assign the existing IAM role to that new employee.
-<img src="docs/02_full_stack_aws/permisions_01.png" width="500">  
+  * Imagine if a user leaves the company and a new hire takes their place. Instead of re-assigning all the permissions needed for their job, we can assign the existing IAM role to that new employee.
+  <img src="docs/02_full_stack_aws/permisions_01.png" width="500">  
 
 * Creating User Profiles Using the AWS Console
-  * Create user, download __credential.csv__.
-  * Assign that user in a group.
-  * Create a new policy and assing that policy to the new group.
+  * https://youtu.be/DJ0wYhp_-cc
+  * Create user  
+  <img src="docs/02_full_stack_aws/create_user_01.png" width="500">  
+  * Create group  
+  <img src="docs/02_full_stack_aws/create_user_02_add_group.png" width="500">  
+  * Create policy  
+  <img src="docs/02_full_stack_aws/create_user_03_create_policy.png" width="500">  
+  * Add access to S3 service  
+  <img src="docs/02_full_stack_aws/create_user_04.png" width="500">  
+  * Add access to the bucket  
+  <img src="docs/02_full_stack_aws/create_user_05_bucket_access.png" width="500">  
+  * Assing that policy to the new group  
+  * See details and download `credential.csv`
+  <img src="docs/02_full_stack_aws/create_user_06_details.png" width="500">  
+  <img src="docs/02_full_stack_aws/create_user_07_credentiales.png" width="500">  
 
 * Installing AWS User IAM Profiles Locally
-  * From the __credentials.csv__ you will need:
-    <img src="docs/02_full_stack_aws/credentials_csv.png" width="500">      
+  * From the `credentials.csv` you will need:
+    <img src="docs/02_full_stack_aws/credentials_csv.png" width="700">      
     * Access key ID
     * Secret access key  
     
-  * Run command: 
-      > aws configure
+  * Run command:   
+    `aws configure`
   * This will add the profile to 
     * ~/.aws/credentials
     ```
@@ -913,9 +930,9 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
     [profile2]
     region=us-east-2
     ```
-* Creating IAM Service Roles  
-  * Role is consumed by a service  
-  * Role has policies asociated
+* Creating __IAM Service Roles__  
+  * Role is `consumed by a service`  
+  * Role has `policies` asociated
 ---
 ### Lesson 4: building and deploying
 #### Organizing Our Code
