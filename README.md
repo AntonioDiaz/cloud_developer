@@ -133,6 +133,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 5: Orchestration with Kubernates](#lesson-5-orchestration-with-kubernates)
         - [Fundamentals of Kubernetes](#fundamentals-of-kubernetes)
         - [Kubernetes on AWS](#kubernetes-on-aws)
+        - [Solition: Kubernetes on AWS](#solition-kubernetes-on-aws)
+        - [Kubernetes Cluster](#kubernetes-cluster)
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
@@ -2019,6 +2021,12 @@ spec:
         image: YOUR_DOCKER_HUB/simple-node
         ports:
         - containerPort: 80
+    livenessProbe:
+      httpGet:
+        path: /health
+        port: 8080
+      initialDelaySeconds: 3
+      periodSeconds: 3
 ```
 * The ```service.yaml``` file is used to specify how our pods are exposed.  
   * Example
@@ -2065,6 +2073,56 @@ The following are some additional resources for more information about EKS.
   * [AWS EKS](https://aws.amazon.com/eks/)
   * [AWS EKS Versioning](https://aws.amazon.com/blogs/compute/updates-to-amazon-eks-version-lifecycle/)
   * [Why use EKS](https://itnext.io/kubernetes-is-hard-why-eks-makes-it-easier-for-network-and-security-architects-ea6d8b2ca965)
+
+#### Solition: Kubernetes on AWS
+* Overview  
+Kubernetes YAML files have many possible configurations and are very open-ended. The solution I have is one example of how we can set up our files.
+
+Some key areas to note are that:
+* ```kind: Deployment``` and ```kind: Service``` denotes how Kubernetes will process the file.
+* ```replicas``` specifies the number of replicas that we want. This corresponds to the number of pods that will be created for one deployment.
+* ```containers``` in deployment.yaml specifies the source for our Docker image
+---
+#### Kubernetes Cluster
+* At this point, we have a Kubernetes cluster set up and understand how YAML files can be created to handle the deployment of pods and expose them to consumers.
+* Moving forward, we’ll be using the Kubernetes command-line tool, kubectl, to interact with our cluster.
+* Interacting With Your Cluster
+  * [Install kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
+  * [Set up aws-iam-authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
+  * [Set up kubeconfig](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html)  
+  ```aws eks update-kubeconfig --region eu-west-3 --name TestingEKS```
+
+ aws eks update-kubeconfig --name TestingEKS --region eu-west-3 --role-arn arn:aws:iam::732945014111:role/eks_cluster_access
+
+ https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html#cli-role-prepare
+ 
+
+* Loading YAML files
+  * ```kubectl apply``` - create deployment and service  
+  ``` kubectl apply -f deployment.yaml```  
+  ``` kubectl apply -f service.yaml```  
+  
+* Introductory Commands  
+```kubectl``` provides a wide range of commands to interact with Kubernetes. The following are some basic commands that we can use to interact with our current cluster.
+  * ```kubectl get pods``` - show the pods in the cluster
+  * ```kubectl describe services``` - show the services in the cluster
+  * ```kubectl cluster-info``` - display information about the cluster
+
+* We will be interfacing with our Kubernetes cluster with the Kubernetes command-line tool kubectl. The YAML files that we created will be loaded through this tool.
+<img src="docs/03_microservices/ms_kubectl.jpg" width="500" alt="">  
+
+* ```Cluster```: a group of resources that are connected to act as a single system
+
+
+
+* Additional Reading  
+The following are some additional information on interacting with Kubernetes
+  * [Kubernetes Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+  * [kubectl Overview](https://kubernetes.io/docs/reference/kubectl/overview/)
+  * [Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
+  * [kubectl Documentation](https://kubectl.docs.kubernetes.io/)
+
+
 
 ### Lesson 6: Best Practices/Design Patterns for Kubernetes in Production
 
