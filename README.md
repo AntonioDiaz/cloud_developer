@@ -176,15 +176,18 @@ In the capstone project, each project is unique to the student. You’ll build a
 
 ### Foundational & Compute Service
 #### EC2: Elastic Cloud Compute
-* Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides servers for rent in the cloud.
-* Pricing Options: there are several pricing options for EC2.
-    * On Demand - Pay as you go, no contract.
-    * Dedicated Hosts - You have your own dedicated hardware and don't share it with others.
-    * Spot - You place a bid on an instance price. If there is extra capacity that falls below your bid, an EC2 instance is provisioned. If the price goes above your bid while the instance is running, the instance is terminated.
-    * Reserved Instances - You earn huge discounts if you pay up front and sign a 1-year or 3-year contract.
+
+<img src="docs/01_cloud_fundamentals/ec2.png" width="400"> 
+
+* Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides __servers for rent in the cloud__.
+* __Pricing Options__: there are several pricing options for EC2.
+    * `On Demand` - Pay as you go, no contract.
+    * `Dedicated Hosts` - You have your own dedicated hardware and don't share it with others.
+    * `Spot` - You place a bid on an instance price. If there is extra capacity that falls below your bid, an EC2 instance is provisioned. If the price goes above your bid while the instance is running, the instance is terminated.
+    * `Reserved Instances` - You earn huge discounts if you pay up front and sign a 1-year or 3-year contract.
 
 #### EBS: Elastic Block Store
-* Elastic Block Store (EBS) is a storage solution for EC2 instances and is a physical hard drive that is attached to the EC2 instance to increase storage.
+* `Elastic Block Store` (EBS) is a _storage solution_ for EC2 instances and is a physical hard drive that is attached to the EC2 instance to increase storage.
 
 #### VPC: Virtual Private Cloud
 * Virtual Private Cloud or VPC allows you to create your own private network in the cloud. 
@@ -268,9 +271,7 @@ Tips
   * For the Event name enter TestEvent Important: The name cannot contain spaces.
   * Update the JSON to the statement below, replacing the statement with your name.
     ```js
-    {
-    "key1": "Place your name here"
-    }
+    { "key1": "Place your name here" }
     ```
     <img src="docs/01_cloud_fundamentals/lambda_01.png" width="400"> 
 4. Click Create.
