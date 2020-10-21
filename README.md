@@ -176,10 +176,9 @@ In the capstone project, each project is unique to the student. You’ll build a
 
 ### Foundational & Compute Service
 #### EC2: Elastic Cloud Compute
-
+* Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides __servers for rent in the cloud__.  
 <img src="docs/01_cloud_fundamentals/ec2.png" width="400"> 
 
-* Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides __servers for rent in the cloud__.
 * __Pricing Options__: there are several pricing options for EC2.
     * `On Demand` - Pay as you go, no contract.
     * `Dedicated Hosts` - You have your own dedicated hardware and don't share it with others.
@@ -236,14 +235,15 @@ In this hands-on exercise, you will launch a virtual server in the cloud within 
         * From the VPC Dashboard, select the VPC just created, click _Actions_, then _Delete VPC_.
 
 #### Lambda
-AWS Lambda provides you with computing power in the cloud by allowing you to execute code without standing up or managing servers.
-Tips
-* Lambda is found under the Compute section on the AWS Management Console.
-* Lambdas have a time limit of __15 minutes__.
-* The code you run on AWS Lambda is called a __“Lambda function”__
-* Lambda code can be triggered by other AWS services.
-* AWS Lambda supports Java, Go, PowerShell, Node.js, C#/.NET, Python, and Ruby. There is a Runtime API that allows you to use other programming languages to author your functions.
-* Lambda code can be authored via the console.
+* AWS Lambda provides you with computing power in the cloud by allowing you to execute code without standing up or managing servers.  
+<img src="docs/01_cloud_fundamentals/lambda.jpg" width="400">  
+* Tips
+  * Lambda is found under the Compute section on the AWS Management Console.
+  * Lambdas have a time limit of __15 minutes__.
+  * The code you run on AWS Lambda is called a __“Lambda function”__
+  * Lambda code can be triggered by other AWS services.
+  * AWS Lambda supports Java, Go, PowerShell, Node.js, C#/.NET, Python, and Ruby. There is a Runtime API that allows you to use other programming languages to author your functions.
+  * Lambda code can be authored via the console.
 
 #### Lab: Lambda
 1. __Create a Lambda Function__
@@ -424,9 +424,8 @@ Steps
   * AWS Shield Advanced provides enhanced detection.
 
 #### AWS WAF
-<img src="docs/01_cloud_fundamentals/firewall.png" width="800" alt="">  
-
-* AWS WAF (or AWS Web Application Firewall) provides a firewall that protects your web applications.
+* AWS WAF (or AWS `Web Application Firewall`) provides a firewall that protects your web applications.  
+<img src="docs/01_cloud_fundamentals/firewall.png" width="500" alt="">  
 
 * WAF can stop common web attacks by reviewing the data being sent to your application and stopping well-known attacks.
 
@@ -438,14 +437,14 @@ Steps
 #### Identity & Access Management
 * Identity & Access Management (IAM) is an AWS service that allows us to configure who can access our AWS account, services, or even applications running in our account. IAM is a global service and is automatically available across ALL regions.
 * __Security Concepts__
-  * User
-    <img src="docs/01_cloud_fundamentals/iam_user.png" width="600" alt="">   
-  * IAM Group
-    <img src="docs/01_cloud_fundamentals/iam_group.png" width="600" alt="">     
-  * IAM Role
-    <img src="docs/01_cloud_fundamentals/iam_role.png" width="600" alt="">     
-  * Policy
-    <img src="docs/01_cloud_fundamentals/iam_policy.png" width="600" alt="">     
+  * User  
+    <img src="docs/01_cloud_fundamentals/iam_user.png" width="500" alt="">   
+  * IAM Group  
+    <img src="docs/01_cloud_fundamentals/iam_group.png" width="500" alt="">     
+  * IAM Role  
+    <img src="docs/01_cloud_fundamentals/iam_role.png" width="500" alt="">     
+  * Policy  
+    <img src="docs/01_cloud_fundamentals/iam_policy.png" width="500" alt="">     
 
 * Resources
   * [AWS IAM Overview](https://aws.amazon.com/iam/)
