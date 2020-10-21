@@ -177,7 +177,7 @@ In the capstone project, each project is unique to the student. You’ll build a
 ### Foundational & Compute Service
 #### EC2: Elastic Cloud Compute
 * Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides __servers for rent in the cloud__.  
-<img src="docs/01_cloud_fundamentals/ec2.png" width="400"> 
+  <img src="docs/01_cloud_fundamentals/ec2.png" width="400"> 
 
 * __Pricing Options__: there are several pricing options for EC2.
     * `On Demand` - Pay as you go, no contract.
@@ -236,7 +236,8 @@ In this hands-on exercise, you will launch a virtual server in the cloud within 
 
 #### Lambda
 * AWS Lambda provides you with computing power in the cloud by allowing you to execute code without standing up or managing servers.  
-<img src="docs/01_cloud_fundamentals/lambda.jpg" width="400">  
+  <img src="docs/01_cloud_fundamentals/lambda.jpg" width="400">  
+
 * Tips
   * Lambda is found under the Compute section on the AWS Management Console.
   * Lambdas have a time limit of __15 minutes__.
