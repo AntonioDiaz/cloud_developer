@@ -872,7 +872,7 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   * Avoid committing your passwords to git. Use `.gitignore` to define files that you do not want to commit to git.
   * `IAM user role`: an IAM role can give a user a set of permissions to access one or more services.
   * `IAM service role`: an IAM role gives a service a set of permissions to access one or more services.
-  <img src="docs/02_full_stack_aws/iam_user_vs_iam_roles.png" width="400">  
+    <img src="docs/02_full_stack_aws/iam_user_vs_iam_roles.png" width="400">  
 
 * User IAM profiles on AWS
   * It’s beneficial to create a role that contains a policy group (a set of permissions), rather than to assign individual permissions to a specific user.  
@@ -1955,8 +1955,7 @@ https://docs.travis-ci.com/user/for-beginners/
 #### Using Environment Variables with Travis
 * Environment variables are a useful way to handle variables that shouldn’t be hard-coded into our application. 
 * These values are often credentials that shouldn’t be stored in the code.
-
-<img src="docs/03_microservices/ms_travis_env_variables.png" width="500" alt="">  
+  <img src="docs/03_microservices/ms_travis_env_variables.png" width="500" alt="">  
 
 * Aditional reading:   
 [Best Practices in Securing Your Data](https://docs.travis-ci.com/user/best-practices-security/)
@@ -2065,26 +2064,23 @@ spec:
 __Creating a Kubernetes Cluster on AWS__
 
 * Creating an EKS Cluster
-  1. Create cluster in EKS
-  <img src="docs/03_microservices/ms_eks_create_cluster_01.png" width="500" alt="">  
-
-  2. Create and specify role for Kubernetes cluster
-<img src="docs/03_microservices/ms_eks_create_cluster_02.png" width="500" alt="">  
-
+  1. Create cluster in EKS  
+    <img src="docs/03_microservices/ms_eks_create_cluster_01.png" width="500" alt="">  
+  2. Create and specify role for Kubernetes cluster  
+    <img src="docs/03_microservices/ms_eks_create_cluster_02.png" width="500" alt="">  
   3. Enable public access
 
 * Creating a Node Group
-  1. Add Node Group in the newly-created cluster
-<img src="docs/03_microservices/ms_eks_ceate_node_group_01.png" width="500" alt="">  
-
+  1. Add Node Group in the newly-created cluster  
+    <img src="docs/03_microservices/ms_eks_ceate_node_group_01.png" width="500" alt="">  
   2. Create and specify role for IAM role for node group
   3. Create and specify SSH key for node group
   4. Set instance type to ```t3.micro``` for cost-savings as we learn how to use Kubernetes
-  5. Specify desired number of nodes
-<img src="docs/03_microservices/ms_eks_ceate_node_group_02.png" width="500" alt="">  
+  5. Specify desired number of nodes  
+    <img src="docs/03_microservices/ms_eks_ceate_node_group_02.png" width="500" alt="">  
 
-* Docker images are loaded from the container registry into Kubernetes pods. Access to the pods are exposed to consumers through a service.
-<img src="docs/03_microservices/ms_k8s_cdnd.jpg" width="500" alt="">  
+* Docker images are loaded from the container registry into Kubernetes pods. Access to the pods are exposed to consumers through a service.  
+  <img src="docs/03_microservices/ms_k8s_cdnd.jpg" width="500" alt="">  
 
 * Additional Reading  
 The following are some additional resources for more information about EKS.
@@ -2116,7 +2112,7 @@ Some key areas to note are that:
  
 
 * Loading YAML files
-  * ```kubectl apply``` - create deployment and service  
+  ```kubectl apply``` - create deployment and service  
   ``` kubectl apply -f deployment.yaml```  
   ``` kubectl apply -f service.yaml```  
   
@@ -2126,8 +2122,8 @@ Some key areas to note are that:
   * ```kubectl describe services``` - show the services in the cluster
   * ```kubectl cluster-info``` - display information about the cluster
 
-* We will be interfacing with our Kubernetes cluster with the Kubernetes command-line tool kubectl. The YAML files that we created will be loaded through this tool.
-<img src="docs/03_microservices/ms_kubectl.jpg" width="500" alt="">  
+* We will be interfacing with our Kubernetes cluster with the Kubernetes command-line tool kubectl. The YAML files that we created will be loaded through this tool.  
+  <img src="docs/03_microservices/ms_kubectl.jpg" width="500" alt="">  
 
 * ```Cluster```: a group of resources that are connected to act as a single system
 
@@ -2140,7 +2136,34 @@ The following are some additional information on interacting with Kubernetes
   * [Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
   * [kubectl Documentation](https://kubectl.docs.kubernetes.io/)
 
+https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/174
 
+
+https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#unauthorized
+
+```bash
+export AWS_ACCESS_KEY_ID=AKIA2VJXNLVPXYPJTKxx
+export AWS_SECRET_ACCESS_KEY=s8NIVdlvxIEZbnL7vc6UlVxLw8cuhqojMEO4m+xx
+aws-iam-authenticator token -i TestingEKS
+
+aws-iam-authenticator verify -t k8s-aws-v1.really_long_token -i TestingEKS
+
+
+aws --region eu-west-3 eks update-kubeconfig --name TestingEKS --role-arn arn:aws:iam::<aws_account_id>:role/<role_name>
+
+
+aws eks update-kubeconfig --name TestingEKS --region eu-west-3 --role-arn arn:aws:iam::732945014111:role/eks_cluster_access
+
+
+aws eks --region eu-west-3 update-kubeconfig --name TestingEKS --role-arn arn:aws:iam::732945014111:user/eks_cluster_access
+```
+
+
+An error occurred (AccessDenied) when calling the AssumeRole operation: User: arn:aws:iam::732945014111:user/udagram-user-dev is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::732945014111:role/eks_cluster_access
+Unable to connect to the server: getting credentials: exec: exit status 254
+
+
+aws sts assume-role --role-arn arn:aws:aim::MYACCOUNTID:role/assume-role --role-session-name register-ec2
 
 ### Lesson 6: Best Practices/Design Patterns for Kubernetes in Production
 
