@@ -2208,6 +2208,89 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
     }
     ```
 
+* Test Reverse Proxy
+  * `kubeclt get pods`  
+    <img src="docs/03_microservices/ms_reverse_proxy_get_pods.png" width="700" alt="">  
+  * `kubeclt describe services`
+    <img src="docs/03_microservices/ms_reverse_proxy_descrive_service.png" width="700" alt="">  
+  * `kubectl exec -it my-app-2-766b988c8c-9x256 bash`
+    <img src="docs/03_microservices/ms_reverse_proxy_health.png" width="700" alt="">  
+
+* Create Reverse Proxy
+  * `Dockerfile`
+    ```js
+    FORM nginx:alpine
+
+    COPY nginx.conf /etc/nginx/nginx.conf
+    ```
+  * `nginx.conf`
+    ```js
+    events {
+    }
+    http {
+        server {
+            listen 8080;
+            location /api/ {
+                proxy_pass http://my-app-2-svc:8080/;
+            }
+        }
+    }  
+    ```
+  * `deployment.yaml`
+    ```yaml
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      labels:
+        service: reverseproxy
+      name: reverseproxy
+    spec:
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            service: reverseproxy
+        spec:
+          containers:
+          - image: YOUR_DOCKER_HUB/simple-reverse-proxy
+            name: reverseproxy
+            imagePullPolicy: Always          
+            resources:
+              requests:
+                memory: "64Mi"
+                cpu: "250m"
+              limits:
+                memory: "1024Mi"
+                cpu: "500m"       
+            ports:
+            - containerPort: 8080
+          restartPolicy: Always  
+    ```
+  * `service.yaml`
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        service: reverseproxy
+      name: reverseproxy-svc
+    spec:
+      ports:
+      - name: "8080"
+        port: 8080
+        targetPort: 8080
+      selector:
+        service: reverseproxy  
+    ```
+  * Deploy reverse proxy:  
+  `kubectl apply <REVERSE_PROXY_DEPLOYMENT>.yaml`  
+  `kubectl apply <REVERSE_PROXY_SERVICE>.yaml`
+
+* Additional Reading  
+  The following are some additional resources for learning more about API Gateways.
+  * [AWS API Gateway](https://aws.amazon.com/api-gateway/)
+  * [Microservices with API Gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway/)
+
 ### Project: Refactor Monolith to Microservices and Deploy
 
 
