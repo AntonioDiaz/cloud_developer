@@ -2074,9 +2074,14 @@ __Creating a Kubernetes Cluster on AWS__
 
 * Creating a Node Group
   1. Add Node Group in the newly-created cluster  
+    <img src="docs/03_microservices/ms_eks_ceate_node_group_01.png" width="500" alt="">  
+    
   2. Create and specify role for IAM role for node group  
+
   3. Create and specify SSH key for node group  
+
   4. Set instance type to ```t3.micro``` for cost-savings as we learn how to use Kubernetes  
+
   5. Specify desired number of nodes  
     <img src="docs/03_microservices/ms_eks_ceate_node_group_02.png" width="500" alt="">  
 
