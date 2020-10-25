@@ -135,7 +135,11 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Kubernetes on AWS](#kubernetes-on-aws)
         - [Solition: Kubernetes on AWS](#solition-kubernetes-on-aws)
         - [Kubernetes Cluster](#kubernetes-cluster)
+        - [Alternative Deployment Strategies](#alternative-deployment-strategies)
+        - [Debugging Kubernetes](#debugging-kubernetes)
+        - [Terms in this lesson](#terms-in-this-lesson)
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
+        - [Reverse Proxy](#reverse-proxy)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
@@ -2066,16 +2070,16 @@ __Creating a Kubernetes Cluster on AWS__
 * Creating an EKS Cluster
   1. Create cluster in EKS  
       <img src="docs/03_microservices/ms_eks_create_cluster_01.png" width="500" alt="">
-      <br>
+
   2. Create and specify role for Kubernetes cluster  
       <img src="docs/03_microservices/ms_eks_create_cluster_02.png" width="500" alt="">  
-      <br>
+
   3. Enable public access
 
 * Creating a Node Group
   1. Add Node Group in the newly-created cluster  
-    <img src="docs/03_microservices/ms_eks_ceate_node_group_01.png" width="500" alt="">  
-    
+      <img src="docs/03_microservices/ms_eks_ceate_node_group_01.png" width="500" alt="">  
+
   2. Create and specify role for IAM role for node group  
 
   3. Create and specify SSH key for node group  
@@ -2083,7 +2087,7 @@ __Creating a Kubernetes Cluster on AWS__
   4. Set instance type to ```t3.micro``` for cost-savings as we learn how to use Kubernetes  
 
   5. Specify desired number of nodes  
-    <img src="docs/03_microservices/ms_eks_ceate_node_group_02.png" width="500" alt="">  
+      <img src="docs/03_microservices/ms_eks_ceate_node_group_02.png" width="500" alt="">  
 
 * Docker images are loaded from the container registry into Kubernetes pods. Access to the pods are exposed to consumers through a service.  
   <img src="docs/03_microservices/ms_k8s_cdnd.jpg" width="500" alt="">  
@@ -2133,45 +2137,76 @@ Some key areas to note are that:
 
 * ```Cluster```: a group of resources that are connected to act as a single system
 
-
-
 * Additional Reading  
 The following are some additional information on interacting with Kubernetes
   * [Kubernetes Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
   * [kubectl Overview](https://kubernetes.io/docs/reference/kubectl/overview/)
   * [Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
   * [kubectl Documentation](https://kubectl.docs.kubernetes.io/)
+---
+#### Alternative Deployment Strategies
+* Kubernetes is one solution for deploying your containers. It's packed with features but can sometimes be overwhelming. As we've mentioned before, choosing a tool comes with its own set of tradeoffs. Here are a few other popular technologies that are used in the industry today.
 
-https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/174
+* `AWS ECS`  
+AWS' proprietary solution that predates AWS EKS. It integrates very well with other AWS tools and is a bit more straightforward as it is not as feature-packed as Kubernetes.
 
+* `AWS Fargate`  
+AWS tool that helps streamline deploying containers to ECS and EKS.
 
-https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#unauthorized
+* `Docker`  
+It's an option to simply run the container manually with Docker. Sometimes, it's tempting to pick a shiny hot tool that may lead to overengineered architectures.
+---
+#### Debugging Kubernetes
+* With Docker, we were able to connect to the container as one approach for debugging. 
+* Look through [the documentation here](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) and see how we can do something similar by connecting to a pod in kubernetes.
 
-```bash
-export AWS_ACCESS_KEY_ID=AKIA2VJXNLVPXYPJTKxx
-export AWS_SECRET_ACCESS_KEY=s8NIVdlvxIEZbnL7vc6UlVxLw8cuhqojMEO4m+xx
-aws-iam-authenticator token -i TestingEKS
-
-aws-iam-authenticator verify -t k8s-aws-v1.really_long_token -i TestingEKS
-
-
-aws --region eu-west-3 eks update-kubeconfig --name TestingEKS --role-arn arn:aws:iam::<aws_account_id>:role/<role_name>
-
-
-aws eks update-kubeconfig --name TestingEKS --region eu-west-3 --role-arn arn:aws:iam::732945014111:role/eks_cluster_access
-
-
-aws eks --region eu-west-3 update-kubeconfig --name TestingEKS --role-arn arn:aws:iam::732945014111:user/eks_cluster_access
 ```
-
-
-An error occurred (AccessDenied) when calling the AssumeRole operation: User: arn:aws:iam::732945014111:user/udagram-user-dev is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::732945014111:role/eks_cluster_access
-Unable to connect to the server: getting credentials: exec: exit status 254
-
-
-aws sts assume-role --role-arn arn:aws:aim::MYACCOUNTID:role/assume-role --role-session-name register-ec2
-
+kubectl get pod my-app-b7f58d8b8-5dsql 
+kubectl exec --stdin --tty my-app-b7f58d8b8-5dsql  -- /bin/bash
+```
+---
+#### Terms in this lesson
+* `Cluster`  
+A group of resources that are connected to act as a single system
+* `Horizontal Scaling`  
+Handling increased traffic by creating additional replicas so that traffic can be divided across the replicas
+* `Kubernetes Service`  
+An abstraction of a set of pods and interface for how to interact with the pods
+* `Pods`  
+A set of containers that are deployed together
+* `Load Balancing`  
+Handling traffic by distributing it across different endpoints
+* `Replica`  
+A redundant copy of a resource often used for backups or load balancing
+* `Consumer`  
+An external entity such as a user or program that interfaces with an application
+---
 ### Lesson 6: Best Practices/Design Patterns for Kubernetes in Production
+<img src="docs/03_microservices/ms_k8s_prod.png" width="500" alt="">  
+
+#### Reverse Proxy
+* `Reverse Proxy`
+  * A single interface that forwards requests on behalf of the client and appears to the client as the origin of the responses.
+  * Useful for abstracting multiple microservices to appear as a single resource.
+  * A reverse proxy proxy is used to route traffic from one endpoint to multiple endpoints  
+    <img src="docs/03_microservices/ms_reverse_proxy.jpg" width="500" alt="">  
+* `API Gateway`  
+A form of a reverse proxy that serves as an abstraction of the interface to other services.
+* Sample reverse proxy
+  * `Nginx` is a web server that can be used as a reverse proxy. 
+  * Configurations can be specified with an `nginx.conf` file.
+    ```js
+    events {
+    }
+    http {
+      server {
+          listen <PORT_NUMBER>;
+          location /<PROXY_PATH>/ {
+              proxy_pass http://<REDIRECT_PATH>/;
+          }
+      }
+    }
+    ```
 
 ### Project: Refactor Monolith to Microservices and Deploy
 
