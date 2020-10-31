@@ -832,24 +832,17 @@ __Scaling out__ -> noSQL easier         -> more instances
 __Scale up__    -> SQL database easier  -> make computer bigger (more CPU, RAM,...)
 
 #### `Provisioning a Cloud Database`
-* [Video](https://youtu.be/2ydzbZjoB-Q)  
+* [Video](https://youtu.be/2ydzbZjoB-Q)
 
-    <img src="docs/02_full_stack_aws/rds_01.png" width="500">  
-    
-<details close>
-  <summary>Configuring Amazon Web Services Relational Database Service</summary>
-  <markdown>
-    <img src="docs/02_full_stack_aws/rds_01.png" width="500">  
-    <img src="docs/02_full_stack_aws/rds_02.png" width="500">  
-    <img src="docs/02_full_stack_aws/rds_03.png" width="500">  
-    <img src="docs/02_full_stack_aws/rds_04.png" width="500">  
-  </markdown>
-</details>
+* Configuring Amazon Web Services Relational Database Service  
+<img src="docs/02_full_stack_aws/rds_01.png" width="500">  
+<img src="docs/02_full_stack_aws/rds_02.png" width="500">  
+<img src="docs/02_full_stack_aws/rds_03.png" width="500">  
+* Allowing Public Traffic to RDS  
+<img src="docs/02_full_stack_aws/rds_04.png" width="500">  
+* Connecting to RDS with Postbird  
+<img src="docs/02_full_stack_aws/postbid.png" width="500">  
 
-
-* Allowing Public Traffic to RDS
-* Interfacing with our Database using Postbird
-* Connecting to RDS with Postbird
 * Creating Tables in RDS with Postbird
 * Making SQL Commands with Postbird
 
@@ -859,7 +852,7 @@ __Scale up__    -> SQL database easier  -> make computer bigger (more CPU, RAM,.
 * `SignedURLs` allow clients to send and receive data by directly communicating with the file store.  
 This saves the server from using its bandwidth to serve as the intermediary that transmits data to and from the client.   
 This is faster for clients as well.
-* Buckets: a simple directory-like system in which to store data.
+* `Buckets`: a simple directory-like system in which to store data.
 
 * `Signed URL pattern`  
 <img src="docs/02_full_stack_aws/signed_url_pattern_01.png" width="500">  
@@ -889,7 +882,7 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
 ```
 ---
 
-#### Understanding Secrets
+#### `Understanding Secrets`
 * All access should be revocable  
   <img src="docs/02_full_stack_aws/access_revocable.png" width="400">  
 
@@ -968,7 +961,7 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   * Role is `consumed by a service`  
   * Role has `policies` asociated
 ---
-### Lesson 4: building and deploying
+### `Lesson 4: building and deploying`
 #### Organizing Our Code
 * Designing the Application to be Extensible
   * Features and Modularity  
@@ -988,18 +981,18 @@ This way, we have an understanding of where code responsibilities just by lookin
 In this lesson, we'll be referencing a stubbed, more complex server which uses Node/Express.  
 The GitHub link to clone and follow along is in the exercises folder of the course repo: https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-restapi.
 
-__Installing project dependencies__  
-This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository.  
-After cloning, open your terminal in the repo directory and run:
-
-> npm install
-
+__`Installing project dependencies`__  
+* This project uses NPM to manage software dependencies.  
+* NPM Relies on the package.json file located in the root of this repository.  
+* After cloning, open your terminal in the repo directory and run:  
+`npm install`
 * RestAPI Source Walkthrough
   * Code Structure and Organization
-    * In the file controllers/v0/feed/routes/feed.router.ts, the root directory router.get('/',... is not the server root directory.  
-    The root in this case is based on where the server is entering from, which in this case, is api/v0/feed/routes.
-    * We’ll keep S3 related code in its own file aws.ts, and database connection code in its own file sequelize.ts.  
+    * In the file `controllers/v0/feed/routes/feed.router.ts`, the root directory router.get('/',... is not the server root directory.  
+    The root in this case is based on where the server is entering from, which in this case, is `api/v0/feed/routes`.
+    * We’ll keep S3 related code in its own file `aws.ts`, and database connection code in its own file `sequelize.ts`.  
 ---
+
 #### Intro to Object-Relational Maps (ORM)
 We'll be using an ORM called Sequelize to manage the connection to our database.  
 We'll cover the basics in this concept, but Sequelize is a powerful tool and is extremely well documented at http://docs.sequelizejs.com/
