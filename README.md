@@ -791,12 +791,10 @@ https://github.com/Microsoft/TypeScript
   * Alternatively, you can clone the repo for the entire nanodegree cloud-developer and find the files for this course in the path https://github.com/udacity/cloud-developer/tree/master/course-02/exercises
 * Clone Repository
 * Installing project dependencies  
-  * This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository.  
-  * After cloning, open your terminal in the repo directory and run:  
-     * > npm install
+  * This project uses NPM to manage software dependencies. NPM Relies on the `package.json` file located in the root of this repository.  
+  * After cloning, open your terminal in the repo directory and run: `npm install`
 * Understanding the Code
-* Running our server and making requests
-  * > npm run dev
+* Running our server and making requests: `npm run dev`
 
 #### Verification Testing
 * Unit Tests  
@@ -806,8 +804,14 @@ https://mochajs.org/
 * Integration Tests  
 Integration Tests ensure every endpoint in our software package perform their tasks correctly, fails appropriately, and communicates with other systems in a predictable manner (so they integrate properly). We'll be playing with Postman as our integration testing framework. We'll be covering the basics so checkout the docs!
 ---
-#### Using Git Effectively for the Cloud
 
+#### Using Git Effectively for the Cloud
+* https://youtu.be/iLGldKwcwqw  
+* https://youtu.be/fudKoIuOetc  
+
+<img src="docs/02_full_stack_aws/aws_git.png" width="500">  
+
+---
 ### Lesson 3: storing data in the cloud
 #### Difficulties ofd Persistent Data
 * __RAM (Random Access Memory)__: Data can be accessed quickly, but is erased once the server restarts. It may be okay to use RAM when prototyping, and later replace it with a database.
