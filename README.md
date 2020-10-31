@@ -140,6 +140,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Terms in this lesson](#terms-in-this-lesson)
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
         - [Reverse Proxy](#reverse-proxy)
+        - [Securing the Microservices](#securing-the-microservices)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
@@ -887,14 +888,19 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   * https://youtu.be/DJ0wYhp_-cc
   * Create user  
   <img src="docs/02_full_stack_aws/create_user_01.png" width="500">  
+
   * Create group  
   <img src="docs/02_full_stack_aws/create_user_02_add_group.png" width="500">  
+
   * Create policy  
   <img src="docs/02_full_stack_aws/create_user_03_create_policy.png" width="500">  
+
   * Add access to S3 service  
   <img src="docs/02_full_stack_aws/create_user_04.png" width="500">  
+
   * Add access to the bucket  
   <img src="docs/02_full_stack_aws/create_user_05_bucket_access.png" width="500">  
+  
   * Assing that policy to the new group  
   * See details and download `credential.csv`
   <img src="docs/02_full_stack_aws/create_user_06_details.png" width="500">  
@@ -1716,15 +1722,16 @@ In this lesson, we often mentioned how microservices are deployed independently.
 <img src="docs/03_microservices/ms_docker.png" width="500" alt="">  
 
 * Overview  
-Docker is a platform that helps us manage the process of creating and managing our containers.
-* Docker Image  
-When we have an application that we want to deploy, we can package it into a Docker Image. The image contains all of your code and dependencies.
+  Docker is a platform that helps us manage the process of creating and managing our containers.
+* `Docker Image`  
+  * When we have an application that we want to deploy, we can package it into a Docker Image. 
+  * The image contains all of your code and dependencies.
 
-* Docker Container  
+* `Docker Container`  
 A Docker Container is an ephemeral running instance of a Docker Image.
 
 * Sample Dockerfile
-```  
+```yaml  
 # Use NodeJS base image
 FROM node:13
 
@@ -1773,8 +1780,9 @@ CMD ["node", "server.js"]
 <br>  
 
 * Further Optional Research on Docker  
-Dockerfiles are very open-ended and can become very messy very quickly. The following is an article on some best practices for writing Dockerfiles:  
-[Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+Dockerfiles are very open-ended and can become very messy very quickly.  
+The following is an article on some best practices for writing Dockerfiles:  
+  * [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ---
 #### Debugging Containers
@@ -1864,14 +1872,14 @@ Here are some more reading materials that you can reference for improving how Do
 
 We’ll review:
 
-Why we use deployment pipelines
-Best practices for deploying code
-Understanding CI/CD
-Using Travis as a CI tool integrated with GitHub and DockerHub
+Why we use `deployment pipelines`
+* Best practices for deploying code
+* Understanding CI/CD
+* Using Travis as a CI tool integrated with GitHub and DockerHub
 
 * Deployment Pipelines  
   * A deployment pipeline may contain stages for committing, building, testing, and deploying code  
-<img src="docs/03_microservices/ms_pipeline.png" width="500" alt="">  
+    <img src="docs/03_microservices/ms_pipeline.png" width="500" alt="">  
 
 * We now have industry standards and tools for how we can deploy our code.
 Docker containers simplify what we deploy.
@@ -2020,51 +2028,51 @@ console.log(`My favorite food is ${favoriteFood}`);
 * ```AWS EKS``` Elastic Kubernetes Service is a service that we can use to set up Kubernetes.
 * The ```deployment.yaml``` file is used to specify how our pods should be created.  
   * Example
-```yml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-app
-  labels:
-    app: my-app
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: my-app
-  template:
+    ```yml
+    apiVersion: apps/v1
+    kind: Deployment
     metadata:
+      name: my-app
       labels:
         app: my-app
     spec:
-      containers:
-      - name: simple-node
-        image: YOUR_DOCKER_HUB/simple-node
-        ports:
-        - containerPort: 80
-    livenessProbe:
-      httpGet:
-        path: /health
-        port: 8080
-      initialDelaySeconds: 3
-      periodSeconds: 3
-```
+      replicas: 2
+      selector:
+        matchLabels:
+          app: my-app
+      template:
+        metadata:
+          labels:
+            app: my-app
+        spec:
+          containers:
+          - name: simple-node
+            image: YOUR_DOCKER_HUB/simple-node
+            ports:
+            - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
+    ```
 * The ```service.yaml``` file is used to specify how our pods are exposed.  
   * Example
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-app
-  labels:
-    run: my-app
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-  selector:
-    run: my-app
-```
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: my-app
+      labels:
+        run: my-app
+    spec:
+      ports:
+      - port: 80
+        protocol: TCP
+      selector:
+        run: my-app
+    ```
 __Creating a Kubernetes Cluster on AWS__
 
 * Creating an EKS Cluster
@@ -2128,10 +2136,10 @@ Some key areas to note are that:
   
 * Introductory Commands  
 ```kubectl``` provides a wide range of commands to interact with Kubernetes. The following are some basic commands that we can use to interact with our current cluster.
-  * ```kubectl get pods``` - show the pods in the cluster
-  * ```kubectl describe services``` - show the services in the cluster
-  * ```kubectl cluster-info``` - display information about the cluster
-
+  * `kubectl get pods` - show the pods in the cluster
+  * `kubectl describe services` - show the services in the cluster
+  * `kubectl cluster-info` - display information about the cluster
+  * `kubectl rollout restart deployment myapp`
 * We will be interfacing with our Kubernetes cluster with the Kubernetes command-line tool kubectl. The YAML files that we created will be loaded through this tool.  
   <img src="docs/03_microservices/ms_kubectl.jpg" width="500" alt="">  
 
@@ -2217,12 +2225,6 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
     <img src="docs/03_microservices/ms_reverse_proxy_health.png" width="700" alt="">  
 
 * Create Reverse Proxy
-  * `Dockerfile`
-    ```js
-    FORM nginx:alpine
-
-    COPY nginx.conf /etc/nginx/nginx.conf
-    ```
   * `nginx.conf`
     ```js
     events {
@@ -2235,6 +2237,12 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
             }
         }
     }  
+    ```
+  * `Dockerfile`: The Nginx service listens for requests at port 8080. Any requests with endpoints prefixed with `/api/` will be redirected to the Kubernetes service `my-app-2-svc`. my-app-2-svc is a name that our Kubernetes cluster recognizes internally.
+    ```js
+    FORM nginx:alpine
+
+    COPY nginx.conf /etc/nginx/nginx.conf
     ```
   * `deployment.yaml`
     ```yaml
@@ -2290,13 +2298,70 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
   The following are some additional resources for learning more about API Gateways.
   * [AWS API Gateway](https://aws.amazon.com/api-gateway/)
   * [Microservices with API Gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway/)
+---
+#### Securing the Microservices
+* This is not an all-inclusive list of things to do for securing your application. It means that while some of these are best-practice, there's no guarantee that these steps will ensure your application is perfectly secure.
+  * AWS security groups Enables you to restrict the inbound and outbound traffic for AWS resources.
+  * Kubernetes Ingress and Egress Enables you to restrict the inbound and outbound traffic for Kubernetes resources.  
+  
+<img src="docs/03_microservices/ms_k8s_security.png" width="700" alt="">  
 
+---
 ### Project: Refactor Monolith to Microservices and Deploy
-
+* __Introduction__
+  * Now that we have learned about monolith applications and microservices, let's do it ourselves! For our project, we will be taking an existing monolith application and deploy it as microservices in Kubernetes on AWS.
+  * Steps
+    1. __Refactor__ the monolith application to microservices
+    2. Set up each microservice to be run in its own __Docker container__
+    3. Set up a CI/CD pipeline to deploy the containers to __Kubernetes__
+  * Keep in mind that we don’t want to make any feature changes to the frontend or backend code. If a user visits the frontend web application, it should look the same regardless of whether the application is structured as a monolith or microservice.
+* __Starter Code__
+  * The project starter code can be found [here](https://github.com/udacity/nd9990-c3-microservices-exercises/tree/master/project)
+  * The starter code is divided into two parts: a frontend web application and RESTful API.
+  * For your convenience, a Postman collection is also provided so that we can verify our API requests.
+* __Project Rubric__
+  * To understand how you project will be assessed, see the [Project Rubric]([PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/03_microservices/project_03.pdf))
+* __Setup Instructions__
+  * The following steps are a high-level review. Please refer to the `README.md` file for detailed instructions
+    1. Set up the `set_env.sh` file to handle your environment variables. Do not store your credentials in git.
+    2. Launch the `udagram-api` with `npm install` and `npm run dev`
+    3. Launch the `udagram-frontend` with `npm install`, `ionic build`, and `ionic serve`
+* __Tasks__
+  1. Refactor the API  
+  The API code currently contains logic for both `/users` and `/feed` endpoints.  
+  Let's decompose the API code so that we can have two separate projects that can be run independent of one another.  
+  Tips
+      * Using Git is recommended so you can revert any unwanted changes in your code!
+      * You may find yourself copying a lot of duplicate code into the separate projects -- this is expected! For now, focus on breaking apart the monolith and we can focus on cleaning up the application code afterwards.
+  2. Containerize the Code  
+Start with creating Dockerfiles for the frontend and backend applications. Each project should have its own Dockerfile.
+  3. Build CI/CD Pipeline  
+After setting up your GitHub account to integrate with Travis CI, set up a GitHub repository with a `.travis.yml` file for a build pipeline to be generated.
+  4. Deploy to Kubernetes  
+  Deploy the Docker containers for the API applications and web application as their own pods in `AWS EKS`.  
+  We should be able to see the pods deployed successfully via the command against your EKS cluster: `kubectl get pods`
+      * Screenshots
+        * To verify Kubernetes pods are deployed properly -> `kubectl get pods`
+        * To verify kubernetes services as propertly set up -> `kubectl get pods`
+        * To verify than you have horizontal scaling set against CPU usage -> `kubectl describe hpa`
+  5. Logging  
+  Use logs to capture metrics. This can help us with debugging.
+      * Screenshots: `kubectl logs <your pod name>`
+* Suggestions to Make Your Project Stand Out (Optional)
+* Submission Requirements
+  * The project will be submitted as a link to a GitHub repo or a zip file and should include screenshots to document the application's infrastructure.
+  * Required Screenshots
+    * Docker images in your repository in DockerHub
+    * TravisCI build pipeline showing successful build jobs
+    * Kubernetes `kubectl get pods` output
+    * Kubernetes `kubectl describe services` output
+    * Kubernetes `kubectl describe hpa` output
+    * Kubernetes `kubectl logs <your pod name>` output
 
 ## Develop & Deploy Serverless App
 
 ## Capstone
+
 
 
 
