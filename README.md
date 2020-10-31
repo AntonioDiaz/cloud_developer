@@ -703,14 +703,14 @@ Steps
 ### Lesson 1: Cloud Basic
 #### Cloud Basics and Parts of a Cloud
 * Key Terminology
-  * __Data__: we store digital data as bytes on physical media like hard drives, but in the cloud, we use systems to simplify this for us.
-  * __Filestore or Filesystem__: A system to save, archive, and recall specific documents and media. Usually, a file store offers low cost per unit space optimized for larger files.
-  * __Database__: A system to save and organize complex data models. They often use more advanced data structures to index and organize data for faster lookup time. Databases are compelling solutions for data models that have complicated relationships.
-  * __Compute__: any computer operation requires some computation on a CPU (central processing unit).
-  * __Server__: A specialized computer for cloud and web services.
-  * __Instance__: A computational unit which may be a physical server or a virtual server that is abstracted by a cloud service.
-  * __Cluster__: A collection of instances which perform the same function. It may be used to distribute workloads.
-  * __Autoscaling Group__: A type of cluster that can increase or decrease the number of instances based on demand.
+  * `Data`: we store digital data as bytes on physical media like hard drives, but in the cloud, we use systems to simplify this for us.
+  * `Filestore or Filesystem`: A system to save, archive, and recall specific documents and media. Usually, a file store offers low cost per unit space optimized for larger files.
+  * `Database`: A system to save and organize complex data models. They often use more advanced data structures to index and organize data for faster lookup time. Databases are compelling solutions for data models that have complicated relationships.
+  * `Compute`: any computer operation requires some computation on a CPU (central processing unit).
+  * `Server`: A specialized computer for cloud and web services.
+  * `Instance`: A computational unit which may be a physical server or a virtual server that is abstracted by a cloud service.
+  * `Cluster`: A collection of instances which perform the same function. It may be used to distribute workloads.
+  * `Autoscaling Group`: A type of cluster that can increase or decrease the number of instances based on demand.
 ---
 
 #### Monolithic vs. Loosely Coupled Systems
@@ -740,10 +740,13 @@ Microservices are individual specialized systems (software deployed on specializ
 #### Getting Setup
 * Installing Node and NPM  
 This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from https://nodejs.com/en/download.
+
 * Installing Ionic Cli  
 The Ionic Command Line Interface is required to serve and build the frontend. Instructions for installing the CLI can be found in the [Ionic Framework Docs](https://ionicframework.com/docs/installation/cli).
+
 * Installing Python3  
 Python is a powerful programming language used for anything from quick scripts through data science. We'll use Python for the final project and it is required for some development tools like the AWS CLI. Instructions to download and install Python for your OS can be found here: https://www.python.org/downloads/
+
 * Amazon Web Services (AWS)
   * Account Setup  
 We'll be provisioning cloud resources throughout the next few lessons. You'll need an AWS account to set up these resources. We'll be taking advantage of the free tier offerings so there should be no costs to set up the resources we'll be using. Create a new account here: https://portal.aws.amazon.com/billing/signup#/
@@ -902,6 +905,7 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   <img src="docs/02_full_stack_aws/create_user_05_bucket_access.png" width="500">  
   
   * Assing that policy to the new group  
+  
   * See details and download `credential.csv`
   <img src="docs/02_full_stack_aws/create_user_06_details.png" width="500">  
   <img src="docs/02_full_stack_aws/create_user_07_credentiales.png" width="500">  
