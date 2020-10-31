@@ -887,13 +887,13 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   * `IAM service role`: an IAM role gives a service a set of permissions to access one or more services.  
     <img src="docs/02_full_stack_aws/iam_user_vs_iam_roles.png" width="400">  
 
-* User IAM profiles on AWS
+* `User IAM profiles on AWS`
   * It’s beneficial to create a role that contains a policy group (a set of permissions), rather than to assign individual permissions to a specific user.  
-  * Imagine if a user leaves the company and a new hire takes their place. Instead of re-assigning all the permissions needed for their job, we can assign the existing IAM role to that new employee.
-  
+  * Imagine if a user leaves the company and a new hire takes their place. Instead of re-assigning all the permissions needed for their job, we can assign the existing IAM role to that new employee.  
+  <br>
   <img src="docs/02_full_stack_aws/permisions_01.png" width="500">  
 
-* Creating User Profiles Using the AWS Console
+* `Creating User Profiles Using the AWS Console`
   * https://youtu.be/DJ0wYhp_-cc
   * Create user  
   <img src="docs/02_full_stack_aws/create_user_01.png" width="500">  
