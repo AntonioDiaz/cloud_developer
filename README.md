@@ -835,13 +835,15 @@ __Scale up__    -> SQL database easier  -> make computer bigger (more CPU, RAM,.
 * [Video](https://youtu.be/2ydzbZjoB-Q)
 
 * Configuring Amazon Web Services Relational Database Service  
-<img src="docs/02_full_stack_aws/rds_01.png" width="500">  
-<img src="docs/02_full_stack_aws/rds_02.png" width="500">  
-<img src="docs/02_full_stack_aws/rds_03.png" width="500">  
+  <img src="docs/02_full_stack_aws/rds_01.png" width="500">  
+  <img src="docs/02_full_stack_aws/rds_02.png" width="500">  
+  <img src="docs/02_full_stack_aws/rds_03.png" width="500">  
+
 * Allowing Public Traffic to RDS  
-<img src="docs/02_full_stack_aws/rds_04.png" width="500">  
+  <img src="docs/02_full_stack_aws/rds_04.png" width="500">  
+
 * Connecting to RDS with Postbird  
-<img src="docs/02_full_stack_aws/postbid.png" width="500">  
+  <img src="docs/02_full_stack_aws/postbid.png" width="500">  
 
 * Creating Tables in RDS with Postbird
 * Making SQL Commands with Postbird
