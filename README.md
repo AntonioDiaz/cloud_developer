@@ -831,33 +831,33 @@ __primary key and foreign key__: The primary consists of one or more column in a
 __Scaling out__ -> noSQL easier         -> more instances  
 __Scale up__    -> SQL database easier  -> make computer bigger (more CPU, RAM,...)
 
-#### Provisioning a Cloud Database
-* Configuring Amazon Web Services' Relational Database Service
+#### `Provisioning a Cloud Database`
+* Configuring Amazon Web Services Relational Database Service
 * Allowing Public Traffic to RDS
 * Interfacing with our Database using Postbird
 * Connecting to RDS with Postbird
 * Creating Tables in RDS with Postbird
 * Making SQL Commands with Postbird
 
-#### Filestore Basics
-* File stores allow for archiving data. In AWS, the file store is called S3, and the archive resource is called “glacier”.
-* Content Delivery Network (CDN): are a network of proxy servers that are placed closer to end users to deliver data and compute. CDNs reduce latency for end users.
-* SignedURLs allow clients to send and receive data by directly communicating with the file store.  
+#### `Filestore Basics`
+* File stores allow for archiving data. In AWS, the file store is called `S3`, and the archive resource is called “glacier”.
+* `Content Delivery Network (CDN)`: are a network of proxy servers that are placed closer to end users to deliver data and compute. CDNs reduce latency for end users.
+* `SignedURLs` allow clients to send and receive data by directly communicating with the file store.  
 This saves the server from using its bandwidth to serve as the intermediary that transmits data to and from the client.   
 This is faster for clients as well.
 * Buckets: a simple directory-like system in which to store data.
 
-* Signed URL pattern  
+* `Signed URL pattern`  
 <img src="docs/02_full_stack_aws/signed_url_pattern_01.png" width="500">  
 <img src="docs/02_full_stack_aws/signed_url_pattern_02.png" width="500">  
 
 ---
-#### Creating an S3 Filestore Bucket
+#### `Creating an S3 Filestore Bucket`
 * Create “dev” resources: Use the “dev” set of infrastructure (set of servers, filestores, databases) for development, and a separate set of infrastructure for production.
 * AES 256: Advanced Encryption Standard with a 256-bit key. This is a popular encryption standard.
 * CORS: Cross Origin Resource Sharing: defines how a client can interact with a resource, and what the client can and cannot do with that resource. Setting the CORS policy of our S3 bucket allows our client to communicate with the S3 bucket using the SignedURL pattern.
 
-Bucket CORS Policy  
+`Bucket CORS Policy`  
 You'll need this policy to create a bucket where we can use the SignedURL pattern.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -874,6 +874,7 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
 </CORSConfiguration>
 ```
 ---
+
 #### Understanding Secrets
 * All access should be revocable  
   <img src="docs/02_full_stack_aws/access_revocable.png" width="400">  
@@ -883,12 +884,13 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   * Use `environment variables` to store your username and password, to avoid hard-coding username and password information in your code.
   * Avoid committing your passwords to git. Use `.gitignore` to define files that you do not want to commit to git.
   * `IAM user role`: an IAM role can give a user a set of permissions to access one or more services.
-  * `IAM service role`: an IAM role gives a service a set of permissions to access one or more services.
+  * `IAM service role`: an IAM role gives a service a set of permissions to access one or more services.  
     <img src="docs/02_full_stack_aws/iam_user_vs_iam_roles.png" width="400">  
 
 * User IAM profiles on AWS
   * It’s beneficial to create a role that contains a policy group (a set of permissions), rather than to assign individual permissions to a specific user.  
   * Imagine if a user leaves the company and a new hire takes their place. Instead of re-assigning all the permissions needed for their job, we can assign the existing IAM role to that new employee.
+  
   <img src="docs/02_full_stack_aws/permisions_01.png" width="500">  
 
 * Creating User Profiles Using the AWS Console
