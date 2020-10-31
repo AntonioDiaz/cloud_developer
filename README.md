@@ -767,9 +767,9 @@ Postman is a useful tool to issue and save requests. Postman can create GET, PUT
 *  Only user noums and no verbs.  
 They should be plural and consistent.
 * APIs should be versioned  
-  > {{host}}/api/v0/cars/5
+  `{{host}}/api/v0/cars/5`
 * List should be paginated to limit the amount of date sent
-  > {{host}}/api/v0/cars/?ofset=50&limit=10
+  `{{host}}/api/v0/cars/?ofset=50&limit=10`
 * All responses should be attempt to use status codes
 * All responses should include data format
   * i.e. application/json
