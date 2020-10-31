@@ -68,7 +68,7 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Verification Testing](#verification-testing)
         - [Using Git Effectively for the Cloud](#using-git-effectively-for-the-cloud)
     - [Lesson 3: storing data in the cloud](#lesson-3-storing-data-in-the-cloud)
-        - [Difficulties ofd Persistent Data](#difficulties-ofd-persistent-data)
+        - [Difficulties of Persistent Data](#difficulties-of-persistent-data)
         - [Database Basics](#database-basics)
         - [Provisioning a Cloud Database](#provisioning-a-cloud-database)
         - [Filestore Basics](#filestore-basics)
@@ -813,7 +813,7 @@ Integration Tests ensure every endpoint in our software package perform their ta
 
 ---
 ### `Lesson 3: storing data in the cloud`
-#### Difficulties ofd Persistent Data
+#### Difficulties of Persistent Data
 * __RAM (Random Access Memory)__: Data can be accessed quickly, but is erased once the server restarts. It may be okay to use RAM when prototyping, and later replace it with a database.
 * __Hard Drive Disk__: Data remains after server restarts, but is specific to that server (not shared across servers).
 * __Race Condition__: When an application’s behavior is dependent on other uncontrollable events. This is an issue with storing data on disks or RAM of multiple servers.
@@ -1068,7 +1068,7 @@ We exemplify this using the @CreatedAt and @UpdatedAt. This will set the option 
 * Associations In Sequelize  
 Check out the Sequelize documentation on associations to understand how to implement this pattern: http://docs.sequelizejs.com/manual/associations.html
 ---
-#### Connecting our S3 Filestore in Node
+#### `Connecting our S3 Filestore in Node`
 * Signed URL Pattern  
   * We'll be using the Amazon Web Services (AWS) Javascript Software Development Kit (SDK) to implement the SignedURL pattern within our Node server.  
 <img src="docs/02_full_stack_aws/signed_url_pattern.png" width="500">  
@@ -1122,7 +1122,7 @@ export function getPutSignedUrl( key: string ){
 }
 ```
 ---
-#### Handling Secrets with Environment Variables
+#### `Handling Secrets with Environment Variables`
 1. __Shell__ - Linux/Mac Users  
     * For Unix/Linux/Mac operating systems, a shell is a command-line program that accepts users' commands and executes those commands on the underlying kernel. Each command has a specific job to perform.
     * There are multiple shells available. The default shell for (most) Linux systems is the bash shell. Other examples are ksh, tcsh, and zsh. The default shell for macOS 10+ is zsh.
@@ -1181,12 +1181,12 @@ export JWT_SECRET=helloworld
 ```
 
 ---
-#### Permissions for Elastic Beanstalk  
+#### `Permissions for Elastic Beanstalk`  
 * Add permissions _AWSElasticBeanstalkFullAccess_ and _AdministratorAccess_   
 <img src="docs/02_full_stack_aws/permissions.png" width="800" alt=""> 
 
 ---
-#### Deploying Our Server to the Cloud
+#### `Deploying Our Server to the Cloud`
 * Basic AWS Architecture  
 <img src="docs/02_full_stack_aws/beanstalk_01.png" width="500" alt="">  
 <img src="docs/02_full_stack_aws/beanstalk_02.png" width="500" alt="">  
@@ -1372,8 +1372,8 @@ This will upload the new code and restart the running instances!
   * [npm auditing](https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities)
   * [github security alerts](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)
 ---
-### Lesson 6: scaling and fixing
-#### How the Internet Routes: DNS
+### `Lesson 6: scaling and fixing`
+#### `How the Internet Routes: DNS`
 * AWS Route 53 Developer Guide  
   * Amazon Web Services' flavor of DNS is called Route53. This service allows you to set up routing profiles for your domain names and direct traffic to services inside of and external to AWS.  
   * Amazon provides great documentation on using Route53 in their [developer guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html).  
@@ -1388,7 +1388,7 @@ This will upload the new code and restart the running instances!
 
 ---
 
-#### Frontend Super Basics
+#### `Frontend Super Basics`
 * Intro to Frontend JavaScript Frameworks  
   * Frontend frameworks allow us to quickly standup compelling, highly interactive user experiences to interface with our cloud services. 
   * Many frameworks use JavaScript or TypeScript which is another great reason to use Node for our servers - we'll have the same technology requirements throughout our stack!
@@ -1409,7 +1409,7 @@ This will upload the new code and restart the running instances!
 * tip: the ionic-cli must be installed to run ```ionic serve```. Read [the docs](https://ionicframework.com/docs/cli) to make sure this is installed globally.  
 ```npm i -g ionic```
 ---
-#### Intro to Content Delivery Networks (CDN)
+#### `Intro to Content Delivery Networks (CDN)`
 
 <img src="docs/02_full_stack_aws/aws_cdn.png" width="500" alt="">  
 
@@ -1426,7 +1426,7 @@ This is beyond the scope of required work for this course, but it is a good skil
 ``` ionic build ```  
 ``` ionic build --prod```
 ---
-#### Scaling Our System to Handle More Users
+#### `Scaling Our System to Handle More Users`
 * Scaling Up  
 Making your instance more powerful - more ram, better CPU, blazing fast GPU!
 * Scaling Out  
@@ -1463,7 +1463,7 @@ Be cautious before running these kinds of tests on AWS infrastructure to prevent
   * AWS also has native tools to help monitor performance called CloudWatch.
 
 ---
-#### Project Overview
+#### `Project Overview`
 * Starter Code  
 The project starter code can be found here: [Image Filter Starter Code](https://github.com/udacity/cloud-developer/tree/master/course-02/project/image-filter-starter-code)
 
@@ -1489,8 +1489,8 @@ The project starter code can be found here: [Image Filter Starter Code](https://
 Before submitting, check if you have completed all criteria in the project [rubric](https://review.udacity.com/#!/rubrics/2555/view).
 
 ---
-## Monolith to Microservices at Scale
-### Lesson 1: Introduction to Microservices
+## `Monolith to Microservices at Scale`
+### `Lesson 1: Introduction to Microservices`
 * Deploying Code is Not Easy  
 Deploying changes in code is non-trivial. We have to consider the impact of potential bugs, downtime, ease of deployment, and downstream effects to consumers of the application.
 
@@ -1532,7 +1532,7 @@ Teams may have previously consisted of separate teams for Quality Assurance, Dat
 Software was deployed to expensive mainframe computers located in data centers. Now, commodity hardware is powerful enough to run our applications. Distributed computing can help us perform large-scale data processing without the need to purchase dedicated, expensive hardware.  
 <img src="docs/03_microservices/ms_hardware.png" width="500" alt="">  
 
-#### Course Outline
+#### `Course Outline`
 
 <img src="docs/03_microservices/ms_course.png" width="500" alt="">  
 
@@ -1564,8 +1564,7 @@ Software was deployed to expensive mainframe computers located in data centers. 
   * Implement monitoring and logging for microservices deployment
   * Improve resilience and availability into cloud applications
 
-#### Tools
-__Tools We Will Be Using__  
+#### `Tools`
 Please create an account for each of these services:
 * [AWS](https://aws.amazon.com/)
 * [Travis CI](https://travis-ci.com/)
@@ -1618,7 +1617,7 @@ Technical Properties
 * Fault Tolerant
   * Diligence in writing code that can anticipate when another microservice isn’t working
 
-* Alternatives to REST  
+* `Alternatives to REST`  
 While REST is the most popular form of network communication used for microservices, there are many other protocols that can be used.  
 The following are some other ways microservices can communicate with one another:
   * Publish-Subscribe
@@ -1703,7 +1702,7 @@ Next Lesson
 In this lesson, we often mentioned how microservices are deployed independently. In the next lesson, we’ll dive into this in greater detail and learn about the industry standard of deploying our code with a technology named Docker.
 
 ---
-### Lesson 3: Containers Using Docker
+### `Lesson 3: Containers Using Docker`
 #### Containers Using Docker
 * Your Code is Not a Black Box...Yet
   * Applications often require many packages and dependencies to run properly
@@ -1886,7 +1885,7 @@ Here are some more reading materials that you can reference for improving how Do
 |Image	|A snapshot of dependencies and code used by Docker containers to run an application|
 
 ---
-### Lesson 4: Authomating the Application Development Lifecycle
+### `Lesson 4: Authomating the Application Development Lifecycle`
 * We'll be going over how to streamline the process in how our code gets built and deployed.
 
 We’ll review:
@@ -2326,7 +2325,7 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
 <img src="docs/03_microservices/ms_k8s_security.png" width="700" alt="">  
 
 ---
-### Project: Refactor Monolith to Microservices and Deploy
+### `Project: Refactor Monolith to Microservices and Deploy`
 * __Introduction__
   * Now that we have learned about monolith applications and microservices, let's do it ourselves! For our project, we will be taking an existing monolith application and deploy it as microservices in Kubernetes on AWS.
   * Steps
@@ -2377,9 +2376,9 @@ After setting up your GitHub account to integrate with Travis CI, set up a GitHu
     * Kubernetes `kubectl describe hpa` output
     * Kubernetes `kubectl logs <your pod name>` output
 
-## Develop & Deploy Serverless App
+## `Develop & Deploy Serverless App`
 
-## Capstone
+## `Capstone`
 
 
 
