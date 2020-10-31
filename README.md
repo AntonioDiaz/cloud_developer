@@ -700,7 +700,7 @@ Steps
 
 
 ## Full Stack Apps on AWS
-### Lesson 1: Cloud Basic
+### `Lesson 1: Cloud Basic`
 #### Cloud Basics and Parts of a Cloud
 * Key Terminology
   * `Data`: we store digital data as bytes on physical media like hard drives, but in the cloud, we use systems to simplify this for us.
@@ -736,7 +736,7 @@ Microservices are individual specialized systems (software deployed on specializ
 * [HTTP status codes](https://www.restapitutorial.com/httpstatuscodes.html)
 ---
 
-### Lesson 2: develop
+### `Lesson 2: develop`
 #### Getting Setup
 * Installing Node and NPM  
 This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from https://nodejs.com/en/download.
@@ -812,7 +812,7 @@ Integration Tests ensure every endpoint in our software package perform their ta
 <img src="docs/02_full_stack_aws/aws_git.png" width="500">  
 
 ---
-### Lesson 3: storing data in the cloud
+### `Lesson 3: storing data in the cloud`
 #### Difficulties ofd Persistent Data
 * __RAM (Random Access Memory)__: Data can be accessed quickly, but is erased once the server restarts. It may be okay to use RAM when prototyping, and later replace it with a database.
 * __Hard Drive Disk__: Data remains after server restarts, but is specific to that server (not shared across servers).
@@ -894,7 +894,7 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   <img src="docs/02_full_stack_aws/permisions_01.png" width="500">  
 
 * `Creating User Profiles Using the AWS Console`
-  * https://youtu.be/DJ0wYhp_-cc
+  * [Video](https://youtu.be/DJ0wYhp_-cc)
   * Create user  
   <img src="docs/02_full_stack_aws/create_user_01.png" width="500">  
 
@@ -916,7 +916,7 @@ You'll need this policy to create a bucket where we can use the SignedURL patter
   <img src="docs/02_full_stack_aws/create_user_06_details.png" width="500">  
   <img src="docs/02_full_stack_aws/create_user_07_credentiales.png" width="500">  
 
-* Installing AWS User IAM Profiles Locally
+* `Installing AWS User IAM Profiles Locally`
   * From the `credentials.csv` you will need:
     <img src="docs/02_full_stack_aws/credentials_csv.png" width="700">      
     * Access key ID
