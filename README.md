@@ -832,7 +832,18 @@ __Scaling out__ -> noSQL easier         -> more instances
 __Scale up__    -> SQL database easier  -> make computer bigger (more CPU, RAM,...)
 
 #### `Provisioning a Cloud Database`
-* Configuring Amazon Web Services Relational Database Service
+* [Video](https://youtu.be/2ydzbZjoB-Q)
+<details close>
+  <summary>Configuring Amazon Web Services Relational Database Service</summary>
+  <markdown>
+    <img src="docs/02_full_stack_aws/rds_01.png" width="500">  
+    <img src="docs/02_full_stack_aws/rds_02.png" width="500">  
+    <img src="docs/02_full_stack_aws/rds_03.png" width="500">  
+    <img src="docs/02_full_stack_aws/rds_04.png" width="500">  
+  </markdown>
+</details>
+
+
 * Allowing Public Traffic to RDS
 * Interfacing with our Database using Postbird
 * Connecting to RDS with Postbird
