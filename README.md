@@ -1810,7 +1810,7 @@ Troubleshooting Docker Containers is different as we lose access to some of our 
 * Viewing Logs  
 ``` docker logs ```
 * Attaching to a Container  
-``` docker exec -it sh ```
+``` docker exec -it <CONTAINER_ID> sh ```
 * View Docker Processes  
 ```docker ps```
 * View Details of Docker Objects  
@@ -1826,6 +1826,7 @@ The following are some documentation on the commands for further understanding o
   * docker ps  
   * docker inspect
 ---
+
 #### Exercise: Debugging
 * Let’s debug an application in a container.   
 A Docker image has been prepared that has an error during runtime. Using some of the commands we learned earlier, diagnose the cause of the issue.
@@ -1836,11 +1837,14 @@ Downloads a container onto your development environment.
 Runs the image in a container as a background task so the container doesn’t prevent us from being able to run other commands in our terminal
 
 * Solution  
+```bash
 docker images  
 docker run -d xxxxx  
 docker ps  
 docker inspect xxxxx  
 docker exec -it xxxxx sh -> go inside the container
+````
+
 ```
 # pwd 
 # ps aux
