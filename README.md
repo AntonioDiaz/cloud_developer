@@ -2378,6 +2378,12 @@ After setting up your GitHub account to integrate with Travis CI, set up a GitHu
     * Kubernetes `kubectl describe hpa` output
     * Kubernetes `kubectl logs <your pod name>` output
 
+Commands:
+* `docker run --env-file ~/Desktop/env_var.sh adiazarroyo/restapi-feeds`
+* `docker pull adiazarroyo/restapi-feeds:latest`
+* `docker run adiazarroyo/restapi-feeds`
+
+
 ## `Develop & Deploy Serverless App`
 
 ## `Capstone`
