@@ -1909,19 +1909,17 @@ Docker containers simplify what we deploy.
 * Code is often deployed multiple times to different environments to validate functionality and minimize bugs.
 * Deployment pipelines enable us to have an automated process that is reliable and reproducible.
 
-#### Deploying Code
+#### `Deploying Code`
 * Code After Coding  
 Once your code is done, how do you ship it? Typically, the software development cycle will proceed with building the code, installing all of the dependencies, running automated tests, manually testing, and then repeating for each development environment the application needs to be deployed to.
 
 * It’s a common fallacy to underestimate the time it takes to deploy code
 * Teams deploying enterprise software often involves many internal and external dependencies that may include: infrastructure changes, security changes, permissions provisioning, load testing
 
-#### CI/CD Benefits  
-* CI/CD enables us to have a streamlined process for how our code transforms from being written to being deployed to production.
-
-<img src="docs/03_microservices/ms_cicd_benefits.png" width="500" alt="">  
-
-<img src="docs/03_microservices/ms_cicd_docker.png" width="500" alt="">  
+#### `CI/CD Benefits`  
+* CI/CD enables us to have a streamlined process for how our code transforms from being written to being deployed to production.  
+  <img src="docs/03_microservices/ms_cicd_benefits.png" width="500" alt="">  
+  <img src="docs/03_microservices/ms_cicd_docker.png" width="500" alt="">  
 
 * Continuous Integration  
 Process in which code is tested, built into a Docker image, and deployed to a container registry.
@@ -1946,7 +1944,7 @@ The following information is available for further reading on key ideas for depl
   * Backing up the code is not always a comprehensive backup of the existing state since we may have other dependencies such as databases
   * Packages and dependencies may have to be downgraded and would introduce downtime
 ----
-#### Travis CI
+#### `Travis CI`
 
 * Travis is a tool that helps us with the CI process
 * Travis integrates with your application using a YAML file
@@ -1986,7 +1984,7 @@ after_success:
 * Additional Reading  
 https://docs.travis-ci.com/user/for-beginners/
 ---
-#### Using Environment Variables with Travis
+#### `Using Environment Variables with Travis`
 * Environment variables are a useful way to handle variables that shouldn’t be hard-coded into our application. 
 * These values are often credentials that shouldn’t be stored in the code.
   <img src="docs/03_microservices/ms_travis_env_variables.png" width="500" alt="">  
@@ -2005,14 +2003,14 @@ const favoriteFood = process.env.FAVORITE_FOOD;
 console.log(`My favorite food is ${favoriteFood}`);
 ```
 ---
-#### Travis alternatives
+#### `Travis alternatives`
 <img src="docs/03_microservices/ms_travis_alternatives.png" width="500" alt="">  
 
 * Jenkins - most flexible but more overhead of setup
 * CircleCI - alternative to Travis CI with many competing features
 * AWS CodeBuild - integrates easily with other AWS tools
 ---
-### Lesson 5: Orchestration with Kubernates
+### `Lesson 5: Orchestration with Kubernates`
 * Orchestration is the automated management of the lifecycle of our application  
   * With CI/CD, if Travis is our CI tool, then Kubernetes is our CD tool
   * Orchestration helps us handle complicated workflows in deploying our application
