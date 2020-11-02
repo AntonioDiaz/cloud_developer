@@ -2016,10 +2016,10 @@ console.log(`My favorite food is ${favoriteFood}`);
   * Orchestration helps us handle complicated workflows in deploying our application
   * Helps us automate our deployment process for continuous deployment
 
-#### Fundamentals of Kubernetes
+#### `Fundamentals of Kubernetes`
 * Kubernetes
-  * A container orchestration system packed with features for automating our application’s deployment
-  * Enables us to easily scale our application and ship new code
+  * A container orchestration system packed with features for automating our application’s deployment.
+  * Enables us to easily scale our application and ship new code.
 * Pods
   * Containers often need to communicate with one another. It's not uncommon to see a deployment involving a few containers to be deployed.
   * Kubernetes pods are abstractions of multiple containers and are also ephemeral.
@@ -2027,8 +2027,8 @@ console.log(`My favorite food is ${favoriteFood}`);
   * Applications are often deployed with multiple ```replicas```. This helps with ```load balancing``` and ```horizontal scaling```.
   * Services are an abstraction of a set of pods to expose them through a network.
 
-* A service is an abstraction of pods and pods are abstractions of containers
-<img src="docs/03_microservices/ms_k8s_pods.png" width="500" alt="">  
+* A service is an abstraction of pods and pods are abstractions of containers  
+  <img src="docs/03_microservices/ms_k8s_pods.png" width="500" alt="">  
 
 * New terms:
   * ```Horizontal Scaling```  
@@ -2044,7 +2044,7 @@ console.log(`My favorite food is ${favoriteFood}`);
   * ```Consumer```  
   An external entity such as a user or program that interfaces with an application
 ---
-#### Kubernetes on AWS
+#### `Kubernetes on AWS`
 * ```AWS EKS``` Elastic Kubernetes Service is a service that we can use to set up Kubernetes.
 * The ```deployment.yaml``` file is used to specify how our pods should be created.  
   * Example
@@ -2093,7 +2093,7 @@ console.log(`My favorite food is ${favoriteFood}`);
       selector:
         run: my-app
     ```
-__Creating a Kubernetes Cluster on AWS__
+__`Creating a Kubernetes Cluster on AWS`__
 
 * Creating an EKS Cluster
   1. Create cluster in EKS  
@@ -2126,7 +2126,7 @@ The following are some additional resources for more information about EKS.
   * [AWS EKS Versioning](https://aws.amazon.com/blogs/compute/updates-to-amazon-eks-version-lifecycle/)
   * [Why use EKS](https://itnext.io/kubernetes-is-hard-why-eks-makes-it-easier-for-network-and-security-architects-ea6d8b2ca965)
 
-#### Solition: Kubernetes on AWS
+#### `Solition: Kubernetes on AWS`
 * Overview  
 Kubernetes YAML files have many possible configurations and are very open-ended. The solution I have is one example of how we can set up our files.
 
@@ -2135,7 +2135,7 @@ Some key areas to note are that:
 * ```replicas``` specifies the number of replicas that we want. This corresponds to the number of pods that will be created for one deployment.
 * ```containers``` in deployment.yaml specifies the source for our Docker image
 ---
-#### Kubernetes Cluster
+#### `Kubernetes Cluster`
 * At this point, we have a Kubernetes cluster set up and understand how YAML files can be created to handle the deployment of pods and expose them to consumers.
 * Moving forward, we’ll be using the Kubernetes command-line tool, kubectl, to interact with our cluster.
 * Interacting With Your Cluster
