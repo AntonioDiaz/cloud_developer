@@ -2209,15 +2209,14 @@ A redundant copy of a resource often used for backups or load balancing
 * `Consumer`  
 An external entity such as a user or program that interfaces with an application
 ---
-### Lesson 6: Best Practices/Design Patterns for Kubernetes in Production
+### `Lesson 6: Best Practices/Design Patterns for Kubernetes in Production`
 <img src="docs/03_microservices/ms_k8s_prod.png" width="500" alt="">  
 
-#### Reverse Proxy
-* `Reverse Proxy`
-  * A single interface that forwards requests on behalf of the client and appears to the client as the origin of the responses.
-  * Useful for abstracting multiple microservices to appear as a single resource.
-  * A reverse proxy proxy is used to route traffic from one endpoint to multiple endpoints  
-    <img src="docs/03_microservices/ms_reverse_proxy.jpg" width="500" alt="">  
+#### `Reverse Proxy`
+* A single interface that forwards requests on behalf of the client and appears to the client as the origin of the responses.
+* Useful for abstracting multiple microservices to appear as a single resource.
+* A reverse proxy proxy is used to route traffic from one endpoint to multiple endpoints  
+  <img src="docs/03_microservices/ms_reverse_proxy.jpg" width="500" alt="">  
 * `API Gateway`  
 A form of a reverse proxy that serves as an abstraction of the interface to other services.
 * Sample reverse proxy
@@ -2264,6 +2263,11 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
 
     COPY nginx.conf /etc/nginx/nginx.conf
     ```
+  * Push to Docker Hub:
+    * `docker build -t udacity-reverse-proxy .`
+    * `docker tag udacity-reverse-proxy adiazarroyo/udacity-reverse-proxy:latest`
+    * `docker push adiazarroyo/udacity-reverse-proxy`
+    
   * `deployment.yaml`
     ```yaml
     apiVersion: extensions/v1beta1
