@@ -141,6 +141,8 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
         - [Reverse Proxy](#reverse-proxy)
         - [Securing the Microservices](#securing-the-microservices)
+- [<img src="docs/03_microservices/ms_k8s_security.png" width="700" alt="">](#img-srcdocs03_microservicesms_k8s_securitypng-width700-alt)
+        - [Scaling and Self-Healing](#scaling-and-self-healing)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
 - [Capstone](#capstone)
@@ -2172,7 +2174,7 @@ The following are some additional information on interacting with Kubernetes
   * [Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
   * [kubectl Documentation](https://kubectl.docs.kubernetes.io/)
 ---
-#### Alternative Deployment Strategies
+#### `Alternative Deployment Strategies`
 * Kubernetes is one solution for deploying your containers. It's packed with features but can sometimes be overwhelming. As we've mentioned before, choosing a tool comes with its own set of tradeoffs. Here are a few other popular technologies that are used in the industry today.
 
 * `AWS ECS`  
@@ -2184,7 +2186,7 @@ AWS tool that helps streamline deploying containers to ECS and EKS.
 * `Docker`  
 It's an option to simply run the container manually with Docker. Sometimes, it's tempting to pick a shiny hot tool that may lead to overengineered architectures.
 ---
-#### Debugging Kubernetes
+#### `Debugging Kubernetes`
 * With Docker, we were able to connect to the container as one approach for debugging. 
 * Look through [the documentation here](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) and see how we can do something similar by connecting to a pod in kubernetes.
 
@@ -2193,7 +2195,7 @@ kubectl get pod my-app-b7f58d8b8-5dsql
 kubectl exec --stdin --tty my-app-b7f58d8b8-5dsql  -- /bin/bash
 ```
 ---
-#### Terms in this lesson
+#### `Terms in this lesson`
 * `Cluster`  
 A group of resources that are connected to act as a single system
 * `Horizontal Scaling`  
@@ -2267,7 +2269,7 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
     * `docker build -t udacity-reverse-proxy .`
     * `docker tag udacity-reverse-proxy adiazarroyo/udacity-reverse-proxy:latest`
     * `docker push adiazarroyo/udacity-reverse-proxy`
-    
+
   * `deployment.yaml`
     ```yaml
     apiVersion: extensions/v1beta1
@@ -2329,6 +2331,18 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
   * Kubernetes Ingress and Egress Enables you to restrict the inbound and outbound traffic for Kubernetes resources.  
   
 <img src="docs/03_microservices/ms_k8s_security.png" width="700" alt="">  
+---
+
+#### `Scaling and Self-Healing`
+* Create HPA
+```bash
+kubectl autoscale deployment <NAME> --cpu-percent=<CPU_PERCENTAGE>                --min=<MIN_REPLICAS>
+--max=<MAX_REPLICAS>
+```
+* View HPA
+```bash
+kubectl get hpa
+```
 
 ---
 ### `Project: Refactor Monolith to Microservices and Deploy`
