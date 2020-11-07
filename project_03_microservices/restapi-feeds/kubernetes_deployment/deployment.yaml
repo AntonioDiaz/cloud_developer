@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feeds-app
+  labels:
+    app: feeds-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feeds-app
+  template:
+    metadata:
+      labels:
+        app: feeds-app
+    spec:
+      containers:
+      - name: restapi-feeds
+        image: adiazarroyo/restapi-feeds
+        ports:
+        - containerPort: 80
+        env:
+        - name: POSTGRESS_USERNAME
+          value: "udacityadiaz"
+        - name: POSTGRESS_PASSWORD
+          value: "berlin22"
+        - name: POSTGRESS_DATABASE
+          value: "udagram"
+        - name: POSTGRESS_HOST
+          value: "udacityadiaz.cjvquh78n3mk.eu-west-3.rds.amazonaws.com"
+        - name: AWS_REGION
+          value: "eu-west-3"
+        - name: AWS_PROFILE
+          value: "default"
+        - name: AWS_MEDIA_BUCKET
+          value: "udagram-adiaz-dev"
+        - name: JWT_SECRET
+          value: "FJAEKFJLKSJEAKEKAJFFAIQOE"

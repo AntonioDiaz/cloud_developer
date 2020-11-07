@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-app
+  labels:
+    run: users-app
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: users-app

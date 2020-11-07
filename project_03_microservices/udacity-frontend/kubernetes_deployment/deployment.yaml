@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app
+  labels:
+    app: frontend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-app
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+    spec:
+      containers:
+      - name: restapi-frontend
+        image: adiazarroyo/udacity-frontend
+        ports:
+        - containerPort: 80
+        env:
+        - name: POSTGRESS_USERNAME
+          value: "udacityadiaz"
+        - name: POSTGRESS_PASSWORD
+          value: "berlin22"
+        - name: POSTGRESS_DATABASE
+          value: "udagram"
+        - name: POSTGRESS_HOST
+          value: "udacityadiaz.cjvquh78n3mk.eu-west-3.rds.amazonaws.com"
+        - name: AWS_REGION
+          value: "eu-west-3"
+        - name: AWS_PROFILE
+          value: "default"
+        - name: AWS_MEDIA_BUCKET
+          value: "udagram-adiaz-dev"
+        - name: JWT_SECRET
+          value: "FJAEKFJLKSJEAKEKAJFFAIQOE"
