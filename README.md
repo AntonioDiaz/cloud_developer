@@ -1,4 +1,4 @@
-# Cloud Developer Nanogree by Udacity
+# `Cloud Developer Nanogree by Udacity`
 
 https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
 
@@ -141,7 +141,6 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
     - [Lesson 6: Best Practices/Design Patterns for Kubernetes in Production](#lesson-6-best-practicesdesign-patterns-for-kubernetes-in-production)
         - [Reverse Proxy](#reverse-proxy)
         - [Securing the Microservices](#securing-the-microservices)
-- [<img src="docs/03_microservices/ms_k8s_security.png" width="700" alt="">](#img-srcdocs03_microservicesms_k8s_securitypng-width700-alt)
         - [Scaling and Self-Healing](#scaling-and-self-healing)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
@@ -149,40 +148,40 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
 
 <!-- /TOC -->
 
-## Intro
+## `Intro`
 
 https://udacity.github.io/git-styleguide/  
 
-__Project Portfolio__  
+__`Project Portfolio`__  
 * Real-world projects are integral to every Udacity Nanodegree program. They become the foundation for a job-ready portfolio to help learners advance their careers in their chosen field. The projects in the Cloud Developer Nanodegree program were designed in collaboration with a group of highly talented industry professionals to ensure you develop the most in-demand skills. Every project in a Nanodegree program is human-graded by a member of Udacity’s mentor and reviewer network. These project reviews include detailed, personalized feedback on how you can improve their work. Udacity graduates consistently rate projects and project reviews as one of the best parts of their experience with Udacity.
 
-__Project 1__ 
+__`Project 1`__ 
 * Deploy Static Website on AWS
 The cloud is perfect for hosting static websites that only include HTML, CSS, and JavaScript files that require no server-side processing. In this project, you will deploy a static website to AWS. First, you will create a S3 bucket, configure the bucket for website hosting, and secure it using IAM policies. Next, you will upload the website files to your bucket and speed up content delivery using AWS’s content distribution network service, CloudFront. Lastly, you will access your website in a browser using the unique S3 endpoint.
 
-__Project 2__ 
+__`Project 2`__ 
 * Udagram: your own Instagram on AWS
 In this project, you will develop a cloud-based application for uploading, listing, and filtering images. You will use Node.js/Express, a popular javascript framework for networked application development to develop this application. You will implement a REST API to issue commands using HTTP, store data in Amazon Web Services Relational Data Service (RDS) and S3, extend the codebase with secure authentication signon features, and deploy to Amazon Web Services Elastic Beanstalk. These are the hard skills you’ll need in any Cloud developer role.
 
-__Project 3__   
+__`Project 3`__  
 * Refactor Udagram app into Microservices and deploy using Kubernetes
 In this project, you will reuse their existing Udagram application and convert and extend into a microservice architecture. After the application is divided into smaller service, you will containerize it and deploy it to a Kubernetes cluster. This includes the deployment pipeline, scalability, observability, services, networking, and deployment strategies to service the system. You will then implement and interpret performance, usage, and logs to solve real problems similar to those they would encounter in the field.
 
-__Project 4__ 
+__`Project 4`__ 
 * Serverless Application
 In this project you will develop an Instagram-like serverless service for uploading, listing, and filtering images. You will begin with building serverless REST APIs using API Gateway and AWS Lambda, a stack of serverless technologies on AWS. You will then implement an API to interact with this application, store data in AWS DynamoDB, S3, and Elasticsearch, secure your application with authentication, and deploy to Amazon Web Services using a Serverless framework.
 
-__Project 5__
+__`Project 5`__
 * Capstone Project
 The purpose of the cloud development capstone project is to give you a chance to combine what you've learned throughout the program. This project will be an important part of your portfolio that will help you achieve your cloud development-related career goals.  
 In the capstone project, each project is unique to the student. You’ll build an application on AWS based on predefined criteria. Students will define the scope of the project, come up feature list and decide which AWS services to use to meet availability and performance criteria.
 
 
-## Cloud Fundamentals
-### Cloud Computing
+## `Cloud Fundamentals`
+### `Cloud Computing`
 
-### Foundational & Compute Service
-#### EC2: Elastic Cloud Compute
+### `Foundational & Compute Service`
+#### `EC2: Elastic Cloud Compute`
 * Elastic Cloud Compute or EC2 is a foundational piece of AWS' cloud computing platform and is a service that provides __servers for rent in the cloud__.  
 
   <img src="docs/01_cloud_fundamentals/ec2.png" width="400"> 
@@ -193,10 +192,10 @@ In the capstone project, each project is unique to the student. You’ll build a
     * `Spot` - You place a bid on an instance price. If there is extra capacity that falls below your bid, an EC2 instance is provisioned. If the price goes above your bid while the instance is running, the instance is terminated.
     * `Reserved Instances` - You earn huge discounts if you pay up front and sign a 1-year or 3-year contract.
 
-#### EBS: Elastic Block Store
+#### `EBS: Elastic Block Store`
 * `Elastic Block Store` (EBS) is a _storage solution_ for EC2 instances and is a physical hard drive that is attached to the EC2 instance to increase storage.
 
-#### VPC: Virtual Private Cloud
+#### `VPC: Virtual Private Cloud`
 * Virtual Private Cloud or VPC allows you to create your own private network in the cloud. 
 * You can launch services, like EC2, inside of that private network. 
 * A VPC spans all the Availability Zones in the region.
@@ -242,7 +241,7 @@ In this hands-on exercise, you will launch a virtual server in the cloud within 
         * From the EC2 Dashboard, select the instance just created, click _Actions_, then _Instance State_, and then select _Terminate_.
         * From the VPC Dashboard, select the VPC just created, click _Actions_, then _Delete VPC_.
 
-#### Lambda
+#### `Lambda`
 * AWS Lambda provides you with computing power in the cloud by allowing you to execute code without standing up or managing servers.  
   <img src="docs/01_cloud_fundamentals/lambda.jpg" width="400">  
 
@@ -288,7 +287,7 @@ In this hands-on exercise, you will launch a virtual server in the cloud within 
 6. Scroll up to see the output in the Execution Results pane.
 7. Review your results in the window.
 
-#### Elastic Beanstalk
+#### `Elastic Beanstalk`
 Elastic Beanstalks is an orchestration service that allows you to deploy a web application at the touch of a button by spinning up (or provisioning) all of the services that you need to run your application.
 __Tips__
 * Elastic Beanstalk is found under the Compute section of the AWS Management Console.
@@ -296,7 +295,7 @@ __Tips__
 * You can run your applications in a VPC.
 
 
-### Storage & Content Delivery
+### `Storage & Content Delivery`
 * Storage in the Cloud
   * Storage and database services in the cloud provide a place for companies to collect, store, and analyze the data they've collected over the years at a massive scale.
 * Storage & Database Services
@@ -309,7 +308,7 @@ __Tips__
   * Neptune
   * Amazon DocumentDB
 
-#### S3 & S3 Glacier
+#### `S3 & S3 Glacier`
 * Amazon Simple Storage Service (or S3) is an object storage system in the cloud.  
 * S3 offers several [storage classes](https://aws.amazon.com/s3/storage-classes), which are different data access levels for your data at certain price points.
   * S3 Standard
@@ -340,7 +339,7 @@ For data infrequently access.
   * [Amazon S3 Glacier](https://aws.amazon.com/glacier/)  
   * [What is Amazon S3 Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html)
 
-#### DynamoDB
+#### `DynamoDB`
 DynamoDB is a NoSQL document database service that is fully managed. Unlike traditional databases, NoSQL databases, are schema-less. Schema-less simply means that the database doesn't contain a fixed (or rigid) data structure.
 
 Tips:  
@@ -355,7 +354,7 @@ Tips:
   * [Amazon DynamoDB Overview](https://aws.amazon.com/dynamodb/)
   * [What is Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)
 
-#### Relational Database Service (RDS)
+#### `Relational Database Service (RDS)`
 * RDS (or Relational Database Service) is a service that aids in the administration and management of databases. RDS assists with database administrative tasks that include upgrades, patching, installs, backups, monitoring, performance checks, security, etc.
 * Database Engine Support
   * Oracle
@@ -364,7 +363,7 @@ Tips:
   * MariaDB
   * SQL Server
 
-#### Redshift
+#### `Redshift`
 * Redshift is a cloud data warehousing service to help companies manage big data. Redshift allows you to run fast queries against your data using SQL, ETL, and BI tools. Redshift stores data in a column format to aid in fast querying.
 * Tips
   * Redshift can be found under the Database section on the AWS Management Console.
@@ -417,13 +416,15 @@ Steps
   * Create CloudFront Distribution
   * Delete Bucket and Distribution
 
-### Security
+### `Security`
 * As adoption of cloud services has increased, so has the need for increased security in the cloud. The great thing about cloud security is that it not only protects data, it also protects applications that access the data. Cloud security even protects the infrastructure (like servers) that applications run on.
 
 * The way security is delivered depends on the cloud provider you're using and the cloud security options they offer.
 
-#### AWS Shield
-<img src="docs/01_cloud_fundamentals/aws_shield.png" width="800" alt=""> 
+#### `AWS Shield`
+
+<img src="docs/01_cloud_fundamentals/aws_shield.png" width="800" alt="">  
+
 * AWS Shield is a managed DDoS (or Distributed Denial of Service) protection service that safeguards web applications running on AWS.
 
 * AWS Shield is a service that you get "out of the box", it is always running (automatically) and is a part of the free standard tier. If you want to use some of the more advanced features, you'll have to utilize the paid tier.
@@ -432,7 +433,7 @@ Steps
   * AWS Shield Standard is always-on, using techniques to detect malicious traffic.
   * AWS Shield Advanced provides enhanced detection.
 
-#### AWS WAF
+#### `AWS WAF`
 * AWS WAF (or AWS `Web Application Firewall`) provides a firewall that protects your web applications.  
 <img src="docs/01_cloud_fundamentals/firewall.png" width="500" alt="">  
 
@@ -443,7 +444,7 @@ Steps
   * WAF can protect web sites not hosted in AWS through Cloud Front.
   * You can configure CloudFront to present a custom error page when requests are blocked.
 
-#### Identity & Access Management
+#### `Identity & Access Management`
 * Identity & Access Management (IAM) is an AWS service that allows us to configure who can access our AWS account, services, or even applications running in our account. IAM is a global service and is automatically available across ALL regions.
 * __Security Concepts__
   * User  
@@ -459,7 +460,7 @@ Steps
   * [AWS IAM Overview](https://aws.amazon.com/iam/)
   * [What is IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
 
-### Networking & Elasticity
+### `Networking & Elasticity`
 * Networks reliably carry loads of data around the globe allowing for the delivery of content and applications with high availability. The network is the foundation of your infrastructure.
 
 * Cloud networking includes:
@@ -469,7 +470,7 @@ Steps
   * global performance 
   * delivery
 
-#### Route 53
+#### `Route 53`
 * [Amazon Route 53 Overview](https://aws.amazon.com/route53/)
 * Route 53 is a cloud domain name system (DNS) service that has servers distributed around the globe used to translates human-readable names like www.google.com into the numeric IP addresses like 74.125.21.147.
 * Features
@@ -481,12 +482,12 @@ Steps
   * Route 53 is found under the Networking & Content Delivery section on the AWS Management Console.
   * Route 53 allows you to route users based on the user’s geographic location.
 
-#### Elasticity in the Cloud
+#### `Elasticity in the Cloud`
 * One of the main benefits of the cloud is that it allows you to stop guessing about capacity when you need to run your applications. Sometimes you buy too much or you don't buy enough to support the running of your applications.
 
 * With elasticity, your servers, databases, and application resources can automatically scale up or scale down based on load.
 
-#### EC2 Auto Scaling
+#### `EC2 Auto Scaling`
 * EC2 Auto Scaling is a service that monitors your EC2 instances and automatically adjusts by adding or removing EC2 instances based on conditions you define in order to maintain application availability and provide peak performance to your users.
 
 * Features
@@ -501,8 +502,8 @@ Steps
   * [Amazon EC2 Autoscaling Overview](https://aws.amazon.com/ec2/autoscaling/) 
   * [What is Amazon EC2 Autoscaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
 
-#### Elastic Load Balancing
-<img src="docs/01_cloud_fundamentals/elastic_load_balancer.png" width="300" alt="">  
+#### `Elastic Load Balancing`
+  <img src="docs/01_cloud_fundamentals/elastic_load_balancer.png" width="300" alt="">  
 
 * Elastic Load Balancing automatically distributes incoming application traffic across multiple servers.
 * Elastic Load Balancer is a service that:
@@ -518,10 +519,10 @@ Steps
 [PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/lab_elastic_load_balancer.pdf)
 
 
-### Messaging & Containers
+### `Messaging & Containers`
 * There are often times that users of your applications need to be notified when certain events happen. Notifications, such as text messages or emails can be sent through services in the cloud. The use of the cloud offers benefits like lowered costs, increased storage, and flexibility.
 ---
-#### Simple Notification Service (SNS)
+#### `Simple Notification Service (SNS)`
 * Amazon Simple Notification Service (or SNS) is a cloud service that allows you to send notifications to the users of your applications. SNS allows you to decouple the notification logic from being embedded in your applications and allows notifications to be published to a large number of subscribers.
 * Features
   * SNS uses a publish/subscribe model.
@@ -533,15 +534,15 @@ Steps
   * [Amazon SNS Overview](https://aws.amazon.com/sns/)
   * [What is Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)  
 ---
-#### Queues
+#### `Queues`
 * A queue is a data structure that holds requests called messages. Messages in a queue are commonly processed in order, first in, first out (or FIFO).
 * Messaging queues improve:
   * performance
   * scalability
   * user experience
 ---
-#### Simple Queue Service (SQS)
-* Amazon Simple Queue Service (SQS) is a fully managed message queuing service that allows you to integrate queuing functionality in your application. SQS offers two types of message que∫ues: standard and FIFO.
+#### `Simple Queue Service (SQS)`
+* Amazon Simple Queue Service (SQS) is a fully managed message queuing service that allows you to integrate queuing functionality in your application. SQS offers two types of message queues: standard and FIFO.
 * Features
   * send messages
   * store messages
@@ -563,14 +564,14 @@ Steps
   * Publish a message to a topic
 [PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/lab_sns.pdf)
 ---
-#### Containers in the Cloud
+#### `Containers in the Cloud`
 * Enterprises are adopting container technology at an explosive rate. A container consists of everything an application needs to run: the application itself and its dependencies (e.g. libraries, utilities, configuration files), all bundled into one package.
 * Each container is an independent component that can run on its own and be moved from environment to environment.
 * We will be going more in-depth on the topic of Microservices in Course 4: Microservices at Scale using AWS & Kubernetes
   * [General overview about Docker containers](https://docs.docker.com/engine/docker-overview/)
   * [Documentation on Docker Containers](https://www.docker.com/resources/what-container)
 ---
-#### Elastic Container Service (ECS)
+#### `Elastic Container Service (ECS)`
 * ECS is an orchestration service used for automating deployment, scaling, and managing of your containerized applications. ECS works well with Docker containers by:
   * launching and stopping Docker containers
   * scaling your applications
@@ -583,8 +584,8 @@ Steps
   * [Amazon ECS Overview](https://aws.amazon.com/ecs/)
   * [What is Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
 ---
-### AWS Managment
-#### Logging In The Cloud
+### `AWS Managment`
+#### `Logging In The Cloud`
 * Logging provides visibility into your cloud resources and applications. For applications that run in the cloud, you will need access to logging and auditing services to help you proactively monitor your resources and applications.
 * Logging allows you to answer important questions like:
   * How is this server performing?
@@ -592,7 +593,7 @@ Steps
   * What is the root cause of an application error that a user is seeing?
   * What is the path that leads to this error?  
 ---
-#### Cloud Trail
+#### `Cloud Trail`
 * Cloud Trail allows you to audit (or review) everything that occurs in your AWS account. Cloud Trail does this by recording all the AWS API calls occurring in your account and delivering a log file to you.
 * Features
   * CloudTrail provides event history of your AWS account activity, including:
@@ -609,7 +610,7 @@ Steps
 * Resources
   * [AWS CloudTrail Overview](https://aws.amazon.com/cloudtrail/)
 ---
-#### Cloud Watch
+#### `Cloud Watch`
 * Cloud Watch is a service that monitors resources and applications that run on AWS by collecting data in the form of logs, metrics, and events.
 * There are several useful features:
   * Collect and track metrics
@@ -623,17 +624,17 @@ Steps
   * [AWS CloudWatch Overview](https://aws.amazon.com/cloudwatch/)
   * [What is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
 ---
-#### Lab: Cloud Watch
+#### `Lab: Cloud Watch`
 * Topics covered:
   * Create Cloud Watch event to react to the creation of an Amazon EC2 instance
   * Send SNS notification via Cloud Watch when an event occurs.
 * [PDF](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/lab_cloud_watch.pdf)  
 ---
-#### Infrastructure as Code
+#### `Infrastructure as Code`
 * Infrastructure as Code allows you to describe and provision all the infrastructure resources in your cloud environment. You can stand up servers, databases, runtime parameters, resources, etc. based on scripts that you write. Infrastructure as Code is a time-saving feature because it allows you to provision (or stand up) resources in a reproducible way.
 * [wikipedia](https://en.wikipedia.org/wiki/Infrastructure_as_code)
 ---
-#### Cloud Formation
+#### `Cloud Formation`
 * AWS Cloud Formation allows you to model your entire infrastructure in a text file template allowing you to provision AWS resources based on the scripts you write.
 * Tips
   * Cloud Formation is found under the Management & Governance section on the AWS Management Console.
@@ -643,7 +644,7 @@ Steps
   * [AWS CloudFormation Overview](https://aws.amazon.com/cloudformation/)
   * [What is AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
 ---
-#### Lab: Cloud Formation
+#### `Lab: Cloud Formation`
 * Topics Covered
   * Create a CloudFormation stack using the CloudFormation Designer
   * Launch S3 bucket using Infrastructure as Code
@@ -651,15 +652,15 @@ Steps
   * View resources created through CloudFormation
 * [pdf](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/lab_cloud_formation.pdf)  
 ---
-#### AWS Command Line Interface (CLI)
+#### `AWS Command Line Interface (CLI)`
 * The AWS CLI (or Command Line Interface) allows you to access and control services running in your AWS account from the command line. To use the CLI, simply download, install, and configure it.
 * Tips
   * The AWS CLI allows you to work with AWS services in a programmatic manner
 * Resources
   * [AWS Command Line Interface](https://aws.amazon.com/cli/)
 ---
-### Deploy Static Website on AWS
-#### Cloud Fundamentals Project
+### `Deploy Static Website on AWS`
+#### `Cloud Fundamentals Project`
 * The cloud is perfect for hosting static websites that only include HTML, CSS, and JavaScript files that require no server-side processing. In this project, you will deploy a static website to AWS. 
 * Steps 
   1. You will create a S3 bucket and upload the website files to your bucket. 
@@ -692,7 +693,7 @@ Steps
     * Ionic (Javascript) (Frontend)
     * Node.js (Javascript) (Backend)
 ---
-#### Steps
+#### `Steps`
 * [Create S3](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/deploy_static_s3.pdf)
 * [Upload content](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/deploy_static_upload.pdf)
 * [Secure Bucket via IAM](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/deploy_static_secure.pdf)
@@ -701,9 +702,9 @@ Steps
 * [Access Website in Web Browser](https://github.com/AntonioDiaz/cloud_developer/blob/master/docs/01_cloud_fundamentals/01_cloud_fundamentals/deploy_static_access.pdf)
 
 
-## Full Stack Apps on AWS
+## `Full Stack Apps on AWS`
 ### `Lesson 1: Cloud Basic`
-#### Cloud Basics and Parts of a Cloud
+#### `Cloud Basics and Parts of a Cloud`
 * Key Terminology
   * `Data`: we store digital data as bytes on physical media like hard drives, but in the cloud, we use systems to simplify this for us.
   * `Filestore or Filesystem`: A system to save, archive, and recall specific documents and media. Usually, a file store offers low cost per unit space optimized for larger files.
@@ -2325,12 +2326,13 @@ A form of a reverse proxy that serves as an abstraction of the interface to othe
   * [AWS API Gateway](https://aws.amazon.com/api-gateway/)
   * [Microservices with API Gateway](https://www.nginx.com/blog/building-microservices-using-an-api-gateway/)
 ---
-#### Securing the Microservices
+
+#### `Securing the Microservices`
 * This is not an all-inclusive list of things to do for securing your application. It means that while some of these are best-practice, there's no guarantee that these steps will ensure your application is perfectly secure.
   * AWS security groups Enables you to restrict the inbound and outbound traffic for AWS resources.
   * Kubernetes Ingress and Egress Enables you to restrict the inbound and outbound traffic for Kubernetes resources.  
-  
-<img src="docs/03_microservices/ms_k8s_security.png" width="700" alt="">  
+    
+  <img src="docs/03_microservices/ms_k8s_security.png" width="700" alt="">  
 ---
 
 #### `Scaling and Self-Healing`
@@ -2403,6 +2405,8 @@ Commands:
 
 
 ## `Develop & Deploy Serverless App`
+
+
 
 ## `Capstone`
 
