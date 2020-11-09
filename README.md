@@ -144,6 +144,13 @@ https://www.udacity.com/course/cloud-developer-nanodegree--nd9990
         - [Scaling and Self-Healing](#scaling-and-self-healing)
     - [Project: Refactor Monolith to Microservices and Deploy](#project-refactor-monolith-to-microservices-and-deploy)
 - [Develop & Deploy Serverless App](#develop--deploy-serverless-app)
+    - [Lesson 1: Serverless Introduction](#lesson-1-serverless-introduction)
+    - [Lesson 2: REST API](#lesson-2-rest-api)
+    - [Lesson 3: Serverless Framework](#lesson-3-serverless-framework)
+    - [Lesson 4: Event Processing](#lesson-4-event-processing)
+    - [Lesson 5: Authentication](#lesson-5-authentication)
+    - [Lesson 6: Best Practices](#lesson-6-best-practices)
+    - [Serverless Application](#serverless-application)
 - [Capstone](#capstone)
 
 <!-- /TOC -->
@@ -2405,8 +2412,68 @@ Commands:
 
 
 ## `Develop & Deploy Serverless App`
+### `Lesson 1: Serverless Introduction`
+* What is "Serverless"?
+  * A buzzword (not a pattern/technology/architecture)
+  * A spectrum of solutions
+    * servers are managed by someone else 
+    * allow to scale up and down easily
+    * pay for what you use (except for storage)
+    * no administration
+* Benefits of Serveless
+  * Low entry barrier
+  * Cost efficient
+  * High-availability and scalability
+* What we will cover in this lesson
+  * What is serverless?
+  * Function as a Service (FaaS)
+  * Simple functions and how to connect them to events
+  * How functions are executed
+  * Pros and Cons of using FaaS
+* What are we going to build?
+  * Image sharing application
+  * Images and groups
+  * A number of features
+    * REST API
+    * React frontend
+    * WebSockets
+    * Authentication
+    * Scalable
+  * Mostly serverless components
+
+`Serverless Components`
+* `FaaS`: Function as a service: write code in individual functions and deploy them to a platform to be executed
+* `Datastores`: Storage of data
+* `Messaging`: Send messages from one application to another
+* `Services`: Services that provide functionalities where we don't need to manage servers; i.e. authentication, ML, video processing  
+
+<img src="docs/04_serverless/components.png" width="700" alt="">  
+<br>  
+
+`Function as a Service or Event Driven`
+<img src="docs/04_serverless/lambda_flow.png" width="700" alt="">  
+<img src="docs/04_serverless/lambda_functions_and_events.png" width="700" alt="">  
+
+* __Lambda function vs AWS Lambda__  
+Keep in mind that AWS Lambda is a computing service that runs code in response to events from Amazon Web Services, while a Lambda function is a single function connected to an event source running in AWS Lambda.
+* Lambda function example:
+```js
+exports.handler (event) => {
+  const number = event.number
+  const updateNum = number++
+  return {
+    result: updateNum
+  }
+}
+```
 
 
+### `Lesson 2: REST API`
+### `Lesson 3: Serverless Framework`
+### `Lesson 4: Event Processing`
+### `Lesson 5: Authentication`
+### `Lesson 6: Best Practices`
+### `Serverless Application`
 
 ## `Capstone`
 
